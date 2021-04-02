@@ -3,6 +3,8 @@ package com.vinyla_android.presentation.utils
 import android.content.Context
 import android.widget.Toast
 import androidx.annotation.StringRes
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdView
 import com.orhanobut.logger.Logger
 
 /**
@@ -18,4 +20,8 @@ fun Context.showToast(message: String) {
 
 fun Context.showToast(@StringRes stringResId: Int) {
     Toast.makeText(this, stringResId, Toast.LENGTH_SHORT).show()
+}
+
+fun AdView.loadAd() {
+    this.loadAd(AdRequest.Builder().build())
 }

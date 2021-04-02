@@ -4,13 +4,6 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
 
-    <meta-data
-        android:name="firebase_crashlytics_collection_enabled"
-        android:value="@bool/FIREBASE_CRASHLYTICS_COLLECTION_ENABLED" />
-    <meta-data
-        android:name="firebase_analytics_collection_enabled"
-        android:value="@bool/FIREBASE_ANALYTICS_COLLECTION_ENABLED" />
-
     <application
         android:name=".presentation.VinylaApplication"
         android:allowBackup="true"
@@ -20,6 +13,20 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Vinyla_Android"
         android:usesCleartextTraffic="true">
+
+        <meta-data
+            android:name="com.google.android.gms.ads.AD_MANAGER_APP"
+            android:value="true" />
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="@string/admobSdkTestId" />
+        <meta-data
+            android:name="firebase_crashlytics_collection_enabled"
+            android:value="@bool/FIREBASE_CRASHLYTICS_COLLECTION_ENABLED" />
+        <meta-data
+            android:name="firebase_analytics_collection_enabled"
+            android:value="@bool/FIREBASE_ANALYTICS_COLLECTION_ENABLED" />
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

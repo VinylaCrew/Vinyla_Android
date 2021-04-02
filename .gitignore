@@ -1,4 +1,5 @@
 app/google-services.json
+app/src/main/res/values/keys.xml
 
 # Created by https://www.toptal.com/developers/gitignore/api/androidstudio
 # Edit at https://www.toptal.com/developers/gitignore?templates=androidstudio
