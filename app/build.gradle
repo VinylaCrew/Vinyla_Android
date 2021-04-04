@@ -6,6 +6,7 @@ plugins {
     id 'com.google.firebase.crashlytics'
     id 'dagger.hilt.android.plugin'
     id 'de.mannodermaus.android-junit5'
+    id 'jacoco'
     id 'org.sonarqube'
 }
 
@@ -128,6 +129,34 @@ dependencies {
     androidTestRuntimeOnly "de.mannodermaus.junit5:android-test-runner:1.0.0"
 }
 
+jacoco {
+    reportsDir = file("${buildDir}/reports")
+}
+
+task coverageReport(type: JacocoReport, dependsOn: 'testDebugUnitTest') {
+    group = "Reporting"
+    description = "Generate Jacoco coverage reports"
+
+    def coverageSourceDirs = ['src/main/java']
+
+    classDirectories.from = fileTree(
+            dir: "${buildDir}/tmp/kotlin-classes/debug",
+            excludes: ['**/R.class',
+                       '**/R$*.class',
+                       '**/BuildConfig.*',
+                       '**/Manifest*.*',
+                       'com/android/**/*.class']
+    )
+
+    sourceDirectories.from = files(coverageSourceDirs)
+    executionData.from = files("${buildDir}/jacoco/testDebugUnitTest.exec")
+
+    reports {
+        xml.enabled = true
+        html.enabled = true
+    }
+}
+
 sonarqube {
     properties {
         property "sonar.host.url", "http://localhost:9000/"
@@ -139,5 +168,6 @@ sonarqube {
         property "sonar.sourceEncoding", "UTF-8"
         property "sonar.sources", "src/main/java"
         property "sonar.profile", "Sonar way"
+        property "sonar.coverage.jacoco.xmlReportPaths", "build/reports/coverageReport/coverageReport.xml"
     }
 }
