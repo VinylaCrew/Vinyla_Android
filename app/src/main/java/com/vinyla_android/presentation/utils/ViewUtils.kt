@@ -12,7 +12,7 @@ import com.orhanobut.logger.Logger
  * on 3월 28, 2020
  */
 
-fun printLog(message: String?) = Logger.t("MalibinDebug").d(message.toString())
+fun printLog(message: String?) = Logger.d(message.toString())
 
 fun Context.showToast(message: String) {
     Toast.makeText(this, message, Toast.LENGTH_SHORT).show()

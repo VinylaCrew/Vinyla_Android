@@ -7,7 +7,13 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.ads.AdView
 import com.google.zxing.integration.android.IntentIntegrator
+import com.kakao.sdk.user.UserApiClient
 import com.vinyla_android.presentation.utils.loadAd
+import com.vinyla_android.presentation.utils.printLog
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,6 +27,8 @@ class MainActivity : AppCompatActivity() {
                 .setBeepEnabled(false)
                 .initiateScan()
         }
+
+        findViewById<Button>(R.id.button_kakao).setOnClickListener { proceedKakaoLogin() }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -40,5 +48,29 @@ class MainActivity : AppCompatActivity() {
         """.trimIndent(),
             Toast.LENGTH_LONG
         ).show()
+    }
+
+    private fun proceedKakaoLogin() {
+        if (!UserApiClient.instance.isKakaoTalkLoginAvailable(this)) {
+            UserApiClient.instance.loginWithKakaoAccount(this) { token, error ->
+                UserApiClient.instance.me { user, error ->
+                    printLog("$user")
+                }
+            }
+            return
+        }
+        UserApiClient.instance.loginWithKakaoTalk(this) { token, error ->
+            UserApiClient.instance.me { user, error ->
+                printLog("$user")
+            }
+        }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+
+        UserApiClient.instance.unlink {
+            printLog("unlinked")
+        }
     }
 }
