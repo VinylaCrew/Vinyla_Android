@@ -101,8 +101,9 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth'
     implementation platform('com.google.firebase:firebase-bom:26.1.0')
 
-    // Kakao Login
+    // SNS Logins
     implementation 'com.kakao.sdk:v2-user:2.4.2'
+    implementation 'com.facebook.android:facebook-login:7.1.0'
 
     // Hilt DI
     implementation "com.google.dagger:hilt-android:2.31-alpha"
