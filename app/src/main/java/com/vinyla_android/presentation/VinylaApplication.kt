@@ -30,6 +30,6 @@ class VinylaApplication : Application() {
             )
         )
         MobileAds.initialize(this)
-        KakaoSdk.init(this, getString(R.string.kakaoNativeAppKey))
+//        KakaoSdk.init(this, getString(R.string.kakaoNativeAppKey))
     }
 }
