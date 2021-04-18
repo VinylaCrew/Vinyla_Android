@@ -5,9 +5,9 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.facebook.Profile
 import com.google.android.gms.ads.AdView
 import com.google.zxing.integration.android.IntentIntegrator
-import com.kakao.sdk.user.UserApiClient
 import com.vinyla_android.presentation.login.auth.SnsAuth
 import com.vinyla_android.presentation.login.auth.SnsAuthManager
 import com.vinyla_android.presentation.utils.loadAd
@@ -30,22 +30,26 @@ class MainActivity : AppCompatActivity() {
         }
 
         findViewById<Button>(R.id.button_kakao).setOnClickListener { proceedKakaoLogin() }
+        findViewById<Button>(R.id.button_facebook).setOnClickListener { proceedFacebookLogin() }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
+        printLog(Profile.getCurrentProfile()?.toString())
+
+
         val result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data)
         Toast.makeText(
             this,
             """
-            ${result.barcodeImagePath}
-            ${result.contents}
-            ${result.errorCorrectionLevel}
-            ${result.formatName}
-            ${result.orientation}
-            ${result.originalIntent}
-            ${result.rawBytes}
+            ${result?.barcodeImagePath}
+            ${result?.contents}
+            ${result?.errorCorrectionLevel}
+            ${result?.formatName}
+            ${result?.orientation}
+            ${result?.originalIntent}
+            ${result?.rawBytes}
         """.trimIndent(),
             Toast.LENGTH_LONG
         ).show()
@@ -56,11 +60,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun proceedFacebookLogin() {
-
+        snsAuthManager.login(SnsAuth.Type.FACEBOOK) { printLog(it.toString()) }
     }
 
     override fun onDestroy() {
         super.onDestroy()
         snsAuthManager.quit(SnsAuth.Type.KAKAO)
+        snsAuthManager.logout(SnsAuth.Type.FACEBOOK)
     }
 }

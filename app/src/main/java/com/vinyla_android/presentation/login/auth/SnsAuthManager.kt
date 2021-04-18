@@ -14,9 +14,9 @@ class SnsAuthManager(
     private val appleAuth: SnsAuth,
 ) {
     constructor(context: Context) : this(
-        KakaoAuth(context),
-        KakaoAuth(context),
-        KakaoAuth(context),
+        kakaoAuth = KakaoAuth(context),
+        facebookAuth = FacebookAuth(context),
+        appleAuth = KakaoAuth(context),
     )
 
     fun login(type: SnsAuth.Type, callback: (UserProfile?) -> Unit) {

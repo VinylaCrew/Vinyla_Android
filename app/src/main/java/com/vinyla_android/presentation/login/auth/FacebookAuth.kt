@@ -19,12 +19,8 @@ class FacebookAuth(
 ) : SnsAuth {
 
     override fun login(callback: (UserProfile?) -> Unit) {
+        val callbackManager = CallbackManager.Factory.create();
 
-
-//        LoginButton(context)
-
-//        val callbackManager = CallbackManager.Factory.create();
-//
 //        val loginManager = LoginManager.getInstance()
 //        loginManager.registerCallback(callbackManager, object : FacebookCallback<LoginResult> {
 //            override fun onSuccess(result: LoginResult?) {
@@ -39,12 +35,32 @@ class FacebookAuth(
 //
 //        })
 
+        LoginButton(context).apply {
+            registerCallback(callbackManager, object : FacebookCallback<LoginResult> {
+                override fun onSuccess(result: LoginResult?) {
+                    printLog(result.toString())
+                    printLog(Profile.getCurrentProfile().toString())
+                }
+
+                override fun onCancel() {
+                    printLog("onCancel")
+                }
+
+                override fun onError(error: FacebookException?) {
+                    printLog("onError")
+                }
+
+            })
+        }.performClick()
+
+
 //        loginManager.logIn()
 
-        val intent = getFacebookActivityIntent()
-
-        context.startActivity(intent)
+//        val intent = getFacebookActivityIntent()
+//
+//        context.startActivity(intent)
     }
+
 
 //    protected fun createLoginRequest(permissions: Collection<String?>?): LoginClient.Request? {
 //        val request = LoginClient.Request(
@@ -77,7 +93,7 @@ class FacebookAuth(
     private fun createResultReceiver(): ResultReceiver {
         return object : ResultReceiver(Handler(Looper.getMainLooper())) {
             override fun onReceiveResult(resultCode: Int, resultData: Bundle?) {
-                if(resultCode == Activity.RESULT_OK){
+                if (resultCode == Activity.RESULT_OK) {
                     // callback code
                     printLog("resultData : $resultData")
                 }
@@ -85,16 +101,14 @@ class FacebookAuth(
         }
     }
 
-
     override fun getUserProfile(callback: (UserProfile?) -> Unit) {
 
     }
 
     override fun logout(endCallback: (() -> Unit)?) {
-
+        LoginManager.getInstance().logOut()
     }
 
     override fun quit(endCallback: (() -> Unit)?) {
-
     }
 }
