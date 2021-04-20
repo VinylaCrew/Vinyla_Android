@@ -1,6 +1,7 @@
 package com.vinyla_android.presentation.login.auth
 
 import android.content.Context
+import android.content.Intent
 import com.vinyla_android.data.model.UserProfile
 
 /**
@@ -35,9 +36,22 @@ class SnsAuthManager(
         getSnsAuth(type).quit(endCallback)
     }
 
+    fun onActivityResult(requestCode: Int, resultCode: Int, intent: Intent?) = when (requestCode) {
+        REQUEST_CODE_FACEBOOK -> facebookAuth.onActivityResult(requestCode, resultCode, intent)
+        else -> Unit
+    }
+
     private fun getSnsAuth(type: SnsAuth.Type): SnsAuth = when (type) {
         SnsAuth.Type.KAKAO -> kakaoAuth
         SnsAuth.Type.FACEBOOK -> facebookAuth
         SnsAuth.Type.APPLE -> appleAuth
+    }
+
+    companion object {
+        /**
+         * CallbackManagerImpl.RequestCodeOffset.Login.toRequestCode()
+         * DEFAULT_CALLBACK_REQUEST_CODE_OFFSET(0xface) + Login(0)
+         */
+        private const val REQUEST_CODE_FACEBOOK = 0xface + 0
     }
 }

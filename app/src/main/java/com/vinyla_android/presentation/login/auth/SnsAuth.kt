@@ -1,5 +1,6 @@
 package com.vinyla_android.presentation.login.auth
 
+import android.content.Intent
 import com.vinyla_android.data.model.UserProfile
 
 /**
@@ -9,6 +10,10 @@ import com.vinyla_android.data.model.UserProfile
 
 interface SnsAuth {
     fun login(callback: (UserProfile?) -> Unit)
+
+    fun onActivityResult(requestCode: Int, resultCode: Int, intent: Intent?) {
+        /** onActivityResults 콜백을 받아야만 하는 녀석들을 위한 메서드 */
+    }
 
     fun getUserProfile(callback: (UserProfile?) -> Unit)
 

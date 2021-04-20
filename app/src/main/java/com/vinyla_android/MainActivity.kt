@@ -35,9 +35,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-
-        printLog(Profile.getCurrentProfile()?.toString())
-
+        snsAuthManager.onActivityResult(requestCode, resultCode, data)
 
         val result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data)
         Toast.makeText(
@@ -56,11 +54,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun proceedKakaoLogin() {
-        snsAuthManager.login(SnsAuth.Type.KAKAO) { printLog(it.toString()) }
+        snsAuthManager.login(SnsAuth.Type.KAKAO) { printLog("kakao profile : $it") }
     }
 
     private fun proceedFacebookLogin() {
-        snsAuthManager.login(SnsAuth.Type.FACEBOOK) { printLog(it.toString()) }
+        snsAuthManager.login(SnsAuth.Type.FACEBOOK) { printLog("facebook profile : $it") }
     }
 
     override fun onDestroy() {
