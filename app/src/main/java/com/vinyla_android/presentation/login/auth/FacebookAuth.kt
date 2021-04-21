@@ -6,41 +6,76 @@ import com.facebook.*
 import com.facebook.login.LoginManager
 import com.facebook.login.LoginResult
 import com.facebook.login.widget.LoginButton
+import com.vinyla_android.config.interceptor.HTTP_LOGGING_INTERCEPTOR
 import com.vinyla_android.data.model.UserProfile
+import com.vinyla_android.data.service.FacebookAuthService
 import com.vinyla_android.presentation.utils.printLog
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import okhttp3.OkHttpClient
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
 class FacebookAuth(
     private val context: Context,
 ) : SnsAuth {
     private val callbackManager: CallbackManager = CallbackManager.Factory.create()
+    private val facebookAuthService: FacebookAuthService by lazy { createFacebookAuthService() }
+    private var profileTracker: ProfileTracker? = null
 
+    /**
+     * onSuccess 이후에 바로 Callback을 호출 하지 않는 이유
+     *      FacebookCallback은 callbackManager.onActivityResult를 호출하지 않으면 호출되지 않는다.
+     *      onActivityResult 이후 내부 Profile 객체를 초기화 시키고, FacebookCallback을 호출한다.
+     *      위에서 Profile 객체 초기화 로직이 비동기로 돈다.
+     *      그래서 onSuccess 호출이 되어도 Profile은 null이 리턴 되는 경우가 생긴다.
+     *      그렇기 때문에 profileTracker를 사용했다.
+     *      로직 개복잡하네 ㄹㅇ Facebook SDK 별로인듯
+     */
     override fun login(callback: (UserProfile?) -> Unit) {
         if (AccessToken.getCurrentAccessToken()?.isExpired == false) {
             callback(createUserProfile())
             return
         }
-        LoginButton(context).apply {
-            registerCallback(callbackManager, object : FacebookCallback<LoginResult> {
-                override fun onSuccess(result: LoginResult?) {
-                    printLog("Facebook Auth onSuccess")
-                    callback(createUserProfile())
+        val loginButton = LoginButton(context)
+        loginButton.registerCallback(callbackManager, object : FacebookCallback<LoginResult> {
+            override fun onSuccess(result: LoginResult?) {
+                printLog("Facebook Auth onSuccess")
+                profileTracker = object : ProfileTracker() {
+                    override fun onCurrentProfileChanged(
+                        oldProfile: Profile?,
+                        currentProfile: Profile?
+                    ) {
+                        callback(createUserProfile(currentProfile))
+                        stopProfileTracker()
+                    }
                 }
+            }
 
-                override fun onCancel() {
-                    printLog("Facebook Auth onCancel")
-                    callback(null)
-                }
+            override fun onCancel() {
+                printLog("Facebook Auth onCancel")
+                callback(null)
+            }
 
-                override fun onError(error: FacebookException?) {
-                    printLog("Facebook Auth onError")
-                    callback(null)
-                }
-            })
-        }.performClick()
+            override fun onError(error: FacebookException?) {
+                printLog("Facebook Auth onError")
+                callback(null)
+            }
+        })
+        loginButton.performClick()
     }
 
-    private fun createUserProfile(): UserProfile? {
-        val facebookProfile = Profile.getCurrentProfile() ?: return null
+    /**
+     * 내부적으로 BroadCastReceiver를 생성하고 사용하기 때문에 멈춰줘야한다.
+     */
+    private fun stopProfileTracker() {
+        profileTracker?.stopTracking()
+        profileTracker = null
+    }
+
+    private fun createUserProfile(profile: Profile? = null): UserProfile? {
+        val facebookProfile = profile ?: Profile.getCurrentProfile() ?: return null
         return UserProfile(
             nickname = facebookProfile.name,
             profileUrl = facebookProfile.getProfilePictureUri(500, 500).toString(),
@@ -76,9 +111,32 @@ class FacebookAuth(
 
     override fun logout(endCallback: (() -> Unit)?) {
         LoginManager.getInstance().logOut()
+        endCallback?.invoke()
     }
 
     override fun quit(endCallback: (() -> Unit)?) {
-        //TODO: 서버 직접 통신으로 끊어야함
+        val id = Profile.getCurrentProfile()?.id.orEmpty()
+        val accessToken = AccessToken.getCurrentAccessToken()?.token.orEmpty()
+        CoroutineScope(Dispatchers.IO).launch {
+            logout()
+            val response = facebookAuthService.unLink(id, accessToken)
+            if (!response.isSuccessful) {
+                printLog("Response Error Body : ${response.errorBody()?.string()}")
+            }
+            endCallback?.invoke()
+        }
+    }
+
+    private fun createFacebookAuthService(): FacebookAuthService {
+        return Retrofit.Builder()
+            .baseUrl(FacebookAuthService.BASE_URL)
+            .addConverterFactory(GsonConverterFactory.create())
+            .client(
+                OkHttpClient.Builder()
+                    .addInterceptor(HTTP_LOGGING_INTERCEPTOR)
+                    .build()
+            )
+            .build()
+            .create(FacebookAuthService::class.java)
     }
 }

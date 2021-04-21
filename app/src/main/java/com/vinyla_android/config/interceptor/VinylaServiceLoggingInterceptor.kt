@@ -9,7 +9,7 @@ import org.json.JSONObject
  * on 3월 28, 2021
  */
 
-val VINYLA_SERVICE_LOGGING_INTERCEPTOR: HttpLoggingInterceptor = HttpLoggingInterceptor {
+val HTTP_LOGGING_INTERCEPTOR: HttpLoggingInterceptor = HttpLoggingInterceptor {
     try {
         JSONObject(it)
         Logger.t(TAG).json(it)
