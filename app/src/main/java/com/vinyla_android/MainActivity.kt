@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         findViewById<Button>(R.id.button_kakao).setOnClickListener { proceedKakaoLogin() }
-        findViewById<Button>(R.id.button_facebook).setOnClickListener { proceedFacebookLogin() }
+        findViewById<Button>(R.id.button_apple).setOnClickListener { proceedFacebookLogin() }
         findViewById<Button>(R.id.button_facebook_quit).setOnClickListener {
             snsAuthManager.quit(SnsAuth.Type.FACEBOOK)
         }
