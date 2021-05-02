@@ -29,14 +29,20 @@ class LoginActivity : AppCompatActivity() {
         snsAuthManager?.onActivityResult(requestCode, resultCode, data)
     }
 
-    private fun initView(binding: ActivityLoginBinding) {
-        setContentView(binding.root)
-        binding.buttonKakao.setOnClickListener { proceedLoginOf(SnsAuth.Type.KAKAO) }
-        binding.buttonFacebook.setOnClickListener { proceedLoginOf(SnsAuth.Type.FACEBOOK) }
-        binding.buttonApple.setOnClickListener { proceedLoginOf(SnsAuth.Type.APPLE) }
+    override fun onDestroy() {
+        super.onDestroy()
+        binding = null
+        snsAuthManager = null
     }
 
-    private fun proceedLoginOf(type: SnsAuth.Type) {
+    private fun initView(binding: ActivityLoginBinding) {
+        setContentView(binding.root)
+        binding.buttonKakao.setOnClickListener { login(SnsAuth.Type.KAKAO) }
+        binding.buttonFacebook.setOnClickListener { login(SnsAuth.Type.FACEBOOK) }
+        binding.buttonApple.setOnClickListener { login(SnsAuth.Type.APPLE) }
+    }
+
+    private fun login(type: SnsAuth.Type) {
         snsAuthManager?.login(type, ::onSnsResponse)
     }
 
@@ -50,11 +56,5 @@ class LoginActivity : AppCompatActivity() {
         intent.putExtra("USER_PROFILE", profile)
         startActivity(intent)
         finish()
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        binding = null
-        snsAuthManager = null
     }
 }
