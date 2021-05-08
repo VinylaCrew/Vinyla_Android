@@ -30,6 +30,7 @@
         android:layout_marginTop="8dp"
         android:background="@drawable/round_border_rectangle_8dp"
         android:ems="10"
+        android:gravity="top"
         android:inputType="textPersonName"
         android:paddingStart="16dp"
         android:paddingTop="8dp"

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="InputTextView">
+        <attr name="isRequired" format="boolean" />
+        <attr name="title" format="string" />
+        <attr name="hint" format="string" />
+        <attr name="minInputHeight" format="dimension" />
+        <attr name="inputVisibility" format="enum">
+            <enum name="visible" value="0" />
+            <enum name="invisible" value="4" />
+            <enum name="gone" value="8" />
+        </attr>
+    </declare-styleable>
+</resources>
