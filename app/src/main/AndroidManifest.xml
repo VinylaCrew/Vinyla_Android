@@ -14,7 +14,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Vinyla_Android"
         android:usesCleartextTraffic="true">
-        <activity android:name=".presentation.TempHomeActivity"></activity>
+        <activity android:name=".presentation.SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".presentation.TempHomeActivity" />
 
         <meta-data
             android:name="com.google.android.gms.ads.AD_MANAGER_APP"
@@ -66,11 +73,7 @@
             tools:replace="screenOrientation" />
         <activity android:name=".MainActivity" />
         <activity android:name=".presentation.login.LoginActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 

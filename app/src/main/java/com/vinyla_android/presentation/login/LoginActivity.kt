@@ -28,7 +28,8 @@ class LoginActivity : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
         snsAuthManager?.onActivityResult(requestCode, resultCode, data)
     }
-
+//로그아웃하고 다시 누르면 또 권한 허용하겟느냐고 물어봄
+    
     override fun onDestroy() {
         super.onDestroy()
         binding = null
@@ -48,7 +49,6 @@ class LoginActivity : AppCompatActivity() {
 
     private fun onSnsResponse(profile: UserProfile?) {
         if (profile == null) {
-            showToast("Sns 로그인에 실패했습니다.")
             printLog("몬가 SNS 로그인 실패함 profile : $profile")
             return
         }
