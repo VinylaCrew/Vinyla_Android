@@ -25,7 +25,7 @@ class TopBar @JvmOverloads constructor(
         }
 
     init {
-        context.withStyledAttributes(attrs, R.styleable.InputTextView) { applyAttributes(this) }
+        context.withStyledAttributes(attrs, R.styleable.TopBar) { applyAttributes(this) }
     }
 
     private fun applyAttributes(typedArray: TypedArray) {

@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Vinyla_Android</string>
+
+    <string name="terms_and_conditions_of_service"><u>Agree to the terms of use</u><font fgcolor='#FF5000'> (required)</font></string>
+    <string name="privacy_policy"><u>Collection and use of personal information</u><font fgcolor='#FF5000'> (required)</font></string>
+    <string name="marketing_agree"><u>Agreement to receive marketing</u> (optional)</string>
+    <string name="accept_all_terms_and_conditions">Accept all terms and conditions</string>
+    <string name="nickname_cannot_modify">The nickname cannot be modified, so please decide carefully</string>
+    <string name="check">Check</string>
+    <string name="login">Login</string>
 </resources>

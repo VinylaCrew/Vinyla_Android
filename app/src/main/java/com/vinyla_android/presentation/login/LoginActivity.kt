@@ -38,7 +38,7 @@ class LoginActivity : AppCompatActivity() {
 
     private fun initView(binding: ActivityLoginBinding) {
         setContentView(binding.root)
-        binding.buttonKakao.setOnClickListener { login(SnsAuth.Type.KAKAO) }
+        binding.buttonGoogle.setOnClickListener { login(SnsAuth.Type.KAKAO) }
         binding.buttonFacebook.setOnClickListener { login(SnsAuth.Type.FACEBOOK) }
         binding.buttonApple.setOnClickListener { login(SnsAuth.Type.APPLE) }
     }

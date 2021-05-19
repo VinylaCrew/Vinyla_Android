@@ -14,12 +14,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Vinyla_Android"
         android:usesCleartextTraffic="true">
-        <activity android:name=".presentation.SplashActivity">
+        <activity android:name=".presentation.signup.SignUpActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".presentation.SplashActivity">
+
         </activity>
         <activity android:name=".presentation.TempHomeActivity" />
 
@@ -72,9 +75,7 @@
             android:screenOrientation="fullSensor"
             tools:replace="screenOrientation" />
         <activity android:name=".MainActivity" />
-        <activity android:name=".presentation.login.LoginActivity">
-
-        </activity>
+        <activity android:name=".presentation.login.LoginActivity"></activity>
     </application>
 
 </manifest>

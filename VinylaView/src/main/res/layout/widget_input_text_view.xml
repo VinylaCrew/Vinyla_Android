@@ -13,7 +13,7 @@
         android:layout_width="5dp"
         android:layout_height="5dp"
         android:background="@drawable/circle"
-        android:backgroundTint="@android:color/holo_orange_dark"
+        android:backgroundTint="@color/mainColor"
         app:layout_constraintBottom_toTopOf="@+id/text_title"
         app:layout_constraintStart_toEndOf="@+id/text_title"
         app:layout_constraintTop_toTopOf="@+id/text_title" />

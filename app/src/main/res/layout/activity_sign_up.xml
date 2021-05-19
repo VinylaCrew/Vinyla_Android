@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black19191a"
+        tools:context=".presentation.signup.SignUpActivity">
+
+        <com.vinyla_android.view.widget.TopBar
+            android:id="@+id/topBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:title="Sign Up" />
+
+        <com.vinyla_android.view.widget.InputTextView
+            android:id="@+id/text_nickname"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="5dp"
+            android:clipChildren="false"
+            app:hint="English, within 1~25 characters"
+            app:layout_constraintEnd_toStartOf="@+id/button_check"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/topBar"
+            app:title="Nickname" />
+
+        <TextView
+            android:id="@+id/button_check"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/round_rectangle_8dp"
+            android:backgroundTint="@color/gray66"
+            android:paddingStart="21dp"
+            android:paddingTop="15dp"
+            android:paddingEnd="21dp"
+            android:paddingBottom="15dp"
+            android:text="@string/check"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="@+id/text_nickname"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/nickname_cannot_modify"
+            android:textColor="@color/grayAA"
+            android:textSize="13dp"
+            app:layout_constraintStart_toStartOf="@+id/text_nickname"
+            app:layout_constraintTop_toBottomOf="@+id/text_nickname" />
+
+        <com.vinyla_android.view.widget.InputTextView
+            android:id="@+id/text_insta_id"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            app:isRequired="false"
+            app:layout_constraintEnd_toEndOf="@+id/button_check"
+            app:layout_constraintStart_toStartOf="@+id/text_nickname"
+            app:layout_constraintTop_toBottomOf="@+id/textView3"
+            app:title="Instagram ID" />
+
+        <CheckBox
+            android:id="@+id/checkBox_all_check"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:layout_marginStart="11dp"
+            android:text="@string/accept_all_terms_and_conditions"
+            android:textColor="@color/white"
+            android:textSize="15dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_insta_id" />
+
+        <CheckBox
+            android:id="@+id/checkBox_terms_and_conditions_of_service"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            app:layout_constraintStart_toStartOf="@+id/checkBox_all_check"
+            app:layout_constraintTop_toBottomOf="@+id/checkBox_all_check" />
+
+        <TextView
+            android:id="@+id/button_terms_and_conditions_of_service"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:gravity="center_vertical"
+            android:text="@string/terms_and_conditions_of_service"
+            android:textColor="@color/white"
+            android:textSize="13dp"
+            app:layout_constraintBottom_toBottomOf="@+id/checkBox_terms_and_conditions_of_service"
+            app:layout_constraintStart_toEndOf="@+id/checkBox_terms_and_conditions_of_service"
+            app:layout_constraintTop_toTopOf="@+id/checkBox_terms_and_conditions_of_service" />
+
+        <CheckBox
+            android:id="@+id/checkBox_privacy_policy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            app:layout_constraintStart_toStartOf="@+id/checkBox_terms_and_conditions_of_service"
+            app:layout_constraintTop_toBottomOf="@+id/checkBox_terms_and_conditions_of_service" />
+
+        <TextView
+            android:id="@+id/button_privacy_policy"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:gravity="center_vertical"
+            android:text="@string/privacy_policy"
+            android:textColor="@color/white"
+            android:textSize="13dp"
+            app:layout_constraintBottom_toBottomOf="@+id/checkBox_privacy_policy"
+            app:layout_constraintStart_toEndOf="@+id/checkBox_privacy_policy"
+            app:layout_constraintTop_toTopOf="@+id/checkBox_privacy_policy" />
+
+        <CheckBox
+            android:id="@+id/checkBox_marketing"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            app:layout_constraintStart_toStartOf="@+id/checkBox_privacy_policy"
+            app:layout_constraintTop_toBottomOf="@+id/checkBox_privacy_policy" />
+
+        <TextView
+            android:id="@+id/button_marketing"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:gravity="center_vertical"
+            android:text="@string/marketing_agree"
+            android:textColor="@color/white"
+            android:textSize="13dp"
+            app:layout_constraintBottom_toBottomOf="@+id/checkBox_marketing"
+            app:layout_constraintStart_toEndOf="@+id/checkBox_marketing"
+            app:layout_constraintTop_toTopOf="@+id/checkBox_marketing" />
+
+        <TextView
+            android:id="@+id/button_login"
+            android:layout_width="0dp"
+            android:layout_height="72dp"
+            android:background="@color/mainColor"
+            android:gravity="center"
+            android:text="@string/login"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
