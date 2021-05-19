@@ -11,4 +11,8 @@
             <enum name="gone" value="8" />
         </attr>
     </declare-styleable>
+
+    <declare-styleable name="TopBar">
+        <attr name="title" format="string" />
+    </declare-styleable>
 </resources>
