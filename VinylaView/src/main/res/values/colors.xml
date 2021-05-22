@@ -8,6 +8,9 @@
     <color name="black232324">#232324</color>
 
     <color name="gray66">#666666</color>
+    <color name="grayDD">#DDDDDD</color>
+    <color name="grayCC">#CCCCCC</color>
+    <color name="grayAA">#AAAAAA</color>
     <color name="white">#FFFFFFFF</color>
 
 </resources>

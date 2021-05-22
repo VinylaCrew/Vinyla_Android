@@ -38,6 +38,7 @@
         android:gravity="top"
         android:inputType="textPersonName"
         android:padding="15dp"
+        android:textColor="@color/grayCC"
         android:textColorHint="@color/gray66"
         android:textSize="15dp"
         app:layout_constraintEnd_toEndOf="parent"
