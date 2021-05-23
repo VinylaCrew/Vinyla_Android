@@ -20,6 +20,7 @@
             android:id="@+id/topBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="@{(view) -> viewModel.checkNicknameAvailable()}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -46,7 +47,8 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
             android:background="@drawable/round_rectangle_8dp"
-            android:backgroundTint="@color/gray66"
+            android:backgroundTint="@color/selector_main_gray66_color"
+            android:enabled="@{viewModel.isNicknameFormatted()}"
             android:paddingStart="21dp"
             android:paddingTop="15dp"
             android:paddingEnd="21dp"
@@ -61,11 +63,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="@string/nickname_cannot_modify"
+            android:text="@{context.getString(viewModel.nicknameStateText)}"
             android:textColor="@color/grayAA"
             android:textSize="13dp"
             app:layout_constraintStart_toStartOf="@+id/text_nickname"
-            app:layout_constraintTop_toBottomOf="@+id/text_nickname" />
+            app:layout_constraintTop_toBottomOf="@+id/text_nickname"
+            tools:text="@string/nickname_cannot_modify" />
 
         <com.vinyla_android.view.widget.InputTextView
             android:id="@+id/text_insta_id"
@@ -165,8 +168,8 @@
             android:id="@+id/button_login"
             android:layout_width="0dp"
             android:layout_height="72dp"
-            android:background="@color/selector_main_gray_color"
-            android:enabled="@{viewModel.isTermsAndConditionOfServiceChecked() &amp;&amp; viewModel.isPrivacyPolicyChecked()}"
+            android:background="@drawable/selector_main_black232324_color"
+            android:enabled="@{viewModel.isTermsAndConditionOfServiceChecked() &amp;&amp; viewModel.isPrivacyPolicyChecked() &amp;&amp; viewModel.isNicknameAvailable()}"
             android:gravity="center"
             android:text="@string/login"
             android:textColor="@color/white"
