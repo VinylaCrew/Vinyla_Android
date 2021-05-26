@@ -97,7 +97,7 @@
         app:srcCompat="@drawable/logo" />
 
     <TextView
-        android:id="@+id/text_title"
+        android:id="@+id/text_next_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -115,7 +115,7 @@
         android:layout_marginTop="11dp"
         android:text="Work, Life, Vinyl"
         android:textColor="@color/gray66"
-        app:layout_constraintEnd_toEndOf="@+id/text_title"
-        app:layout_constraintStart_toStartOf="@+id/text_title"
-        app:layout_constraintTop_toBottomOf="@+id/text_title" />
+        app:layout_constraintEnd_toEndOf="@+id/text_next_title"
+        app:layout_constraintStart_toStartOf="@+id/text_next_title"
+        app:layout_constraintTop_toBottomOf="@+id/text_next_title" />
 </androidx.constraintlayout.widget.ConstraintLayout>
