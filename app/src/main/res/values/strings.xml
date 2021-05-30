@@ -8,4 +8,5 @@
     <string name="nickname_cannot_modify">The nickname cannot be modified, so please decide carefully</string>
     <string name="check">Check</string>
     <string name="login">Login</string>
+    <string name="quit_warning"><font fgcolor='#FF5000'>주의사항</font>을 꼭 읽어주세요.</string>
 </resources>

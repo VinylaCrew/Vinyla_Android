@@ -14,12 +14,12 @@
         android:layout_height="5dp"
         android:background="@drawable/circle"
         android:backgroundTint="@color/mainColor"
-        app:layout_constraintBottom_toTopOf="@+id/text_next_title"
-        app:layout_constraintStart_toEndOf="@+id/text_next_title"
-        app:layout_constraintTop_toTopOf="@+id/text_next_title" />
+        app:layout_constraintBottom_toTopOf="@+id/text_title"
+        app:layout_constraintStart_toEndOf="@+id/text_title"
+        app:layout_constraintTop_toTopOf="@+id/text_title" />
 
     <TextView
-        android:id="@+id/text_next_title"
+        android:id="@+id/text_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/white"
@@ -43,6 +43,6 @@
         android:textSize="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_next_title"
+        app:layout_constraintTop_toBottomOf="@+id/text_title"
         tools:hint="hint" />
 </merge>
