@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="vinly"
+            type="com.vinyla_android.data.model.Vinyl" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        tools:background="@color/black141415">
+
+        <ImageView
+            android:id="@+id/image_vinyl"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:imageUrl="@{vinly.imageUrl}"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/vinyl_default_black" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/widget_has_vinyl"
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:background="@drawable/circle"
+            android:backgroundTint="@color/mainColor"
+            android:visibility="@{vinly.isCollected ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="@+id/image_vinyl"
+            app:layout_constraintEnd_toEndOf="@+id/image_vinyl">
+
+            <ImageView
+                android:id="@+id/imageView7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/icn_check_white" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/text_vinyl_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:ellipsize="end"
+            android:text="@{vinly.name}"
+            tools:text="바이닐 이름이 어쩌구 저쩌구"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="@+id/image_vinyl"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/image_vinyl"
+            app:layout_constraintTop_toBottomOf="@+id/image_vinyl" />
+
+        <TextView
+            android:id="@+id/text_artiest_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:ellipsize="end"
+            android:text="@{vinly.artiestName}"
+            tools:text="아티스트 이름이 어쩌구 저쩌"
+            android:textColor="@color/grayAA"
+            app:layout_constraintEnd_toEndOf="@+id/text_vinyl_name"
+            app:layout_constraintStart_toStartOf="@+id/text_vinyl_name"
+            app:layout_constraintTop_toBottomOf="@+id/text_vinyl_name" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
