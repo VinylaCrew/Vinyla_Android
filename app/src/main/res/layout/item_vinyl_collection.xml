@@ -59,24 +59,26 @@
             android:layout_marginTop="12dp"
             android:ellipsize="end"
             android:text="@{vinly.name}"
-            tools:text="바이닐 이름이 어쩌구 저쩌구"
             android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="@+id/image_vinyl"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/image_vinyl"
-            app:layout_constraintTop_toBottomOf="@+id/image_vinyl" />
+            app:layout_constraintTop_toBottomOf="@+id/image_vinyl"
+            tools:text="바이닐 이름이 어쩌구 저쩌구" />
 
         <TextView
             android:id="@+id/text_artiest_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
+            android:layout_marginBottom="25dp"
             android:ellipsize="end"
             android:text="@{vinly.artiestName}"
-            tools:text="아티스트 이름이 어쩌구 저쩌"
             android:textColor="@color/grayAA"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/text_vinyl_name"
             app:layout_constraintStart_toStartOf="@+id/text_vinyl_name"
-            app:layout_constraintTop_toBottomOf="@+id/text_vinyl_name" />
+            app:layout_constraintTop_toBottomOf="@+id/text_vinyl_name"
+            tools:text="아티스트 이름이 어쩌구 저쩌" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

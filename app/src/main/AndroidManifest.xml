@@ -14,7 +14,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Vinyla_Android"
         android:usesCleartextTraffic="true">
-        <activity android:name=".presentation.mypage.QuitActivity"></activity>
+        <activity android:name=".presentation.vinyl.collection.VinylCollectionsActivity"></activity>
+        <activity android:name=".presentation.mypage.QuitActivity" />
         <activity android:name=".presentation.mypage.MyPageActivity" />
         <activity android:name=".presentation.home.HomeActivity">
             <intent-filter>
