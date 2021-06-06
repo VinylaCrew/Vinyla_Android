@@ -16,5 +16,5 @@
     <color name="grayCC">#CCCCCC</color>
     <color name="grayAA">#AAAAAA</color>
     <color name="white">#FFFFFFFF</color>
-
+    <color name="transparent">#00000000</color>
 </resources>

@@ -9,4 +9,8 @@
     <string name="check">Check</string>
     <string name="login">Login</string>
     <string name="quit_warning"><font fgcolor='#FF5000'>주의사항</font>을 꼭 읽어주세요.</string>
+    <string name="lv_n">lv.%d</string>
+    <string name="how_to_enjoy_vinyl_special">바이닐을 <font fgcolor='#FF5000'>남다르게</font> 즐기는 방법!</string>
+    <string name="enjoy_vinyl_1">바이닐 레벨은 바이닐 등록에 의해 자동으로 적용 됩니다.</string>
+    <string name="enjoy_vinyl_2">바닐라 신규 가입 시 닐페이스 레벨부터 시작합니다.</string>
 </resources>
