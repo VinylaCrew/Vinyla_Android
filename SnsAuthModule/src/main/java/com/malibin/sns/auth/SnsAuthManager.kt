@@ -2,7 +2,9 @@ package com.malibin.sns.auth
 
 import android.content.Context
 import android.content.Intent
-import com.malibin.sns.auth.service.FacebookAuthService
+import com.malibin.sns.auth.facebook.FacebookAuth
+import com.malibin.sns.auth.facebook.service.FacebookAuthService
+import com.malibin.sns.auth.kakao.KakaoAuth
 
 /**
  * Created By Malibin
@@ -21,19 +23,19 @@ class SnsAuthManager(
     )
 
     fun login(type: SnsAuth.Type, callback: (UserProfile?) -> Unit) {
-        getSnsAuth(type).login(callback)
+        findSnsAuth(type).login(callback)
     }
 
     fun getUserProfile(type: SnsAuth.Type, callback: (UserProfile?) -> Unit) {
-        getSnsAuth(type).getUserProfile(callback)
+        findSnsAuth(type).getUserProfile(callback)
     }
 
     fun logout(type: SnsAuth.Type, endCallback: (() -> Unit)? = null) {
-        getSnsAuth(type).logout(endCallback)
+        findSnsAuth(type).logout(endCallback)
     }
 
-    fun quit(type: SnsAuth.Type, endCallback: (() -> Unit)? = null) {
-        getSnsAuth(type).quit(endCallback)
+    fun unlink(type: SnsAuth.Type, endCallback: (() -> Unit)? = null) {
+        findSnsAuth(type).unlink(endCallback)
     }
 
     fun onActivityResult(requestCode: Int, resultCode: Int, intent: Intent?) = when (requestCode) {
@@ -41,7 +43,7 @@ class SnsAuthManager(
         else -> Unit
     }
 
-    private fun getSnsAuth(type: SnsAuth.Type): SnsAuth = when (type) {
+    private fun findSnsAuth(type: SnsAuth.Type): SnsAuth = when (type) {
         SnsAuth.Type.KAKAO -> kakaoAuth
         SnsAuth.Type.FACEBOOK -> facebookAuth
         SnsAuth.Type.APPLE -> appleAuth
@@ -49,6 +51,7 @@ class SnsAuthManager(
 
     companion object {
         /**
+         * From FaceBook SDK
          * CallbackManagerImpl.RequestCodeOffset.Login.toRequestCode()
          * DEFAULT_CALLBACK_REQUEST_CODE_OFFSET(0xface) + Login(0)
          */

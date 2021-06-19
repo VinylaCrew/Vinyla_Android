@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
         findViewById<Button>(R.id.button_google).setOnClickListener { proceedKakaoLogin() }
         findViewById<Button>(R.id.button_apple_test).setOnClickListener { proceedFacebookLogin() }
         findViewById<Button>(R.id.button_facebook_quit).setOnClickListener {
-            snsAuthManager.quit(SnsAuth.Type.FACEBOOK)
+            snsAuthManager.unlink(SnsAuth.Type.FACEBOOK)
         }
     }
 
@@ -65,7 +65,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onDestroy() {
         super.onDestroy()
-        snsAuthManager.quit(SnsAuth.Type.KAKAO)
+        snsAuthManager.unlink(SnsAuth.Type.KAKAO)
         snsAuthManager.logout(SnsAuth.Type.FACEBOOK)
     }
 }

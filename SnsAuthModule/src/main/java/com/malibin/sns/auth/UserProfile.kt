@@ -1,7 +1,7 @@
 package com.malibin.sns.auth
 
 import android.os.Parcelable
-import kotlinx.android.parcel.Parcelize
+import kotlinx.parcelize.Parcelize
 
 /**
  * Created By Malibin

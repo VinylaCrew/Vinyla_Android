@@ -18,7 +18,7 @@ interface SnsAuth {
 
     fun logout(endCallback: (() -> Unit)? = null)
 
-    fun quit(endCallback: (() -> Unit)? = null)
+    fun unlink(endCallback: (() -> Unit)? = null)
 
     enum class Type {
         KAKAO,

@@ -1,8 +1,10 @@
-package com.malibin.sns.auth
+package com.malibin.sns.auth.kakao
 
 import android.content.Context
 import com.kakao.sdk.user.UserApiClient
 import com.kakao.sdk.user.model.User
+import com.malibin.sns.auth.SnsAuth
+import com.malibin.sns.auth.UserProfile
 
 /**
  * Created By Malibin
@@ -55,7 +57,7 @@ class KakaoAuth(
         }
     }
 
-    override fun quit(endCallback: (() -> Unit)?) {
+    override fun unlink(endCallback: (() -> Unit)?) {
         UserApiClient.instance.unlink {
             endCallback?.invoke()
             it?.printStackTrace()

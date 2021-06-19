@@ -1,4 +1,4 @@
-package com.malibin.sns.auth
+package com.malibin.sns.auth.facebook
 
 import android.content.Context
 import android.content.Intent
@@ -8,7 +8,10 @@ import com.facebook.login.LoginResult
 import com.facebook.login.widget.LoginButton
 import com.google.firebase.auth.FacebookAuthProvider
 import com.google.firebase.auth.FirebaseAuth
-import com.malibin.sns.auth.service.FacebookAuthService
+import com.malibin.sns.auth.SnsAuth
+import com.malibin.sns.auth.UserProfile
+import com.malibin.sns.auth.printLog
+import com.malibin.sns.auth.facebook.service.FacebookAuthService
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -123,7 +126,7 @@ class FacebookAuth(
         firebaseAuth.signOut()
     }
 
-    override fun quit(endCallback: (() -> Unit)?) {
+    override fun unlink(endCallback: (() -> Unit)?) {
         val id = Profile.getCurrentProfile()?.id.orEmpty()
         val accessToken = AccessToken.getCurrentAccessToken()?.token.orEmpty()
         CoroutineScope(Dispatchers.IO).launch {

@@ -49,7 +49,7 @@ class TempHomeActivity : AppCompatActivity() {
     }
 
     private fun quit(type: SnsAuth.Type) {
-        snsAuthManager?.quit(type) { goLoginPage() }
+        snsAuthManager?.unlink(type) { goLoginPage() }
     }
 
     private fun goLoginPage() {
