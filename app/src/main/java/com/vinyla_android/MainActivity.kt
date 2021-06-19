@@ -9,12 +9,13 @@ import com.google.android.gms.ads.AdView
 import com.google.zxing.integration.android.IntentIntegrator
 import com.malibin.sns.auth.SnsAuth
 import com.malibin.sns.auth.SnsAuthManager
+import com.malibin.sns.auth.SnsType
 import com.vinyla_android.presentation.utils.loadAd
 import com.vinyla_android.presentation.utils.printLog
 
 class MainActivity : AppCompatActivity() {
 
-    private val snsAuthManager: SnsAuthManager by lazy { SnsAuthManager(this) }
+    private val snsAuthManager: SnsAuthManager by lazy { SnsAuthManager.getInstance() }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,7 +32,7 @@ class MainActivity : AppCompatActivity() {
         findViewById<Button>(R.id.button_google).setOnClickListener { proceedKakaoLogin() }
         findViewById<Button>(R.id.button_apple_test).setOnClickListener { proceedFacebookLogin() }
         findViewById<Button>(R.id.button_facebook_quit).setOnClickListener {
-            snsAuthManager.unlink(SnsAuth.Type.FACEBOOK)
+            snsAuthManager.unlink(SnsType.FACEBOOK)
         }
     }
 
@@ -56,16 +57,16 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun proceedKakaoLogin() {
-        snsAuthManager.login(SnsAuth.Type.KAKAO) { printLog("kakao profile : $it") }
+        snsAuthManager.login(SnsType.KAKAO) { printLog("kakao profile : $it") }
     }
 
     private fun proceedFacebookLogin() {
-        snsAuthManager.login(SnsAuth.Type.FACEBOOK) { printLog("facebook profile : $it") }
+        snsAuthManager.login(SnsType.FACEBOOK) { printLog("facebook profile : $it") }
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        snsAuthManager.unlink(SnsAuth.Type.KAKAO)
-        snsAuthManager.logout(SnsAuth.Type.FACEBOOK)
+        snsAuthManager.unlink(SnsType.KAKAO)
+        snsAuthManager.logout(SnsType.FACEBOOK)
     }
 }

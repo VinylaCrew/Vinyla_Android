@@ -4,6 +4,7 @@ import android.content.Context
 import com.kakao.sdk.user.UserApiClient
 import com.kakao.sdk.user.model.User
 import com.malibin.sns.auth.SnsAuth
+import com.malibin.sns.auth.SnsType
 import com.malibin.sns.auth.UserProfile
 
 /**
@@ -39,7 +40,7 @@ class KakaoAuth(
         return UserProfile(
             nickname = this?.kakaoAccount?.profile?.nickname ?: return null,
             profileUrl = this.kakaoAccount?.profile?.thumbnailImageUrl ?: return null,
-            authType = SnsAuth.Type.KAKAO,
+            authType = SnsType.KAKAO,
         )
     }
 

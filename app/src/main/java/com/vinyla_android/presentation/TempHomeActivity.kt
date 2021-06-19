@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.malibin.sns.auth.SnsAuth
 import com.malibin.sns.auth.SnsAuthManager
+import com.malibin.sns.auth.SnsType
 import com.malibin.sns.auth.UserProfile
 import com.vinyla_android.databinding.ActivityTempHomeBinding
 import com.vinyla_android.presentation.login.LoginActivity
@@ -19,7 +20,7 @@ class TempHomeActivity : AppCompatActivity() {
 
         binding = ActivityTempHomeBinding.inflate(layoutInflater)
             .also { initView(it) }
-        snsAuthManager = SnsAuthManager(this)
+        snsAuthManager = SnsAuthManager.getInstance()
     }
 
     override fun onDestroy() {
@@ -44,11 +45,11 @@ class TempHomeActivity : AppCompatActivity() {
             ?: error("user profile cannot be null")
     }
 
-    private fun logout(type: SnsAuth.Type) {
+    private fun logout(type: SnsType) {
         snsAuthManager?.logout(type) { goLoginPage() }
     }
 
-    private fun quit(type: SnsAuth.Type) {
+    private fun quit(type: SnsType) {
         snsAuthManager?.unlink(type) { goLoginPage() }
     }
 

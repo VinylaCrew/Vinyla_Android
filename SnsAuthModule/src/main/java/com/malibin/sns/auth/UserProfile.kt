@@ -12,5 +12,5 @@ import kotlinx.parcelize.Parcelize
 data class UserProfile(
     val nickname: String,
     val profileUrl: String,
-    val authType: SnsAuth.Type,
+    val authType: SnsType,
 ) : Parcelable

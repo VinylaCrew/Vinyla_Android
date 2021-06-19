@@ -9,6 +9,7 @@ import com.facebook.login.widget.LoginButton
 import com.google.firebase.auth.FacebookAuthProvider
 import com.google.firebase.auth.FirebaseAuth
 import com.malibin.sns.auth.SnsAuth
+import com.malibin.sns.auth.SnsType
 import com.malibin.sns.auth.UserProfile
 import com.malibin.sns.auth.printLog
 import com.malibin.sns.auth.facebook.service.FacebookAuthService
@@ -23,7 +24,6 @@ class FacebookAuth(
 ) : SnsAuth {
     private val callbackManager: CallbackManager = CallbackManager.Factory.create()
     private var profileTracker: ProfileTracker? = null
-
     private val firebaseAuth: FirebaseAuth by lazy { FirebaseAuth.getInstance() }
 
     /**
@@ -90,7 +90,7 @@ class FacebookAuth(
         return UserProfile(
             nickname = facebookProfile.name,
             profileUrl = facebookProfile.getProfilePictureUri(500, 500).toString(),
-            authType = SnsAuth.Type.FACEBOOK,
+            authType = SnsType.FACEBOOK,
         )
     }
 

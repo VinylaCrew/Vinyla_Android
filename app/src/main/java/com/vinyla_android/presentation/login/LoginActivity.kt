@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.malibin.sns.auth.SnsAuth
 import com.malibin.sns.auth.SnsAuthManager
+import com.malibin.sns.auth.SnsType
 import com.malibin.sns.auth.UserProfile
 import com.vinyla_android.databinding.ActivityLoginBinding
 import com.vinyla_android.presentation.TempHomeActivity
@@ -20,7 +21,7 @@ class LoginActivity : AppCompatActivity() {
 
         binding = ActivityLoginBinding.inflate(layoutInflater)
             .also { initView(it) }
-        snsAuthManager = SnsAuthManager(this)
+        snsAuthManager = SnsAuthManager.getInstance()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -37,12 +38,12 @@ class LoginActivity : AppCompatActivity() {
 
     private fun initView(binding: ActivityLoginBinding) {
         setContentView(binding.root)
-        binding.buttonGoogle.setOnClickListener { login(SnsAuth.Type.KAKAO) }
-        binding.buttonFacebook.setOnClickListener { login(SnsAuth.Type.FACEBOOK) }
-        binding.buttonApple.setOnClickListener { login(SnsAuth.Type.APPLE) }
+        binding.buttonGoogle.setOnClickListener { login(SnsType.KAKAO) }
+        binding.buttonFacebook.setOnClickListener { login(SnsType.FACEBOOK) }
+        binding.buttonApple.setOnClickListener { login(SnsType.APPLE) }
     }
 
-    private fun login(type: SnsAuth.Type) {
+    private fun login(type: SnsType) {
         snsAuthManager?.login(type, ::onSnsResponse)
     }
 
