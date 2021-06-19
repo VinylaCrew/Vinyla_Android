@@ -1,7 +1,6 @@
-package com.vinyla_android.data.model
+package com.malibin.sns.auth
 
 import android.os.Parcelable
-import com.vinyla_android.presentation.login.auth.SnsAuth
 import kotlinx.android.parcel.Parcelize
 
 /**

@@ -1,8 +1,8 @@
-package com.vinyla_android.presentation.login.auth
+package com.malibin.sns.auth
 
 import android.content.Context
 import android.content.Intent
-import com.vinyla_android.data.model.UserProfile
+import com.malibin.sns.auth.service.FacebookAuthService
 
 /**
  * Created By Malibin
@@ -16,7 +16,7 @@ class SnsAuthManager(
 ) {
     constructor(context: Context) : this(
         kakaoAuth = KakaoAuth(context),
-        facebookAuth = FacebookAuth(context),
+        facebookAuth = FacebookAuth(context, FacebookAuthService.getInstance()),
         appleAuth = KakaoAuth(context),
     )
 

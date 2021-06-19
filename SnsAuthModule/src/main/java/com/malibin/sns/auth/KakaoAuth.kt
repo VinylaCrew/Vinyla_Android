@@ -1,9 +1,8 @@
-package com.vinyla_android.presentation.login.auth
+package com.malibin.sns.auth
 
 import android.content.Context
 import com.kakao.sdk.user.UserApiClient
 import com.kakao.sdk.user.model.User
-import com.vinyla_android.data.model.UserProfile
 
 /**
  * Created By Malibin

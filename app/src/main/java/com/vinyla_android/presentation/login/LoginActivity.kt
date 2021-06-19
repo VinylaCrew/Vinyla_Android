@@ -3,13 +3,12 @@ package com.vinyla_android.presentation.login
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.vinyla_android.data.model.UserProfile
+import com.malibin.sns.auth.SnsAuth
+import com.malibin.sns.auth.SnsAuthManager
+import com.malibin.sns.auth.UserProfile
 import com.vinyla_android.databinding.ActivityLoginBinding
 import com.vinyla_android.presentation.TempHomeActivity
-import com.vinyla_android.presentation.login.auth.SnsAuth
-import com.vinyla_android.presentation.login.auth.SnsAuthManager
 import com.vinyla_android.presentation.utils.printLog
-import com.vinyla_android.presentation.utils.showToast
 
 class LoginActivity : AppCompatActivity() {
 

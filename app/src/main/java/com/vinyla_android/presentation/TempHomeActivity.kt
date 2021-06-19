@@ -3,11 +3,11 @@ package com.vinyla_android.presentation
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.vinyla_android.data.model.UserProfile
+import com.malibin.sns.auth.SnsAuth
+import com.malibin.sns.auth.SnsAuthManager
+import com.malibin.sns.auth.UserProfile
 import com.vinyla_android.databinding.ActivityTempHomeBinding
 import com.vinyla_android.presentation.login.LoginActivity
-import com.vinyla_android.presentation.login.auth.SnsAuth
-import com.vinyla_android.presentation.login.auth.SnsAuthManager
 
 class TempHomeActivity : AppCompatActivity() {
 

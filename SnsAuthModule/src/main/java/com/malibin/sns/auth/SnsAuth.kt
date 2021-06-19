@@ -1,7 +1,6 @@
-package com.vinyla_android.presentation.login.auth
+package com.malibin.sns.auth
 
 import android.content.Intent
-import com.vinyla_android.data.model.UserProfile
 
 /**
  * Created By Malibin

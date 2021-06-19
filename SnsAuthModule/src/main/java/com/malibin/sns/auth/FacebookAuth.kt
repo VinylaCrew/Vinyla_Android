@@ -1,4 +1,4 @@
-package com.vinyla_android.presentation.login.auth
+package com.malibin.sns.auth
 
 import android.content.Context
 import android.content.Intent
@@ -8,25 +8,19 @@ import com.facebook.login.LoginResult
 import com.facebook.login.widget.LoginButton
 import com.google.firebase.auth.FacebookAuthProvider
 import com.google.firebase.auth.FirebaseAuth
-import com.vinyla_android.config.interceptor.HTTP_LOGGING_INTERCEPTOR
-import com.vinyla_android.data.model.UserProfile
-import com.vinyla_android.data.service.FacebookAuthService
-import com.vinyla_android.presentation.utils.printLog
+import com.malibin.sns.auth.service.FacebookAuthService
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
-import okhttp3.OkHttpClient
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 
 class FacebookAuth(
     private val context: Context,
+    private val facebookAuthService: FacebookAuthService,
 ) : SnsAuth {
     private val callbackManager: CallbackManager = CallbackManager.Factory.create()
     private var profileTracker: ProfileTracker? = null
 
-    private val facebookAuthService: FacebookAuthService by lazy { createFacebookAuthService() }
     private val firebaseAuth: FirebaseAuth by lazy { FirebaseAuth.getInstance() }
 
     /**
@@ -154,18 +148,5 @@ class FacebookAuth(
             e.printStackTrace()
         }
         printLog("firebaseuser disconneced")
-    }
-
-    private fun createFacebookAuthService(): FacebookAuthService {
-        return Retrofit.Builder()
-            .baseUrl(FacebookAuthService.BASE_URL)
-            .addConverterFactory(GsonConverterFactory.create())
-            .client(
-                OkHttpClient.Builder()
-                    .addInterceptor(HTTP_LOGGING_INTERCEPTOR)
-                    .build()
-            )
-            .build()
-            .create(FacebookAuthService::class.java)
     }
 }
