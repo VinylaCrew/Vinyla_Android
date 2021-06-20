@@ -1,4 +1,4 @@
-package com.malibin.sns.auth.facebook
+package com.malibin.sns.auth.module.facebook
 
 import android.content.Context
 import android.content.Intent
@@ -8,11 +8,11 @@ import com.facebook.login.LoginResult
 import com.facebook.login.widget.LoginButton
 import com.google.firebase.auth.FacebookAuthProvider
 import com.google.firebase.auth.FirebaseAuth
-import com.malibin.sns.auth.SnsAuth
-import com.malibin.sns.auth.SnsType
-import com.malibin.sns.auth.UserProfile
+import com.malibin.sns.auth.module.SnsAuthModule
+import com.malibin.sns.auth.model.SnsType
+import com.malibin.sns.auth.model.UserProfile
 import com.malibin.sns.auth.printLog
-import com.malibin.sns.auth.facebook.service.FacebookAuthService
+import com.malibin.sns.auth.module.facebook.service.FacebookAuthService
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -21,7 +21,7 @@ import kotlinx.coroutines.tasks.await
 class FacebookAuth(
     private val context: Context,
     private val facebookAuthService: FacebookAuthService,
-) : SnsAuth {
+) : SnsAuthModule {
     private val callbackManager: CallbackManager = CallbackManager.Factory.create()
     private var profileTracker: ProfileTracker? = null
     private val firebaseAuth: FirebaseAuth by lazy { FirebaseAuth.getInstance() }

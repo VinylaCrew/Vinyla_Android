@@ -1,7 +1,8 @@
-package com.malibin.sns.auth.dsl
+package com.malibin.sns.auth.context
 
 import android.app.Application
 import android.content.Context
+import com.malibin.sns.auth.dsl.SnsAuthConfig
 
 /**
  * Created By Malibin
@@ -15,4 +16,5 @@ fun Application.initSnsLogin(
     configDeclaration: SnsAuthConfigDeclaration
 ) {
     configDeclaration(SnsAuthConfig())
+
 }

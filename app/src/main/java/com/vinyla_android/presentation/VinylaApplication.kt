@@ -3,7 +3,7 @@ package com.vinyla_android.presentation
 import android.app.Application
 import com.google.android.gms.ads.MobileAds
 import com.kakao.sdk.common.KakaoSdk
-import com.malibin.sns.auth.dsl.initSnsLogin
+import com.malibin.sns.auth.context.initSnsLogin
 import com.orhanobut.logger.AndroidLogAdapter
 import com.orhanobut.logger.Logger
 import com.orhanobut.logger.PrettyFormatStrategy

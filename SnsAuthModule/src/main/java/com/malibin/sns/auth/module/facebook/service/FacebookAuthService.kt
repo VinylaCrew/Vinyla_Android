@@ -1,4 +1,4 @@
-package com.malibin.sns.auth.facebook.service
+package com.malibin.sns.auth.module.facebook.service
 
 import retrofit2.Response
 import retrofit2.Retrofit

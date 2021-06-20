@@ -4,29 +4,28 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.malibin.sns.auth.SnsAuth
-import com.malibin.sns.auth.SnsAuthManager
-import com.malibin.sns.auth.SnsType
-import com.malibin.sns.auth.UserProfile
+import com.malibin.sns.auth.model.SnsType
+import com.malibin.sns.auth.model.UserProfile
 import com.vinyla_android.databinding.ActivityTempHomeBinding
 import com.vinyla_android.presentation.login.LoginActivity
 
 class TempHomeActivity : AppCompatActivity() {
 
     private var binding: ActivityTempHomeBinding? = null
-    private var snsAuthManager: SnsAuthManager? = null
+    private var snsAuth: SnsAuth? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding = ActivityTempHomeBinding.inflate(layoutInflater)
             .also { initView(it) }
-        snsAuthManager = SnsAuthManager.getInstance()
+        snsAuth = SnsAuth.getInstance()
     }
 
     override fun onDestroy() {
         super.onDestroy()
         binding = null
-        snsAuthManager = null
+        snsAuth = null
     }
 
     private fun initView(binding: ActivityTempHomeBinding) {
@@ -46,11 +45,11 @@ class TempHomeActivity : AppCompatActivity() {
     }
 
     private fun logout(type: SnsType) {
-        snsAuthManager?.logout(type) { goLoginPage() }
+        snsAuth?.logout(type) { goLoginPage() }
     }
 
     private fun quit(type: SnsType) {
-        snsAuthManager?.unlink(type) { goLoginPage() }
+        snsAuth?.unlink(type) { goLoginPage() }
     }
 
     private fun goLoginPage() {

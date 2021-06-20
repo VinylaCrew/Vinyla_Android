@@ -1,4 +1,4 @@
-package com.malibin.sns.auth
+package com.malibin.sns.auth.model
 
 /**
  * Created By Malibin

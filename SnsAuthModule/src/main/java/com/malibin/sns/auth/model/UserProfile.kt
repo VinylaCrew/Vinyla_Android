@@ -1,4 +1,4 @@
-package com.malibin.sns.auth
+package com.malibin.sns.auth.model
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize

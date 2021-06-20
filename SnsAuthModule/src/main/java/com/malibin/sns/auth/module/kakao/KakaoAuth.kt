@@ -1,11 +1,11 @@
-package com.malibin.sns.auth.kakao
+package com.malibin.sns.auth.module.kakao
 
 import android.content.Context
 import com.kakao.sdk.user.UserApiClient
 import com.kakao.sdk.user.model.User
-import com.malibin.sns.auth.SnsAuth
-import com.malibin.sns.auth.SnsType
-import com.malibin.sns.auth.UserProfile
+import com.malibin.sns.auth.module.SnsAuthModule
+import com.malibin.sns.auth.model.SnsType
+import com.malibin.sns.auth.model.UserProfile
 
 /**
  * Created By Malibin
@@ -14,7 +14,7 @@ import com.malibin.sns.auth.UserProfile
 
 class KakaoAuth(
     private val context: Context
-) : SnsAuth {
+) : SnsAuthModule {
 
     override fun login(callback: (UserProfile?) -> Unit) {
         if (UserApiClient.instance.isKakaoTalkLoginAvailable(context)) {

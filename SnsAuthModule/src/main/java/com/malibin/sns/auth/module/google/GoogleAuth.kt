@@ -1,6 +1,9 @@
-package com.malibin.sns.auth
+package com.malibin.sns.auth.module.google
 
-class GoogleAuth : SnsAuth {
+import com.malibin.sns.auth.module.SnsAuthModule
+import com.malibin.sns.auth.model.UserProfile
+
+class GoogleAuth : SnsAuthModule {
     override fun login(callback: (UserProfile?) -> Unit) {
 
     }
