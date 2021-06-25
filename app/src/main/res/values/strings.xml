@@ -13,4 +13,6 @@
     <string name="how_to_enjoy_vinyl_special">바이닐을 <font fgcolor='#FF5000'>남다르게</font> 즐기는 방법!</string>
     <string name="enjoy_vinyl_1">바이닐 레벨은 바이닐 등록에 의해 자동으로 적용 됩니다.</string>
     <string name="enjoy_vinyl_2">바닐라 신규 가입 시 닐페이스 레벨부터 시작합니다.</string>
+    <string name="terms_and_conditions_of_service_content">terms_and_conditions_of_service_content</string>
+    <string name="privacy_policy_content">privacy_policy_content</string>
 </resources>
