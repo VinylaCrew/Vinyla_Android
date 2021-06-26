@@ -1,13 +1,13 @@
 <resources>
     <string name="app_name">Vinyla_Android</string>
 
-    <string name="terms_and_conditions_of_service"><u>Agree to the terms of use</u><font fgcolor='#FF5000'> (required)</font></string>
-    <string name="privacy_policy"><u>Collection and use of personal information</u><font fgcolor='#FF5000'> (required)</font></string>
-    <string name="marketing_agree"><u>Agreement to receive marketing</u> (optional)</string>
-    <string name="accept_all_terms_and_conditions">Accept all terms and conditions</string>
-    <string name="nickname_cannot_modify">The nickname cannot be modified, so please decide carefully</string>
-    <string name="check">Check</string>
-    <string name="login">Login</string>
+    <string name="terms_and_conditions_of_service"><u>서비스 이용약관 동의</u><font fgcolor='#FF5000'> (필수)</font></string>
+    <string name="privacy_policy"><u>개인정보 수집 및 이용 동의</u><font fgcolor='#FF5000'> (필수)</font></string>
+    <string name="marketing_agree"><u>마케팅 수신 동의</u> (선택)</string>
+    <string name="accept_all_terms_and_conditions">전체 동의</string>
+    <string name="nickname_cannot_modify">닉네임은 수정할 수 없으므로 신중하게 결정 해주세요.</string>
+    <string name="check">확인</string>
+    <string name="login">로그인</string>
     <string name="quit_warning"><font fgcolor='#FF5000'>주의사항</font>을 꼭 읽어주세요.</string>
     <string name="lv_n">lv.%d</string>
     <string name="how_to_enjoy_vinyl_special">바이닐을 <font fgcolor='#FF5000'>남다르게</font> 즐기는 방법!</string>
@@ -15,4 +15,7 @@
     <string name="enjoy_vinyl_2">바닐라 신규 가입 시 닐페이스 레벨부터 시작합니다.</string>
     <string name="terms_and_conditions_of_service_content">terms_and_conditions_of_service_content</string>
     <string name="privacy_policy_content">privacy_policy_content</string>
+    <string name="recent_collected_vinly">최근 수집한 바이닐</string>
+    <string name="collected_vinyl">수집된 바이닐</string>
+    <string name="my_genre">내 장르</string>
 </resources>

@@ -82,7 +82,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="16dp"
-                    android:text="Recent Vinyl"
+                    android:text="@string/recent_collected_vinly"
                     android:textColor="@color/grayDD"
                     android:textSize="16dp"
                     app:layout_constraintStart_toStartOf="parent"
@@ -276,14 +276,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="20dp"
-                    android:text="TextView"
+                    android:text="@string/collected_vinyl"
                     android:textColor="@color/grayCC"
                     android:textSize="13dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/text_collect_count"
-                    tools:text="수집된 바이닐" />
+                    app:layout_constraintTop_toBottomOf="@+id/text_collect_count" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -319,14 +318,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="20dp"
-                    android:text="TextView"
+                    android:text="@string/my_genre"
                     android:textColor="@color/grayCC"
                     android:textSize="13dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/text_my_genre"
-                    tools:text="내 장르" />
+                    app:layout_constraintTop_toBottomOf="@+id/text_my_genre" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <Space

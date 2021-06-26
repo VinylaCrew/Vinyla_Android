@@ -24,7 +24,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:title="Sign Up" />
+            app:title="회원가입" />
 
         <com.vinyla_android.view.widget.InputTextView
             android:id="@+id/text_nickname"
@@ -34,12 +34,12 @@
             android:layout_marginTop="32dp"
             android:layout_marginEnd="5dp"
             android:clipChildren="false"
-            app:hint="English, within 1~25 characters"
+            app:hint="영문, 1~25자 이내"
             app:inputText="@={viewModel.nickname}"
             app:layout_constraintEnd_toStartOf="@+id/button_check"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/topBar"
-            app:title="Nickname" />
+            app:title="닉네임" />
 
         <TextView
             android:id="@+id/button_check"
@@ -80,7 +80,7 @@
             app:layout_constraintEnd_toEndOf="@+id/button_check"
             app:layout_constraintStart_toStartOf="@+id/text_nickname"
             app:layout_constraintTop_toBottomOf="@+id/textView3"
-            app:title="Instagram ID" />
+            app:title="인스타그램 ID" />
 
         <CheckBox
             android:id="@+id/checkBox_all_check"
