@@ -17,4 +17,6 @@
     <color name="grayAA">#AAAAAA</color>
     <color name="white">#FFFFFFFF</color>
     <color name="transparent">#00000000</color>
+
+    <color name="blackCCalpha">#CC000000</color>
 </resources>

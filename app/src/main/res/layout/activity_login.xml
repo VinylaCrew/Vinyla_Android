@@ -86,7 +86,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/image_vinyl_core"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -104,9 +104,9 @@
         android:text="Vinyla"
         android:textColor="@color/mainColor"
         android:textSize="24dp"
-        app:layout_constraintEnd_toEndOf="@+id/imageView2"
-        app:layout_constraintStart_toStartOf="@+id/imageView2"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+        app:layout_constraintEnd_toEndOf="@+id/image_vinyl_core"
+        app:layout_constraintStart_toStartOf="@+id/image_vinyl_core"
+        app:layout_constraintTop_toBottomOf="@+id/image_vinyl_core" />
 
     <TextView
         android:id="@+id/textView2"

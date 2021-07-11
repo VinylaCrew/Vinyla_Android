@@ -13,4 +13,6 @@
     <color name="grayAA">#AAAAAA</color>
     <color name="white">#FFFFFFFF</color>
 
+    <color name="white99alpha">#99FFFFFF</color>
+    <color name="blackCCalpha">#CC000000</color>
 </resources>

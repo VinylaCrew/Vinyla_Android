@@ -17,4 +17,8 @@
     <declare-styleable name="TopBar">
         <attr name="title" />
     </declare-styleable>
+
+    <declare-styleable name="VinylView">
+        <attr name="vinylImageUrl" format="string" />
+    </declare-styleable>
 </resources>
