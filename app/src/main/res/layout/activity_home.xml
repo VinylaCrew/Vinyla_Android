@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/black19191a">
@@ -25,53 +25,67 @@
                 android:layout_height="wrap_content"
                 tools:context=".presentation.home.HomeActivity">
 
-                <ImageView
-                    android:id="@+id/image_blur_background"
+                <com.vinyla_android.view.widget.VinylDisplayView
+                    android:id="@+id/image_vinyl_display"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     app:layout_constraintDimensionRatio="1:1"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    tools:srcCompat="@tools:sample/avatars" />
+                    tools:srcCompat="@tools:sample/avatars">
 
-                <ImageView
-                    android:id="@+id/image_main_vinyl"
+                </com.vinyla_android.view.widget.VinylDisplayView>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/button_initial_add_my_vinyl"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginEnd="15dp"
+                    android:background="@color/blackCCalpha"
                     app:layout_constraintDimensionRatio="1:1"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    tools:srcCompat="@tools:sample/avatars" />
+                    tools:srcCompat="@tools:sample/avatars">
+
+                    <ImageView
+                        android:id="@+id/imageView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintBottom_toTopOf="@+id/textView8"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_chainStyle="packed"
+                        app:srcCompat="@drawable/icn_btn_home_add" />
+
+                    <TextView
+                        android:id="@+id/textView8"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="@string/add_my_vinyl"
+                        android:textColor="@color/white"
+                        android:textSize="17dp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="@id/imageView"
+                        app:layout_constraintStart_toStartOf="@id/imageView"
+                        app:layout_constraintTop_toBottomOf="@+id/imageView"
+                        tools:layout_editor_absoluteX="185dp" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <ImageView
-                    android:id="@+id/imageView4"
+                    android:id="@+id/button_share"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_constraintStart_toStartOf="@+id/image_main_vinyl"
-                    app:layout_constraintTop_toTopOf="@+id/image_main_vinyl"
-                    app:srcCompat="@drawable/my" />
-
-                <ImageView
-                    android:id="@+id/imageView5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintBottom_toBottomOf="@+id/image_main_vinyl"
-                    app:layout_constraintEnd_toEndOf="@+id/image_main_vinyl"
-                    app:srcCompat="@drawable/vinyl" />
-
-                <ImageView
-                    android:id="@+id/button_menu"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="6dp"
                     android:padding="10dp"
-                    app:layout_constraintEnd_toEndOf="@+id/image_main_vinyl"
-                    app:layout_constraintTop_toTopOf="@+id/image_main_vinyl"
-                    app:srcCompat="@drawable/btn" />
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/image_vinyl_display"
+                    app:srcCompat="@drawable/icn_btn_share" />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/constraintLayout"
@@ -80,7 +94,7 @@
                     android:background="@color/black141415"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/image_blur_background">
+                    app:layout_constraintTop_toBottomOf="@+id/image_vinyl_display">
 
                     <TextView
                         android:id="@+id/textView11"
@@ -90,7 +104,7 @@
                         android:layout_marginTop="16dp"
                         android:text="@string/recent_collected_vinly"
                         android:textColor="@color/grayDD"
-                        android:textSize="16dp"
+                        android:textSize="13dp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
@@ -160,41 +174,42 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
 
-                    <ImageView
-                        android:id="@+id/imageView15"
-                        android:layout_width="16dp"
-                        android:layout_height="16dp"
-                        app:layout_constraintBottom_toBottomOf="@+id/text_title"
-                        app:layout_constraintEnd_toStartOf="@+id/text_title"
-                        app:layout_constraintHorizontal_chainStyle="packed"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="@+id/text_title"
-                        tools:srcCompat="@tools:sample/avatars" />
-
                     <TextView
                         android:id="@+id/text_title"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="4dp"
                         android:layout_marginTop="14dp"
                         android:text="Title WOW"
                         android:textColor="@android:color/white"
-                        android:textSize="30dp"
+                        android:textSize="22dp"
+                        android:textStyle="bold"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/imageView15"
+                        app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/image_level_icon_small"
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:layout_marginEnd="4dp"
+                        app:layout_constraintBottom_toBottomOf="@+id/text_nickname"
+                        app:layout_constraintEnd_toStartOf="@+id/text_nickname"
+                        app:layout_constraintHorizontal_chainStyle="packed"
+                        app:layout_constraintTop_toTopOf="@+id/text_nickname"
+                        tools:srcCompat="@drawable/ic_level_1_small" />
 
                     <TextView
                         android:id="@+id/text_nickname"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
                         android:layout_marginBottom="20dp"
                         android:text="TextView"
                         android:textColor="@color/gray88"
-                        android:textSize="16dp"
+                        android:textSize="15dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="@+id/text_title"
-                        app:layout_constraintStart_toStartOf="@+id/imageView15"
+                        app:layout_constraintStart_toStartOf="@+id/text_title"
                         app:layout_constraintTop_toBottomOf="@+id/text_title" />
 
                     <ImageView
@@ -236,7 +251,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="4dp"
-                    android:text="Next level Name"
+                    tools:text="닐라대왕"
                     android:textColor="@color/gray66"
                     android:textSize="13dp"
                     app:layout_constraintBottom_toBottomOf="@+id/imageView10"
@@ -365,7 +380,7 @@
                     android:layout_marginTop="8dp"
                     app:layout_constraintEnd_toEndOf="@+id/progress_title"
                     app:layout_constraintTop_toBottomOf="@+id/progress_title"
-                    app:srcCompat="@drawable/circle_logo_google" />
+                    app:srcCompat="@drawable/tip" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </ScrollView>

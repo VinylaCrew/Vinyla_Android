@@ -18,4 +18,6 @@
     <string name="recent_collected_vinly">최근 수집한 바이닐</string>
     <string name="collected_vinyl">수집된 바이닐</string>
     <string name="my_genre">내 장르</string>
+    <string name="add_my_vinyl">내 바이닐 추가하기</string>
+    <string name="bottom_lined_string"><u>%s</u></string>
 </resources>
