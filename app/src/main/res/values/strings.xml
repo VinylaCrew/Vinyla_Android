@@ -20,4 +20,15 @@
     <string name="my_genre">내 장르</string>
     <string name="add_my_vinyl">내 바이닐 추가하기</string>
     <string name="bottom_lined_string"><u>%s</u></string>
+    <string name="leave_underline"><u>탈퇴하기</u></string>
+    <string name="login_from_s">%s로 로그인</string>
+    <string name="sir">님</string>
+    <string name="logout">logout</string>
+    <string name="notify_service_push">서비스 푸시알림</string>
+    <string name="push_notication_details">신규 바이닐 업데이트 알림 주요 공지 등\n서비스관련 푸쉬 알림을 받습니다</string>
+    <string name="service_info">서비스 정보</string>
+    <string name="inquire">문의하기</string>
+    <string name="terms_of_service">서비스 약관</string>
+    <string name="version_info">버전 정보</string>
+    <string name="my">MY</string>
 </resources>

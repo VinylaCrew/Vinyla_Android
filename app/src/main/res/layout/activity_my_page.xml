@@ -23,7 +23,7 @@
             android:layout_marginStart="1dp"
             android:drawablePadding="8dp"
             android:padding="12dp"
-            android:text="MY"
+            android:text="@string/my"
             android:textColor="@color/white"
             android:textSize="17dp"
             app:drawableStartCompat="@drawable/icn"
@@ -36,18 +36,18 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
             android:layout_marginTop="18dp"
-            android:text="Malibin"
             android:textColor="@color/white"
             android:textSize="19dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button_back" />
+            app:layout_constraintTop_toBottomOf="@+id/button_back"
+            tools:text="Malibin" />
 
         <TextView
             android:id="@+id/textView5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="2dp"
-            android:text="님"
+            android:text="@string/sir"
             android:textColor="@color/grayDD"
             android:textSize="15dp"
             app:layout_constraintBottom_toBottomOf="@+id/text_nickname"
@@ -71,7 +71,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="6dp"
-            android:text="%s로 로그인"
+            android:text="@string/login_from_s"
             android:textColor="@color/white"
             android:textSize="13dp"
             app:layout_constraintBottom_toBottomOf="@+id/image_current_sns_login"
@@ -79,11 +79,11 @@
             app:layout_constraintTop_toTopOf="@+id/image_current_sns_login" />
 
         <TextView
-            android:id="@+id/button_quit"
+            android:id="@+id/button_leave"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="15dp"
-            android:text="탈퇴하기"
+            android:text="@string/leave_underline"
             android:textColor="@color/grayDD"
             android:textSize="13dp"
             app:layout_constraintBottom_toBottomOf="@+id/textView6"
@@ -96,21 +96,21 @@
             android:layout_height="16dp"
             android:layout_marginEnd="10dp"
             android:background="@color/black3c3c3f"
-            app:layout_constraintBottom_toBottomOf="@+id/button_quit"
-            app:layout_constraintEnd_toStartOf="@+id/button_quit"
-            app:layout_constraintTop_toTopOf="@+id/button_quit" />
+            app:layout_constraintBottom_toBottomOf="@+id/button_leave"
+            app:layout_constraintEnd_toStartOf="@+id/button_leave"
+            app:layout_constraintTop_toTopOf="@+id/button_leave" />
 
         <TextView
             android:id="@+id/button_logout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="10dp"
-            android:text="로그아웃"
+            android:text="@string/logout"
             android:textColor="@color/grayAA"
             android:textSize="13dp"
-            app:layout_constraintBottom_toBottomOf="@+id/button_quit"
+            app:layout_constraintBottom_toBottomOf="@+id/button_leave"
             app:layout_constraintEnd_toStartOf="@+id/view"
-            app:layout_constraintTop_toTopOf="@+id/button_quit" />
+            app:layout_constraintTop_toTopOf="@+id/button_leave" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView
@@ -119,7 +119,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="27dp"
-        android:text="서비스 푸시알림"
+        android:text="@string/notify_service_push"
         android:textColor="@color/white"
         android:textSize="15dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -142,7 +142,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="신규 바이닐 업데이트 알림 주요 공지 등\n서비스관련 푸쉬 알림을 받습니다"
+        android:text="@string/push_notication_details"
         android:textColor="@color/gray88"
         android:textSize="13dp"
         app:layout_constraintStart_toStartOf="@+id/view2"
@@ -174,7 +174,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="27dp"
-        android:text="서비스 정보"
+        android:text="@string/service_info"
         android:textColor="@color/white"
         android:textSize="15dp"
         app:layout_constraintStart_toStartOf="@+id/view6"
@@ -205,7 +205,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:text="문의하기"
+            android:text="@string/inquire"
             android:textColor="@color/grayCC"
             android:textSize="15dp"
             app:layout_constraintStart_toStartOf="parent"
@@ -244,7 +244,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:text="서비스 약관"
+            android:text="@string/terms_of_service"
             android:textColor="@color/grayCC"
             android:textSize="15dp"
             app:layout_constraintStart_toStartOf="parent"
@@ -282,7 +282,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:text="버전 정보"
+            android:text="@string/version_info"
             android:textColor="@color/grayCC"
             android:textSize="15dp"
             app:layout_constraintStart_toStartOf="parent"
@@ -303,12 +303,12 @@
             android:id="@+id/text_version"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:text="9.13"
             android:textColor="@color/grayAA"
             android:textSize="15dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="9.13" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

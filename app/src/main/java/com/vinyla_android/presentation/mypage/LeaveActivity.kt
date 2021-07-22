@@ -2,13 +2,13 @@ package com.vinyla_android.presentation.mypage
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.vinyla_android.databinding.ActivityQuitBinding
+import com.vinyla_android.databinding.ActivityLeaveBinding
 
-class QuitActivity : AppCompatActivity() {
+class LeaveActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val binding = ActivityQuitBinding.inflate(layoutInflater)
+        val binding = ActivityLeaveBinding.inflate(layoutInflater)
         setContentView(binding.root)
     }
 }
