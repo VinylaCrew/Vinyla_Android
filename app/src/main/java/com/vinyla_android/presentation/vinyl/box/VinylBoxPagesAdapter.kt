@@ -31,7 +31,9 @@ class VinylBoxPagesAdapter :
     ) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(vinyls: Vinyls) {
-
+            val collectedVinylsAdapter = CollectedVinylsAdapter()
+            binding.listVinyls.adapter = collectedVinylsAdapter
+            collectedVinylsAdapter.submitList(vinyls.get())
         }
     }
 

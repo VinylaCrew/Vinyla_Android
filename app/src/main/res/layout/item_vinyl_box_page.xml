@@ -20,5 +20,5 @@
         app:layout_constraintTop_toTopOf="parent"
         app:spanCount="3"
         tools:itemCount="9"
-        tools:listitem="@layout/item_vinyl_collection" />
+        tools:listitem="@layout/item_collected_vinyl" />
 </androidx.constraintlayout.widget.ConstraintLayout>

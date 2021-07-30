@@ -20,7 +20,7 @@
         <activity android:name=".presentation.vinyl.level.VinylLevelActivity">
 
         </activity>
-        <activity android:name=".presentation.vinyl.collection.VinylCollectionsActivity" />
+        <activity android:name=".presentation.vinyl.box.VinylBoxActivity" />
         <activity android:name=".presentation.mypage.LeaveActivity" />
         <activity android:name=".presentation.mypage.MyPageActivity" />
         <activity android:name=".presentation.home.HomeActivity">
