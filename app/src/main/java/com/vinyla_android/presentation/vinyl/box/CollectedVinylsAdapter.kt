@@ -15,7 +15,7 @@ class CollectedVinylsAdapter :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CollectedVinylViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
-        val binding = ItemCollectedVinylBinding.inflate(layoutInflater)
+        val binding = ItemCollectedVinylBinding.inflate(layoutInflater, parent, false)
         return CollectedVinylViewHolder(binding)
     }
 

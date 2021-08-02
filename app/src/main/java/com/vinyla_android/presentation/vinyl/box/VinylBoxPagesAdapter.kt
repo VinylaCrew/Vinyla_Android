@@ -18,7 +18,7 @@ class VinylBoxPagesAdapter :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VinylBoxPageViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
-        val binding = ItemVinylBoxPageBinding.inflate(layoutInflater)
+        val binding = ItemVinylBoxPageBinding.inflate(layoutInflater, parent, false)
         return VinylBoxPageViewHolder(binding)
     }
 

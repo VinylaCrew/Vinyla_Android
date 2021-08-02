@@ -20,15 +20,17 @@
         <activity android:name=".presentation.vinyl.level.VinylLevelActivity">
 
         </activity>
-        <activity android:name=".presentation.vinyl.box.VinylBoxActivity" />
-        <activity android:name=".presentation.mypage.LeaveActivity" />
-        <activity android:name=".presentation.mypage.MyPageActivity" />
-        <activity android:name=".presentation.home.HomeActivity">
+        <activity android:name=".presentation.vinyl.box.VinylBoxActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".presentation.mypage.LeaveActivity" />
+        <activity android:name=".presentation.mypage.MyPageActivity" />
+        <activity android:name=".presentation.home.HomeActivity">
+
         </activity>
         <activity android:name=".presentation.signup.SignUpActivity"></activity>
         <activity android:name=".presentation.SplashActivity" />
