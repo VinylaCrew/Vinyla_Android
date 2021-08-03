@@ -14,7 +14,7 @@ import com.vinyla_android.presentation.utils.printLog
 
 class MainActivity : AppCompatActivity() {
 
-    private val snsAuthManager: SnsAuthManager by lazy { SnsAuthManager(this) }
+    private val snsAuthManager: SnsAuthManager by lazy { SnsAuthManager() }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -56,11 +56,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun proceedKakaoLogin() {
-        snsAuthManager.login(SnsAuth.Type.KAKAO) { printLog("kakao profile : $it") }
+        snsAuthManager.login(this, SnsAuth.Type.KAKAO) { printLog("kakao profile : $it") }
     }
 
     private fun proceedFacebookLogin() {
-        snsAuthManager.login(SnsAuth.Type.FACEBOOK) { printLog("facebook profile : $it") }
+        snsAuthManager.login(this, SnsAuth.Type.FACEBOOK) { printLog("facebook profile : $it") }
     }
 
     override fun onDestroy() {

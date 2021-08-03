@@ -21,7 +21,7 @@ class LoginActivity : AppCompatActivity() {
 
         binding = ActivityLoginBinding.inflate(layoutInflater)
             .also { initView(it) }
-        snsAuthManager = SnsAuthManager(this)
+        snsAuthManager = SnsAuthManager()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -44,7 +44,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun login(type: SnsAuth.Type) {
-        snsAuthManager?.login(type, ::onSnsResponse)
+        snsAuthManager?.login(this, type, ::onSnsResponse)
     }
 
     private fun onSnsResponse(profile: UserProfile?) {

@@ -1,6 +1,6 @@
 package com.vinyla_android.presentation.login.auth
 
-import android.content.Context
+import androidx.fragment.app.FragmentActivity
 import com.kakao.sdk.user.UserApiClient
 import com.kakao.sdk.user.model.User
 import com.vinyla_android.data.model.UserProfile
@@ -10,13 +10,11 @@ import com.vinyla_android.data.model.UserProfile
  * on 4월 12, 2021
  */
 
-class KakaoAuth(
-    private val context: Context
-) : SnsAuth {
+class KakaoAuth : SnsAuth {
 
-    override fun login(callback: (UserProfile?) -> Unit) {
-        if (UserApiClient.instance.isKakaoTalkLoginAvailable(context)) {
-            UserApiClient.instance.loginWithKakaoTalk(context) { _, loginError ->
+    override fun login(activity: FragmentActivity, callback: (UserProfile?) -> Unit) {
+        if (UserApiClient.instance.isKakaoTalkLoginAvailable(activity)) {
+            UserApiClient.instance.loginWithKakaoTalk(activity) { _, loginError ->
                 loginError?.printStackTrace()
                 UserApiClient.instance.me { user, error ->
                     callback(user.toUserProfile())
@@ -25,7 +23,7 @@ class KakaoAuth(
             }
             return
         }
-        UserApiClient.instance.loginWithKakaoAccount(context) { _, loginError ->
+        UserApiClient.instance.loginWithKakaoAccount(activity) { _, loginError ->
             loginError?.printStackTrace()
             UserApiClient.instance.me { user, error ->
                 callback(user.toUserProfile())

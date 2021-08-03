@@ -1,13 +1,11 @@
 package com.vinyla_android.presentation.login.auth
 
-import android.content.Context
 import android.content.Intent
+import androidx.fragment.app.FragmentActivity
 import com.facebook.*
 import com.facebook.login.LoginManager
 import com.facebook.login.LoginResult
 import com.facebook.login.widget.LoginButton
-import com.google.firebase.auth.FacebookAuthProvider
-import com.google.firebase.auth.FirebaseAuth
 import com.vinyla_android.config.interceptor.HTTP_LOGGING_INTERCEPTOR
 import com.vinyla_android.data.model.UserProfile
 import com.vinyla_android.data.service.FacebookAuthService
@@ -15,19 +13,15 @@ import com.vinyla_android.presentation.utils.printLog
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.tasks.await
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class FacebookAuth(
-    private val context: Context,
-) : SnsAuth {
+class FacebookAuth : SnsAuth {
     private val callbackManager: CallbackManager = CallbackManager.Factory.create()
     private var profileTracker: ProfileTracker? = null
 
     private val facebookAuthService: FacebookAuthService by lazy { createFacebookAuthService() }
-    private val firebaseAuth: FirebaseAuth by lazy { FirebaseAuth.getInstance() }
 
     /**
      * onSuccess 이후에 바로 Callback을 호출 하지 않는 이유
@@ -38,16 +32,16 @@ class FacebookAuth(
      *      그렇기 때문에 profileTracker를 사용했다.
      *      로직 개복잡하네 ㄹㅇ Facebook SDK 별로인듯
      */
-    override fun login(callback: (UserProfile?) -> Unit) {
+    override fun login(activity: FragmentActivity, callback: (UserProfile?) -> Unit) {
         if (AccessToken.getCurrentAccessToken()?.isExpired == false) {
+            printLog("Facebook AccessToken is not expried")
             callback(createUserProfile())
             return
         }
-        val loginButton = LoginButton(context)
+        val loginButton = LoginButton(activity)
         loginButton.registerCallback(callbackManager, object : FacebookCallback<LoginResult> {
             override fun onSuccess(result: LoginResult?) {
                 printLog("Facebook Auth onSuccess")
-                connectFirebase(result?.accessToken)
 
                 profileTracker = object : ProfileTracker() {
                     override fun onCurrentProfileChanged(
@@ -71,13 +65,6 @@ class FacebookAuth(
             }
         })
         loginButton.performClick()
-    }
-
-    private fun connectFirebase(faceBookToken: AccessToken?) {
-        val credential = FacebookAuthProvider.getCredential(faceBookToken?.token ?: return)
-        firebaseAuth.signInWithCredential(credential)
-            .addOnSuccessListener { printLog("firebase facebook connected") }
-            .addOnFailureListener { printLog("firebase facebook failed") }
     }
 
     /**
@@ -126,14 +113,12 @@ class FacebookAuth(
     override fun logout(endCallback: (() -> Unit)?) {
         LoginManager.getInstance().logOut()
         endCallback?.invoke()
-        firebaseAuth.signOut()
     }
 
     override fun quit(endCallback: (() -> Unit)?) {
         val id = Profile.getCurrentProfile()?.id.orEmpty()
         val accessToken = AccessToken.getCurrentAccessToken()?.token.orEmpty()
         CoroutineScope(Dispatchers.IO).launch {
-            disconnectFirebase(accessToken)
             logout()
             val response = facebookAuthService.unLink(id, accessToken)
             if (!response.isSuccessful) {
@@ -141,19 +126,6 @@ class FacebookAuth(
             }
             endCallback?.invoke()
         }
-    }
-
-    private suspend fun disconnectFirebase(accessToken: String) {
-        val firebaseUser = firebaseAuth.currentUser
-        val credential = FacebookAuthProvider.getCredential(accessToken)
-        try {
-            firebaseUser?.reauthenticate(credential)?.await()
-            firebaseUser?.delete()?.await()
-        } catch (e: Exception) {
-            printLog("firebaseuser reauthenticate or delete error ")
-            e.printStackTrace()
-        }
-        printLog("firebaseuser disconneced")
     }
 
     private fun createFacebookAuthService(): FacebookAuthService {
@@ -167,5 +139,13 @@ class FacebookAuth(
             )
             .build()
             .create(FacebookAuthService::class.java)
+    }
+
+    companion object {
+        /**
+         * CallbackManagerImpl.RequestCodeOffset.Login.toRequestCode()
+         * DEFAULT_CALLBACK_REQUEST_CODE_OFFSET(0xface) + Login(0)
+         */
+        const val REQUEST_CODE = 0xface + 0
     }
 }

@@ -19,7 +19,7 @@ class TempHomeActivity : AppCompatActivity() {
 
         binding = ActivityTempHomeBinding.inflate(layoutInflater)
             .also { initView(it) }
-        snsAuthManager = SnsAuthManager(this)
+        snsAuthManager = SnsAuthManager()
     }
 
     override fun onDestroy() {
