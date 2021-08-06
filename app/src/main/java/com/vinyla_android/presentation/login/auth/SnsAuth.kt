@@ -26,6 +26,7 @@ interface SnsAuth {
     enum class Type {
         KAKAO,
         FACEBOOK,
+        GOOGLE,
         APPLE;
     }
 }
