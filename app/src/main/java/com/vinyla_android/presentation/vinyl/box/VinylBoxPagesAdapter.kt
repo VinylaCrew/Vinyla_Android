@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.vinyla_android.data.model.Vinyls
+import com.vinyla_android.domain.entity.Vinyls
 import com.vinyla_android.databinding.ItemVinylBoxPageBinding
 
 /**

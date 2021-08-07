@@ -15,3 +15,5 @@ data class UserProfile(
     val profileUrl: String,
     val authType: SnsAuth.Type,
 ) : Parcelable
+
+// sns login module 쪽 도메인으로 가져가야할듯

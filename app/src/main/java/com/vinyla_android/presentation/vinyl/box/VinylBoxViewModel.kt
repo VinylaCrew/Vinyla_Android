@@ -4,8 +4,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.vinyla_android.data.model.Vinyl
-import com.vinyla_android.data.model.Vinyls
+import com.vinyla_android.domain.entity.Vinyl
+import com.vinyla_android.domain.entity.Vinyls
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject

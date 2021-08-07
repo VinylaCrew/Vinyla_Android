@@ -1,3 +1,4 @@
 include ':VinylaView'
 include ':app'
 rootProject.name = "Vinyla_Android"
+include ':domain'

@@ -1,12 +1,8 @@
-package com.vinyla_android.data.model
+package com.vinyla_android.domain.entity
 
-import androidx.room.Entity
-import androidx.room.PrimaryKey
 import java.util.*
 
-@Entity
 data class Vinyl(
-    @PrimaryKey
     val id: Long,
     val name: String,
     val artiestName: String,

@@ -1,6 +1,6 @@
 package com.vinyla_android.data.service.response
 
-import com.vinyla_android.data.model.Vinyl
+import com.vinyla_android.domain.entity.Vinyl
 
 /**
  * Created By Malibin

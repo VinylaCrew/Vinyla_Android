@@ -1,4 +1,4 @@
-package com.vinyla_android.data.model
+package com.vinyla_android.domain.entity
 
 /**
  * Created By Malibin
