@@ -1,7 +1,7 @@
-package com.vinyla_android.config.di
+package com.vinyla_android.data.di
 
-import com.vinyla_android.config.interceptor.HTTP_LOGGING_INTERCEPTOR
-import com.vinyla_android.data.service.VinylaService
+import com.vinyla_android.data.remote.interceptor.HTTP_LOGGING_INTERCEPTOR
+import com.vinyla_android.data.remote.service.VinylaService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

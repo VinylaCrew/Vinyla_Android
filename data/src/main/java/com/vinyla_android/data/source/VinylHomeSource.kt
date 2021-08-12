@@ -1,6 +1,6 @@
 package com.vinyla_android.data.source
 
-import com.vinyla_android.data.model.VinylHome
+import com.vinyla_android.domain.entity.VinylHome
 
 /**
  * Created By Malibin

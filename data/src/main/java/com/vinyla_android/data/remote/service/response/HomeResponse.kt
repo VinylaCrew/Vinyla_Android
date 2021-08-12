@@ -1,7 +1,7 @@
-package com.vinyla_android.data.service.response
+package com.vinyla_android.data.remote.service.response
 
-import com.vinyla_android.data.model.VinylHome
-import com.vinyla_android.presentation.vinyl.level.VinylLevel
+import com.vinyla_android.domain.entity.VinylHome
+import com.vinyla_android.domain.entity.VinylLevel
 
 /**
  * Created By Malibin

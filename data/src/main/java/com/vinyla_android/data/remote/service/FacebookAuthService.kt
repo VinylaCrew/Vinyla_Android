@@ -1,4 +1,4 @@
-package com.vinyla_android.data.service
+package com.vinyla_android.data.remote.service
 
 import retrofit2.Response
 import retrofit2.http.DELETE

@@ -1,4 +1,4 @@
-package com.vinyla_android.config.di
+package com.vinyla_android.data.di
 
 import android.content.Context
 import androidx.datastore.core.DataStore

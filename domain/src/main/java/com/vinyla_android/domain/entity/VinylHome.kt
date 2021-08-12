@@ -1,7 +1,4 @@
-package com.vinyla_android.data.model
-
-import com.vinyla_android.domain.entity.Vinyl
-import com.vinyla_android.presentation.vinyl.level.VinylLevel
+package com.vinyla_android.domain.entity
 
 /**
  * Created By Malibin

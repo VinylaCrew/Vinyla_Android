@@ -1,8 +1,8 @@
-package com.vinyla_android.data.service
+package com.vinyla_android.data.remote.service
 
-import com.vinyla_android.data.service.requestbody.CheckDuplicateNicknameRequestBody
-import com.vinyla_android.data.service.response.BaseResponse
-import com.vinyla_android.data.service.response.HomeResponse
+import com.vinyla_android.data.remote.service.requestbody.CheckDuplicateNicknameRequestBody
+import com.vinyla_android.data.remote.service.response.BaseResponse
+import com.vinyla_android.data.remote.service.response.HomeResponse
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST

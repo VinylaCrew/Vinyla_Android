@@ -6,9 +6,9 @@ import com.facebook.*
 import com.facebook.login.LoginManager
 import com.facebook.login.LoginResult
 import com.facebook.login.widget.LoginButton
-import com.vinyla_android.config.interceptor.HTTP_LOGGING_INTERCEPTOR
+import com.vinyla_android.data.remote.interceptor.HTTP_LOGGING_INTERCEPTOR
 import com.vinyla_android.data.model.UserProfile
-import com.vinyla_android.data.service.FacebookAuthService
+import com.vinyla_android.data.remote.service.FacebookAuthService
 import com.vinyla_android.presentation.utils.printLog
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers

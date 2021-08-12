@@ -1,4 +1,4 @@
-package com.vinyla_android.data.service.requestbody
+package com.vinyla_android.data.remote.service.requestbody
 
 /**
  * Created By Malibin

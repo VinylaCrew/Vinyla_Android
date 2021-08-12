@@ -1,4 +1,4 @@
-package com.vinyla_android.config.interceptor
+package com.vinyla_android.data.remote.interceptor
 
 import com.orhanobut.logger.Logger
 import okhttp3.logging.HttpLoggingInterceptor
