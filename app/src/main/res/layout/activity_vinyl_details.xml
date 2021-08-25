@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:background="@color/black141415"
+            tools:context=".presentation.vinyl.detail.VinylDetailsActivity">
+
+            <com.vinyla_android.view.widget.VinylDisplayView
+                android:id="@+id/image_vinyl"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/button_back"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:padding="15dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/icn_btn_back" />
+
+                <ImageView
+                    android:id="@+id/button_heart"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="6dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/button_share_instagram"
+                    app:layout_constraintEnd_toStartOf="@+id/button_share_instagram"
+                    app:layout_constraintTop_toTopOf="@+id/button_share_instagram"
+                    app:srcCompat="@drawable/selector_button_heart" />
+
+                <ImageView
+                    android:id="@+id/button_share_instagram"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="9dp"
+                    android:padding="6dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/button_back"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/button_back"
+                    app:srcCompat="@drawable/icn_btn_insta" />
+            </com.vinyla_android.view.widget.VinylDisplayView>
+
+            <TextView
+                android:id="@+id/text_vinyl_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="20dp"
+                android:textColor="@color/white"
+                android:textSize="19dp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/image_vinyl"
+                tools:text="Memories...Do Not Open" />
+
+            <TextView
+                android:id="@+id/textView28"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="아티스트"
+                android:textColor="@color/gray88"
+                android:textSize="13dp"
+                app:layout_constraintStart_toStartOf="@+id/text_vinyl_title"
+                app:layout_constraintTop_toBottomOf="@+id/text_vinyl_title" />
+
+
+            <TextView
+                android:id="@+id/textView30"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="발매년도"
+                android:textColor="@color/gray88"
+                android:textSize="13dp"
+                app:layout_constraintStart_toStartOf="@+id/textView28"
+                app:layout_constraintTop_toBottomOf="@+id/textView28" />
+
+            <TextView
+                android:id="@+id/textView31"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="장르/스타일"
+                android:textColor="@color/gray88"
+                android:textSize="13dp"
+                app:layout_constraintStart_toStartOf="@+id/textView30"
+                app:layout_constraintTop_toBottomOf="@+id/textView30" />
+
+            <TextView
+                android:id="@+id/textView32"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="추천치수"
+                android:textColor="@color/gray88"
+                android:textSize="13dp"
+                app:layout_constraintStart_toStartOf="@+id/textView31"
+                app:layout_constraintTop_toBottomOf="@+id/textView31" />
+
+            <TextView
+                android:id="@+id/text_vinyl_artist"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="38dp"
+                android:textColor="@color/white"
+                android:textSize="13dp"
+                app:layout_constraintBottom_toBottomOf="@+id/textView28"
+                app:layout_constraintStart_toEndOf="@+id/textView28"
+                app:layout_constraintTop_toTopOf="@+id/textView28"
+                tools:text="The Chainsmokers" />
+
+            <TextView
+                android:id="@+id/text_vinyl_release_year"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textSize="13dp"
+                app:layout_constraintBottom_toBottomOf="@+id/textView30"
+                app:layout_constraintStart_toStartOf="@+id/text_vinyl_artist"
+                app:layout_constraintTop_toTopOf="@+id/textView30"
+                tools:text="2017" />
+
+            <TextView
+                android:id="@+id/text_vinyl_genre"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="일렉트로니카"
+                android:textColor="@color/white"
+                android:textSize="13dp"
+                app:layout_constraintBottom_toBottomOf="@+id/textView31"
+                app:layout_constraintStart_toStartOf="@+id/text_vinyl_release_year"
+                app:layout_constraintTop_toTopOf="@+id/textView31" />
+
+            <TextView
+                android:id="@+id/text_vinyl_recommend_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/icn_star"
+                android:text="@string/recommend_text"
+                android:textColor="@color/white"
+                android:textSize="13dp"
+                app:layout_constraintBottom_toBottomOf="@+id/textView32"
+                app:layout_constraintStart_toStartOf="@+id/text_vinyl_genre"
+                app:layout_constraintTop_toTopOf="@+id/textView32"
+                tools:text="7.81(3918건)" />
+
+            <View
+                android:id="@+id/view3"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="15dp"
+                android:background="@color/black282829"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView32" />
+
+            <TextView
+                android:id="@+id/text_vinyl_tracks"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="20dp"
+                android:text="수록곡 %d"
+                android:textColor="@color/white"
+                android:textSize="19dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view3" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/list_vinyl_tracks"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="15dp"
+                android:overScrollMode="never"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_vinyl_tracks"
+                tools:itemCount="6"
+                tools:listitem="@layout/item_vinyl_track">
+
+            </androidx.recyclerview.widget.RecyclerView>
+
+            <View
+                android:id="@+id/view14"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="15dp"
+                android:background="@color/black282829"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/list_vinyl_tracks" />
+
+            <TextView
+                android:id="@+id/button_delete"
+                style="@style/Bottom_Text_Button"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginBottom="28dp"
+                android:backgroundTint="@color/black232324"
+                android:paddingTop="19dp"
+                android:paddingBottom="19dp"
+                android:text="삭제하기"
+                android:textColor="@color/gray88"
+                android:textSize="17dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view14" />
+
+            <TextView
+                android:id="@+id/button_add_collection"
+                style="@style/Bottom_Text_Button"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginBottom="28dp"
+                android:paddingTop="19dp"
+                android:paddingBottom="19dp"
+                android:text="보관함에 저장하기(1/2)"
+                android:textSize="17dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view14" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
