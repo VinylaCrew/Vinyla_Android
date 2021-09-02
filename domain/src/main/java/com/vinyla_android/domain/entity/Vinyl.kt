@@ -3,7 +3,7 @@ package com.vinyla_android.domain.entity
 import java.util.*
 
 data class Vinyl(
-    val id: Long,
+    val id: Int,
     val name: String,
     val artiestName: String,
     val genre: String,

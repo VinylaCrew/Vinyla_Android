@@ -14,7 +14,7 @@ data class VinylResponse(
     val artist: String,
 ) {
     fun toVinyl(): Vinyl = Vinyl(
-        id = vinylIdx.toLong(),
+        id = vinylIdx,
         name = title,
         artiestName = artist,
         genre = "",

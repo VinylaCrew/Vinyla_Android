@@ -5,7 +5,7 @@ package com.vinyla_android.data.remote.service.response
  * on 6월 29, 2021
  */
 
-data class BaseResponse<T>(
+data class VinylaResponse<T>(
     val statusCode: Int,
     val responseMessage: String,
     val data: T
