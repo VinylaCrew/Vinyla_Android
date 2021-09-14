@@ -40,5 +40,6 @@ class SnsAuthManager(
         SnsAuth.Type.KAKAO -> kakaoAuth
         SnsAuth.Type.FACEBOOK -> facebookAuth
         SnsAuth.Type.APPLE -> appleAuth
+        SnsAuth.Type.GOOGLE -> appleAuth
     }
 }
