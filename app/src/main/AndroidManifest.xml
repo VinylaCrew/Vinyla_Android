@@ -15,10 +15,13 @@
         android:theme="@style/Theme.Vinyla_Android"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".presentation.vinyl.review.ReviewVinylActivity"
+            android:exported="true" />
+        <activity
             android:name=".presentation.vinyl.detail.VinylDetailsActivity"
             android:exported="true" />
-        <activity android:name=".presentation.mypage.TermsOfServiceActivity"></activity>
-        <activity android:name=".presentation.vinyl.level.VinylLevelActivity"></activity>
+        <activity android:name=".presentation.mypage.TermsOfServiceActivity" />
+        <activity android:name=".presentation.vinyl.level.VinylLevelActivity" />
         <activity android:name=".presentation.vinyl.box.VinylBoxActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,7 +31,7 @@
         </activity>
         <activity android:name=".presentation.mypage.LeaveActivity" />
         <activity android:name=".presentation.mypage.MyPageActivity" />
-        <activity android:name=".presentation.home.HomeActivity"></activity>
+        <activity android:name=".presentation.home.HomeActivity" />
         <activity android:name=".presentation.signup.SignUpActivity" />
         <activity android:name=".presentation.SplashActivity" />
         <activity android:name=".presentation.TempHomeActivity" />
