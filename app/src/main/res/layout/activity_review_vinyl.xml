@@ -77,7 +77,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView33"
         tools:text="7.81 (3918건)" />
 
-    <com.vinyla_android.view.widget.InputTextView
+    <com.vinyla_android.view.widget.VinylaEditText
         android:id="@+id/inputTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -119,19 +119,23 @@
         app:layout_constraintStart_toStartOf="@+id/ratingBar"
         app:layout_constraintTop_toBottomOf="@+id/ratingBar" />
 
-    <com.vinyla_android.view.widget.InputTextView
+    <com.vinyla_android.view.widget.VinylaEditText
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:layout_marginEnd="15dp"
         app:hint="이 음반에 대해 감상평을 솔직하게 남겨주세요."
+        app:inputTextPaddingTop="9dp"
+        app:inputTextSize="13dp"
+        app:isOptional="true"
         app:isRequired="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/textView36"
         app:layout_constraintTop_toBottomOf="@+id/textView36"
-        app:title="한줄평" >
+        app:minInputHeight="120dp"
+        app:title="한줄평">
 
-    </com.vinyla_android.view.widget.InputTextView>
+    </com.vinyla_android.view.widget.VinylaEditText>
 
     <TextView
         android:id="@+id/button_add_collection"

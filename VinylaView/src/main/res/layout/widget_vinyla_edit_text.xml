@@ -9,40 +9,54 @@
     tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
 
     <View
-        android:id="@+id/view_require"
+        android:id="@+id/viewRequire"
         android:layout_width="5dp"
         android:layout_height="5dp"
         android:background="@drawable/circle"
         android:backgroundTint="@color/mainColor"
-        app:layout_constraintBottom_toTopOf="@+id/text_title"
-        app:layout_constraintStart_toEndOf="@+id/text_title"
-        app:layout_constraintTop_toTopOf="@+id/text_title" />
+        app:layout_constraintBottom_toTopOf="@+id/textTitle"
+        app:layout_constraintStart_toEndOf="@+id/textTitle"
+        app:layout_constraintTop_toTopOf="@+id/textTitle" />
 
     <TextView
-        android:id="@+id/text_title"
+        android:id="@+id/textTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
         android:textColor="@color/white"
         android:textSize="15dp"
+        app:layout_constraintBottom_toTopOf="@+id/textInput"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         tools:text="title" />
 
     <EditText
-        android:id="@+id/text_input"
+        android:id="@+id/textInput"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:background="@drawable/round_border_rectangle_8dp"
+        android:background="@drawable/vinyla_edit_text_box"
         android:ems="10"
         android:gravity="top"
         android:inputType="textPersonName"
-        android:padding="15dp"
+        android:paddingStart="15dp"
+        android:paddingTop="14dp"
+        android:paddingBottom="14dp"
         android:textColor="@color/grayCC"
         android:textColorHint="@color/gray66"
-        android:textSize="15dp"
+        android:textSize="13dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_title"
         tools:hint="hint" />
+
+    <TextView
+        android:id="@+id/textOptional"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:text="(선택)"
+        android:textColor="@color/grayAA"
+        android:textSize="13dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/textTitle"
+        app:layout_constraintStart_toEndOf="@+id/textTitle" />
 </merge>

@@ -175,7 +175,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
 
                     <TextView
-                        android:id="@+id/text_title"
+                        android:id="@+id/textTitle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="14dp"
@@ -208,9 +208,9 @@
                         android:textColor="@color/gray88"
                         android:textSize="15dp"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="@+id/text_title"
-                        app:layout_constraintStart_toStartOf="@+id/text_title"
-                        app:layout_constraintTop_toBottomOf="@+id/text_title" />
+                        app:layout_constraintEnd_toEndOf="@+id/textTitle"
+                        app:layout_constraintStart_toStartOf="@+id/textTitle"
+                        app:layout_constraintTop_toBottomOf="@+id/textTitle" />
 
                     <ImageView
                         android:id="@+id/image_vinyl_cover"

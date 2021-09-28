@@ -3,8 +3,9 @@
     <attr name="title" format="string" />
     <attr name="vinylImageUrl" format="string" />
 
-    <declare-styleable name="InputTextView">
+    <declare-styleable name="VinylaEditText">
         <attr name="isRequired" format="boolean" />
+        <attr name="isOptional" format="boolean" />
         <attr name="title" />
         <attr name="hint" format="string" />
         <attr name="minInputHeight" format="dimension" />
@@ -13,6 +14,8 @@
             <enum name="invisible" value="4" />
             <enum name="gone" value="8" />
         </attr>
+        <attr name="inputTextSize" format="dimension" />
+        <attr name="inputTextPaddingTop" format="dimension" />
     </declare-styleable>
 
     <declare-styleable name="TopBar">

@@ -17,7 +17,7 @@
         app:title="계정 탈퇴" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textOptional"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -39,8 +39,8 @@
         android:textColor="@color/grayDD"
         android:textSize="13dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/textView"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintStart_toStartOf="@+id/textOptional"
+        app:layout_constraintTop_toBottomOf="@+id/textOptional" />
 
     <TextView
         android:id="@+id/textView9"
