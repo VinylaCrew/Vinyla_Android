@@ -16,18 +16,20 @@
         android:usesCleartextTraffic="true">
         <activity
             android:name=".presentation.vinyl.review.ReviewVinylActivity"
-            android:exported="true" />
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".presentation.vinyl.detail.VinylDetailsActivity"
             android:exported="true" />
         <activity android:name=".presentation.mypage.TermsOfServiceActivity" />
         <activity android:name=".presentation.vinyl.level.VinylLevelActivity" />
         <activity android:name=".presentation.vinyl.box.VinylBoxActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".presentation.mypage.LeaveActivity" />
         <activity android:name=".presentation.mypage.MyPageActivity" />

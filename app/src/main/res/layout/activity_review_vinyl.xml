@@ -89,6 +89,8 @@
 
     <RatingBar
         android:id="@+id/ratingBar"
+        style="@style/VinylaRatingBarStyle"
+        android:rating="3.5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="19dp"
@@ -112,7 +114,7 @@
         android:id="@+id/textView36"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="6dp"
+        android:layout_marginTop="8dp"
         android:text="별점을 눌러 추천지수를 알려주세요"
         android:textColor="@color/grayAA"
         android:textSize="13dp"
