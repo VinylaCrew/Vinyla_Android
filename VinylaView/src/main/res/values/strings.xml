@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="recommend_text">%f.2(%d건)</string>
+    <string name="photo_counter"><font fgcolor='#FFFFFF'>%d</font>/1</string>
+    <string name="memo_text_counter"><font fgcolor='#cccccc'>%d</font>/100</string>
 </resources>

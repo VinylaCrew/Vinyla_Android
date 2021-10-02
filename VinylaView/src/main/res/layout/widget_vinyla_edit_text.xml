@@ -25,6 +25,7 @@
         android:layout_marginBottom="5dp"
         android:textColor="@color/white"
         android:textSize="15dp"
+        app:layout_goneMarginBottom="0dp"
         app:layout_constraintBottom_toTopOf="@+id/textInput"
         app:layout_constraintStart_toStartOf="parent"
         tools:text="title" />

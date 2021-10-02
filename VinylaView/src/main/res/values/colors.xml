@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="mainColor">#FF5000</color>
+    <color name="darkOrange">#FA6432</color>
 
     <color name="black">#FF000000</color>
     <color name="black141415">#141415</color>
@@ -9,9 +10,10 @@
     <color name="black282829">#282829</color>
 
     <color name="gray66">#666666</color>
-    <color name="grayDD">#DDDDDD</color>
-    <color name="grayCC">#CCCCCC</color>
     <color name="grayAA">#AAAAAA</color>
+    <color name="grayCC">#CCCCCC</color>
+    <color name="grayDD">#DDDDDD</color>
+    <color name="grayEE">#EEEEEE</color>
     <color name="white">#FFFFFFFF</color>
 
     <color name="white99alpha">#99FFFFFF</color>
