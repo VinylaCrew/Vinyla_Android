@@ -1,16 +1,21 @@
-package com.vinyla_android.presentation.login.auth
+package com.malibin.sns.auth.module.kakao
 
+import android.content.Context
 import androidx.fragment.app.FragmentActivity
 import com.kakao.sdk.user.UserApiClient
 import com.kakao.sdk.user.model.User
-import com.vinyla_android.data.model.UserProfile
+import com.malibin.sns.auth.model.SnsType
+import com.malibin.sns.auth.model.UserProfile
+import com.malibin.sns.auth.module.SnsAuthModule
 
 /**
  * Created By Malibin
  * on 4월 12, 2021
  */
 
-class KakaoAuth : SnsAuth {
+class KakaoAuth(
+    private val context: Context
+) : SnsAuthModule {
 
     override fun login(activity: FragmentActivity, callback: (UserProfile?) -> Unit) {
         if (UserApiClient.instance.isKakaoTalkLoginAvailable(activity)) {
@@ -36,7 +41,7 @@ class KakaoAuth : SnsAuth {
         return UserProfile(
             nickname = this?.kakaoAccount?.profile?.nickname ?: return null,
             profileUrl = this.kakaoAccount?.profile?.thumbnailImageUrl ?: return null,
-            authType = SnsAuth.Type.KAKAO,
+            authType = SnsType.KAKAO,
         )
     }
 
@@ -54,7 +59,7 @@ class KakaoAuth : SnsAuth {
         }
     }
 
-    override fun quit(endCallback: (() -> Unit)?) {
+    override fun unlink(endCallback: (() -> Unit)?) {
         UserApiClient.instance.unlink {
             endCallback?.invoke()
             it?.printStackTrace()

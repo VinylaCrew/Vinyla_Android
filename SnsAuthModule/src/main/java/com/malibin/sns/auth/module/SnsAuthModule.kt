@@ -1,16 +1,16 @@
-package com.vinyla_android.presentation.login.auth
+package com.malibin.sns.auth.module
 
 import android.content.Intent
 import androidx.fragment.app.FragmentActivity
-import com.vinyla_android.data.model.UserProfile
+import com.malibin.sns.auth.model.UserProfile
 
 /**
  * Created By Malibin
  * on 4월 12, 2021
  */
 
-interface SnsAuth {
 
+interface SnsAuthModule {
     fun login(activity: FragmentActivity, callback: (UserProfile?) -> Unit)
 
     fun onActivityResult(requestCode: Int, resultCode: Int, intent: Intent?) {
@@ -21,12 +21,5 @@ interface SnsAuth {
 
     fun logout(endCallback: (() -> Unit)? = null)
 
-    fun quit(endCallback: (() -> Unit)? = null)
-
-    enum class Type {
-        KAKAO,
-        FACEBOOK,
-        GOOGLE,
-        APPLE;
-    }
+    fun unlink(endCallback: (() -> Unit)? = null)
 }

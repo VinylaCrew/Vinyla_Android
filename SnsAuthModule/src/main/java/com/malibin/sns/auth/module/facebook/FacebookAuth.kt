@@ -1,27 +1,27 @@
-package com.vinyla_android.presentation.login.auth
+package com.malibin.sns.auth.module.facebook
 
+import android.content.Context
 import android.content.Intent
 import androidx.fragment.app.FragmentActivity
 import com.facebook.*
 import com.facebook.login.LoginManager
 import com.facebook.login.LoginResult
 import com.facebook.login.widget.LoginButton
-import com.vinyla_android.data.remote.interceptor.HTTP_LOGGING_INTERCEPTOR
-import com.vinyla_android.data.model.UserProfile
-import com.vinyla_android.data.remote.service.FacebookAuthService
-import com.vinyla_android.presentation.utils.printLog
+import com.malibin.sns.auth.model.SnsType
+import com.malibin.sns.auth.model.UserProfile
+import com.malibin.sns.auth.module.SnsAuthModule
+import com.malibin.sns.auth.module.facebook.service.FacebookAuthService
+import com.malibin.sns.auth.printLog
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import okhttp3.OkHttpClient
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 
-class FacebookAuth : SnsAuth {
+class FacebookAuth(
+    private val context: Context,
+    private val facebookAuthService: FacebookAuthService,
+) : SnsAuthModule {
     private val callbackManager: CallbackManager = CallbackManager.Factory.create()
     private var profileTracker: ProfileTracker? = null
-
-    private val facebookAuthService: FacebookAuthService by lazy { createFacebookAuthService() }
 
     /**
      * onSuccess 이후에 바로 Callback을 호출 하지 않는 이유
@@ -80,7 +80,7 @@ class FacebookAuth : SnsAuth {
         return UserProfile(
             nickname = facebookProfile.name,
             profileUrl = facebookProfile.getProfilePictureUri(500, 500).toString(),
-            authType = SnsAuth.Type.FACEBOOK,
+            authType = SnsType.FACEBOOK,
         )
     }
 
@@ -115,7 +115,7 @@ class FacebookAuth : SnsAuth {
         endCallback?.invoke()
     }
 
-    override fun quit(endCallback: (() -> Unit)?) {
+    override fun unlink(endCallback: (() -> Unit)?) {
         val id = Profile.getCurrentProfile()?.id.orEmpty()
         val accessToken = AccessToken.getCurrentAccessToken()?.token.orEmpty()
         CoroutineScope(Dispatchers.IO).launch {
@@ -126,19 +126,6 @@ class FacebookAuth : SnsAuth {
             }
             endCallback?.invoke()
         }
-    }
-
-    private fun createFacebookAuthService(): FacebookAuthService {
-        return Retrofit.Builder()
-            .baseUrl(FacebookAuthService.BASE_URL)
-            .addConverterFactory(GsonConverterFactory.create())
-            .client(
-                OkHttpClient.Builder()
-                    .addInterceptor(HTTP_LOGGING_INTERCEPTOR)
-                    .build()
-            )
-            .build()
-            .create(FacebookAuthService::class.java)
     }
 
     companion object {

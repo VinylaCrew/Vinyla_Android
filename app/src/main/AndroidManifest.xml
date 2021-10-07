@@ -19,23 +19,22 @@
             android:exported="true" />
         <activity
             android:name=".presentation.vinyl.review.ReviewVinylActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            android:exported="true" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+        <activity android:name=".presentation.mypage.MyPageActivity" />
+        <activity android:name=".presentation.home.HomeActivity">
+
+        </activity>
+        <activity android:name=".presentation.signup.SignUpActivity">
+
         </activity>
         <activity
             android:name=".presentation.vinyl.detail.VinylDetailsActivity"
             android:exported="true" />
         <activity android:name=".presentation.mypage.TermsOfServiceActivity" />
         <activity android:name=".presentation.vinyl.level.VinylLevelActivity" />
-        <activity android:name=".presentation.vinyl.box.VinylBoxActivity"></activity>
+        <activity android:name=".presentation.vinyl.box.VinylBoxActivity" />
         <activity android:name=".presentation.mypage.LeaveActivity" />
-        <activity android:name=".presentation.mypage.MyPageActivity" />
-        <activity android:name=".presentation.home.HomeActivity" />
-        <activity android:name=".presentation.signup.SignUpActivity" />
         <activity android:name=".presentation.SplashActivity" />
         <activity android:name=".presentation.TempHomeActivity" />
 
@@ -55,40 +54,18 @@
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />
 
-        <activity android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
 
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
-
-                <data
-                    android:host="oauth"
-                    android:scheme="@string/kakaoAppKeyScheme" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name="com.facebook.FacebookActivity"
-            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
-            android:label="@string/app_name" />
-        <activity
-            android:name="com.facebook.CustomTabActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
-
-                <data android:scheme="@string/fb_login_protocol_scheme" />
-            </intent-filter>
-        </activity>
         <activity
             android:name="com.journeyapps.barcodescanner.CaptureActivity"
             android:screenOrientation="fullSensor"
             tools:replace="screenOrientation" />
         <activity android:name=".MainActivity" />
-        <activity android:name=".presentation.login.LoginActivity" />
-    </application>
+        <activity android:name=".presentation.login.LoginActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
 </manifest>

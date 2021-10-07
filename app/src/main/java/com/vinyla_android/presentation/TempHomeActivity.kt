@@ -3,29 +3,30 @@ package com.vinyla_android.presentation
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.vinyla_android.data.model.UserProfile
+import com.malibin.sns.auth.SnsAuth
+import com.malibin.sns.auth.model.SnsType
+import com.malibin.sns.auth.model.UserProfile
 import com.vinyla_android.databinding.ActivityTempHomeBinding
 import com.vinyla_android.presentation.login.LoginActivity
-import com.vinyla_android.presentation.login.auth.SnsAuth
-import com.vinyla_android.presentation.login.auth.SnsAuthManager
 
 class TempHomeActivity : AppCompatActivity() {
 
     private var binding: ActivityTempHomeBinding? = null
-    private var snsAuthManager: SnsAuthManager? = null
+    private var snsAuth: SnsAuth? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding = ActivityTempHomeBinding.inflate(layoutInflater)
             .also { initView(it) }
-        snsAuthManager = SnsAuthManager()
+        snsAuth = SnsAuth.getInstance()
+        // 다시해야함!!!
     }
 
     override fun onDestroy() {
         super.onDestroy()
         binding = null
-        snsAuthManager = null
+        snsAuth = null
     }
 
     private fun initView(binding: ActivityTempHomeBinding) {
@@ -44,12 +45,12 @@ class TempHomeActivity : AppCompatActivity() {
             ?: error("user profile cannot be null")
     }
 
-    private fun logout(type: SnsAuth.Type) {
-        snsAuthManager?.logout(type) { goLoginPage() }
+    private fun logout(type: SnsType) {
+        snsAuth?.logout(type) { goLoginPage() }
     }
 
-    private fun quit(type: SnsAuth.Type) {
-        snsAuthManager?.quit(type) { goLoginPage() }
+    private fun quit(type: SnsType) {
+        snsAuth?.unlink(type) { goLoginPage() }
     }
 
     private fun goLoginPage() {

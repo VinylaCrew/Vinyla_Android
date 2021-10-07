@@ -1,8 +1,7 @@
-package com.vinyla_android.data.model
+package com.malibin.sns.auth.model
 
 import android.os.Parcelable
-import com.vinyla_android.presentation.login.auth.SnsAuth
-import kotlinx.android.parcel.Parcelize
+import kotlinx.parcelize.Parcelize
 
 /**
  * Created By Malibin
@@ -13,7 +12,7 @@ import kotlinx.android.parcel.Parcelize
 data class UserProfile(
     val nickname: String,
     val profileUrl: String,
-    val authType: SnsAuth.Type,
+    val authType: SnsType,
 ) : Parcelable
 
 // sns login module 쪽 도메인으로 가져가야할듯
