@@ -63,15 +63,6 @@ android {
     testOptions {
         unitTests.returnDefaultValues = true
     }
-
-    sourceSets {
-        androidTest {
-            java.srcDirs += "src/sharedUtilsForTest/java"
-        }
-        test {
-            java.srcDirs += "src/sharedUtilsForTest/java"
-        }
-    }
 }
 
 dependencies {

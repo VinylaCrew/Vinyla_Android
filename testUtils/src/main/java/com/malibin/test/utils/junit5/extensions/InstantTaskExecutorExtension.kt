@@ -1,15 +1,14 @@
-package com.vinlya_android.utils
+package com.malibin.test.utils.junit5.extensions
 
 import androidx.arch.core.executor.ArchTaskExecutor
 import androidx.arch.core.executor.TaskExecutor
-import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.junit.jupiter.api.extension.AfterEachCallback
 import org.junit.jupiter.api.extension.BeforeEachCallback
 import org.junit.jupiter.api.extension.ExtensionContext
 
 /**
  * Created By Malibin
- * on 4월 15, 2021
+ * on 2월 18, 2021
  */
 
 class InstantTaskExecutorExtension : BeforeEachCallback, AfterEachCallback {
