@@ -1,10 +1,11 @@
 package com.vinyla_android.data.di
 
+import com.vinyla_android.data.repository.RealVinylaMembersRepository
 import com.vinyla_android.data.repository.RealVinylsRepository
+import com.vinyla_android.domain.repository.VinylaMembersRepository
 import com.vinyla_android.domain.repository.VinylsRepository
 import dagger.Binds
 import dagger.Module
-import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
@@ -21,4 +22,8 @@ internal interface RepositoryModule {
     @Binds
     @Singleton
     fun bindVinylsRepository(repository: RealVinylsRepository): VinylsRepository
+
+    @Binds
+    @Singleton
+    fun bindVinylaMembersRepository(repository: RealVinylaMembersRepository): VinylaMembersRepository
 }

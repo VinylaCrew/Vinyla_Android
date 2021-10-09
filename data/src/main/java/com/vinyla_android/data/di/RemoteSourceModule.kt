@@ -1,7 +1,10 @@
 package com.vinyla_android.data.di
 
+import com.vinyla_android.data.di.annotation.VinylMembersRemote
 import com.vinyla_android.data.remote.service.VinylaService
+import com.vinyla_android.data.remote.source.VinylaMembersRemoteSource
 import com.vinyla_android.data.remote.source.VinylsRemoteSource
+import com.vinyla_android.data.source.VinylaMembersSource
 import com.vinyla_android.data.source.VinylsSource
 import dagger.Module
 import dagger.Provides
@@ -16,7 +19,7 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-internal object DataSourceModule {
+internal object RemoteSourceModule {
 
     @Singleton
     @Provides
@@ -24,5 +27,14 @@ internal object DataSourceModule {
         vinylaService: VinylaService,
     ): VinylsSource {
         return VinylsRemoteSource(vinylaService)
+    }
+
+    @Singleton
+    @Provides
+    @VinylMembersRemote
+    fun provideVinylsMembersRemoteSource(
+        vinylaService: VinylaService,
+    ): VinylaMembersSource {
+        return VinylaMembersRemoteSource(vinylaService)
     }
 }
