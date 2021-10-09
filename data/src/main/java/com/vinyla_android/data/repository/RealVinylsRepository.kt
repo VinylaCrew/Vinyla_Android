@@ -1,6 +1,6 @@
 package com.vinyla_android.data.repository
 
-import com.vinyla_android.data.remote.source.VinylsRemoteSource
+import com.vinyla_android.data.source.VinylsSource
 import com.vinyla_android.domain.entity.SimpleVinyl
 import com.vinyla_android.domain.entity.Vinyl
 import com.vinyla_android.domain.repository.VinylsRepository
@@ -12,7 +12,7 @@ import javax.inject.Inject
  */
 
 internal class RealVinylsRepository @Inject constructor(
-    private val vinylsRemoteSource: VinylsRemoteSource,
+    private val vinylsRemoteSource: VinylsSource,
 ) : VinylsRepository {
 
     override suspend fun getVinylOf(vinylId: Int): Vinyl? {
