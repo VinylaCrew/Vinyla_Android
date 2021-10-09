@@ -1,6 +1,6 @@
 package com.vinyla_android.data.remote.service
 
-import com.vinyla_android.data.remote.service.requestbody.CheckDuplicateNicknameRequestBody
+import com.vinyla_android.data.remote.service.requestbody.CheckNicknameParams
 import com.vinyla_android.data.remote.service.response.HomeResponse
 import com.vinyla_android.data.remote.service.response.SearchingVinylResponse
 import com.vinyla_android.data.remote.service.response.VinylDetailsResponse
@@ -20,9 +20,9 @@ import retrofit2.http.Query
 interface VinylaService {
 
     @POST("/users/check")
-    suspend fun checkDuplicateNickname(
-        @Body requestBody: CheckDuplicateNicknameRequestBody,
-    )
+    suspend fun checkNickname(
+        @Body body: CheckNicknameParams,
+    ): Response<VinylaResponse<Boolean>>
 
     // TODO: Token Interceptor 만들어야함
     @GET("/home")

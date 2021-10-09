@@ -5,6 +5,6 @@ package com.vinyla_android.data.remote.service.requestbody
  * on 6월 29, 2021
  */
 
-data class CheckDuplicateNicknameRequestBody(
+data class CheckNicknameParams(
     val nickname: String,
 )
