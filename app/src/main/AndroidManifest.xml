@@ -20,23 +20,36 @@
         <activity
             android:name=".presentation.vinyl.review.ReviewVinylActivity"
             android:exported="true" />
-
-        <activity android:name=".presentation.mypage.MyPageActivity" />
-        <activity android:name=".presentation.home.HomeActivity">
-
-        </activity>
-        <activity android:name=".presentation.signup.SignUpActivity">
-
-        </activity>
+        <activity
+            android:name=".presentation.mypage.MyPageActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.home.HomeActivity"
+            android:exported="false"/>
+        <activity
+            android:name=".presentation.signup.SignUpActivity"
+            android:exported="false"/>
         <activity
             android:name=".presentation.vinyl.detail.VinylDetailsActivity"
-            android:exported="true" />
-        <activity android:name=".presentation.mypage.TermsOfServiceActivity" />
-        <activity android:name=".presentation.vinyl.level.VinylLevelActivity" />
-        <activity android:name=".presentation.vinyl.box.VinylBoxActivity" />
-        <activity android:name=".presentation.mypage.LeaveActivity" />
-        <activity android:name=".presentation.SplashActivity" />
-        <activity android:name=".presentation.TempHomeActivity" />
+            android:exported="false" />
+        <activity
+            android:name=".presentation.mypage.TermsOfServiceActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.vinyl.level.VinylLevelActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.vinyl.box.VinylBoxActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.mypage.LeaveActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.SplashActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.TempHomeActivity"
+            android:exported="false" />
 
         <meta-data
             android:name="com.google.android.gms.ads.AD_MANAGER_APP"
@@ -54,13 +67,14 @@
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />
 
-
         <activity
             android:name="com.journeyapps.barcodescanner.CaptureActivity"
             android:screenOrientation="fullSensor"
             tools:replace="screenOrientation" />
         <activity android:name=".MainActivity" />
-        <activity android:name=".presentation.login.LoginActivity">
+        <activity
+            android:name=".presentation.login.LoginActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

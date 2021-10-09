@@ -5,3 +5,4 @@ rootProject.name = "Vinyla_Android"
 include ':domain'
 include ':data'
 include ':testUtils'
+include ':secret'
