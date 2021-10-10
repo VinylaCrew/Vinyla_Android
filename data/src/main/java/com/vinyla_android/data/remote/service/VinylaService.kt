@@ -1,8 +1,10 @@
 package com.vinyla_android.data.remote.service
 
-import com.vinyla_android.data.remote.service.requestbody.CheckNicknameParams
+import com.vinyla_android.data.remote.service.params.CheckNicknameParams
+import com.vinyla_android.data.remote.service.params.SignUpParams
 import com.vinyla_android.data.remote.service.response.HomeResponse
 import com.vinyla_android.data.remote.service.response.SearchingVinylResponse
+import com.vinyla_android.data.remote.service.response.SignUpResponse
 import com.vinyla_android.data.remote.service.response.VinylDetailsResponse
 import com.vinyla_android.data.remote.service.response.VinylaResponse
 import retrofit2.Response
@@ -17,12 +19,17 @@ import retrofit2.http.Query
  * on 3월 28, 2021
  */
 
-interface VinylaService {
+internal interface VinylaService {
 
     @POST("/users/check")
     suspend fun checkNickname(
         @Body body: CheckNicknameParams,
     ): Response<VinylaResponse<Boolean>>
+
+    @POST("/users/signup")
+    suspend fun signUp(
+        @Body body: SignUpParams,
+    ): Response<VinylaResponse<SignUpResponse>>
 
     // TODO: Token Interceptor 만들어야함
     @GET("/home")

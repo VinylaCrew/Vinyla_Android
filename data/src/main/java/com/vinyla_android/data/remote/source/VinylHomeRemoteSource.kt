@@ -10,7 +10,7 @@ import javax.inject.Inject
  * on 7월 26, 2021
  */
 
-class VinylHomeRemoteSource @Inject constructor(
+internal class VinylHomeRemoteSource @Inject constructor(
     private val vinylaService: VinylaService,
 ) : VinylHomeSource {
 
