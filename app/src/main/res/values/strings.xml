@@ -18,7 +18,8 @@
     <string name="recent_collected_vinly">최근 수집한 바이닐</string>
     <string name="collected_vinyl">수집된 바이닐</string>
     <string name="my_genre">내 장르</string>
-    <string name="add_my_vinyl">내 바이닐 추가하기</string>
+    <string name="how_to_add_my_vinyl">보관함 > 바이닐 정보 > 하트 아이콘</string>
+    <string name="add_my_vinyl">인생 바이닐 설정하기</string>
     <string name="bottom_lined_string"><u>%s</u></string>
     <string name="leave_underline"><u>탈퇴하기</u></string>
     <string name="login_from_s">%s로 로그인</string>
@@ -31,4 +32,5 @@
     <string name="terms_of_service">서비스 약관</string>
     <string name="version_info">버전 정보</string>
     <string name="my">MY</string>
+    <string name="underline_string"><u>%s</u></string>
 </resources>

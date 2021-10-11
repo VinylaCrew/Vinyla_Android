@@ -1,7 +1,7 @@
 package com.vinyla_android.data.remote.source
 
 import com.vinyla_android.data.remote.service.VinylaService
-import com.vinyla_android.data.source.VinylHomeSource
+import com.vinyla_android.data.source.VinylaHomeSource
 import com.vinyla_android.domain.entity.VinylHome
 import javax.inject.Inject
 
@@ -10,12 +10,13 @@ import javax.inject.Inject
  * on 7월 26, 2021
  */
 
-internal class VinylHomeRemoteSource @Inject constructor(
+internal class VinylaHomeRemoteSource @Inject constructor(
     private val vinylaService: VinylaService,
-) : VinylHomeSource {
+) : VinylaHomeSource {
 
     override suspend fun getVinylHome(): VinylHome {
-        return vinylaService.getHomeInfo().data.toVinylHome()
+        val response = vinylaService.getHomeInfo()
+        return response.body()?.toVinylHome() ?: error("server error")
     }
 
     override suspend fun saveVinylHome() {

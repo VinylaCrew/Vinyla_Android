@@ -48,30 +48,35 @@
                     app:layout_constraintTop_toTopOf="parent"
                     tools:srcCompat="@tools:sample/avatars">
 
-                    <ImageView
-                        android:id="@+id/imageView"
+                    <TextView
+                        android:id="@+id/buttonAddMyVinyl"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:drawableEnd="@drawable/icn_arrow_right"
+                        android:drawablePadding="3dp"
+                        android:padding="10dp"
+                        android:text="@string/add_my_vinyl"
+                        android:textColor="@color/white"
+                        android:textSize="19dp"
                         app:layout_constraintBottom_toTopOf="@+id/textView8"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_chainStyle="packed"
-                        app:srcCompat="@drawable/icn_btn_home_add" />
+                        app:layout_constraintVertical_chainStyle="packed" />
 
                     <TextView
                         android:id="@+id/textView8"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="6dp"
-                        android:text="@string/add_my_vinyl"
-                        android:textColor="@color/white"
-                        android:textSize="17dp"
+                        android:layout_marginBottom="10dp"
+                        android:text="@string/how_to_add_my_vinyl"
+                        android:textColor="@color/grayAA"
+                        android:textSize="13dp"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="@id/imageView"
-                        app:layout_constraintStart_toStartOf="@id/imageView"
-                        app:layout_constraintTop_toBottomOf="@+id/imageView"
+                        app:layout_constraintEnd_toEndOf="@id/buttonAddMyVinyl"
+                        app:layout_constraintStart_toStartOf="@id/buttonAddMyVinyl"
+                        app:layout_constraintTop_toBottomOf="@+id/buttonAddMyVinyl"
                         tools:layout_editor_absoluteX="185dp" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
@@ -80,12 +85,12 @@
                     android:id="@+id/button_share"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:layout_marginEnd="6dp"
+                    android:layout_marginTop="11dp"
+                    android:layout_marginEnd="5dp"
                     android:padding="10dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/image_vinyl_display"
-                    app:srcCompat="@drawable/icn_btn_share" />
+                    app:srcCompat="@drawable/icn_btn_insta" />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/constraintLayout"
@@ -240,23 +245,24 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:text="%d/%d"
                     android:textColor="@android:color/white"
                     android:textSize="13dp"
                     app:layout_constraintStart_toStartOf="@+id/progress_title"
-                    app:layout_constraintTop_toBottomOf="@+id/progress_title" />
+                    app:layout_constraintTop_toBottomOf="@+id/progress_title"
+                    tools:text="1/9" />
 
                 <TextView
                     android:id="@+id/text_next_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="4dp"
-                    tools:text="닐라대왕"
+                    android:text='@{@string/underline_string("닐라닐라")}'
                     android:textColor="@color/gray66"
                     android:textSize="13dp"
                     app:layout_constraintBottom_toBottomOf="@+id/imageView10"
                     app:layout_constraintEnd_toStartOf="@+id/imageView10"
-                    app:layout_constraintTop_toTopOf="@+id/imageView10" />
+                    app:layout_constraintTop_toTopOf="@+id/imageView10"
+                    tools:text="닐라대왕" />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/constraintLayout2"
@@ -320,7 +326,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="20dp"
-                        android:text="TextView"
                         android:textColor="@color/white"
                         android:textSize="17dp"
                         app:layout_constraintBottom_toTopOf="@+id/textView12"

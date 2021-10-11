@@ -2,6 +2,7 @@ package com.vinyla_android.data.remote.service
 
 import com.vinyla_android.data.remote.service.params.CheckNicknameParams
 import com.vinyla_android.data.remote.service.params.SignUpParams
+import com.vinyla_android.data.remote.service.response.HomeResponse
 import com.vinyla_android.data.remote.service.response.SearchingVinylResponse
 import com.vinyla_android.data.remote.service.response.SignUpResponse
 import com.vinyla_android.data.remote.service.response.VinylDetailsResponse
@@ -31,7 +32,7 @@ internal interface VinylaService {
 
     // TODO: Token Interceptor 만들어야함
     @GET("/home")
-    suspend fun getHomeInfo(): Response<*>
+    suspend fun getHomeInfo(): Response<HomeResponse>
 
     @GET("/vinyls/search/detail/{id}")
     suspend fun getVinyl(

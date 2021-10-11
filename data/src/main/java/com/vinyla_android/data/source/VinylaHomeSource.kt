@@ -7,7 +7,7 @@ import com.vinyla_android.domain.entity.VinylHome
  * on 7월 26, 2021
  */
 
-interface VinylHomeSource {
+interface VinylaHomeSource {
 
     suspend fun getVinylHome(): VinylHome
 
