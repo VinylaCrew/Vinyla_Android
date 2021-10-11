@@ -45,6 +45,6 @@ internal interface VinylaService {
     ): Response<List<SearchingVinylResponse>>
 
     companion object {
-        const val BASE_URL = ""
+        const val BASE_URL = "http://13.209.245.76:3000"
     }
 }

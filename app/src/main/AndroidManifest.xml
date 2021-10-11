@@ -16,7 +16,13 @@
         android:usesCleartextTraffic="true">
         <activity
             android:name=".presentation.vinyl.search.SearchVinylActivity"
-            android:exported="true" />
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".presentation.vinyl.request.RequestVinyl"
             android:exported="true" />
@@ -78,11 +84,7 @@
         <activity
             android:name=".presentation.login.LoginActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 
