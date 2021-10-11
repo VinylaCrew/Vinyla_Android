@@ -6,5 +6,6 @@ package com.vinyla_android.data.remote.service.response
  */
 
 internal data class SignUpResponse(
+    val userIdx: Int,
     val token: String,
 )

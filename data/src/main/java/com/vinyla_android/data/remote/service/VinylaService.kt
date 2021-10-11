@@ -2,11 +2,9 @@ package com.vinyla_android.data.remote.service
 
 import com.vinyla_android.data.remote.service.params.CheckNicknameParams
 import com.vinyla_android.data.remote.service.params.SignUpParams
-import com.vinyla_android.data.remote.service.response.HomeResponse
 import com.vinyla_android.data.remote.service.response.SearchingVinylResponse
 import com.vinyla_android.data.remote.service.response.SignUpResponse
 import com.vinyla_android.data.remote.service.response.VinylDetailsResponse
-import com.vinyla_android.data.remote.service.response.VinylaResponse
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.GET
@@ -24,26 +22,26 @@ internal interface VinylaService {
     @POST("/users/check")
     suspend fun checkNickname(
         @Body body: CheckNicknameParams,
-    ): Response<VinylaResponse<Boolean>>
+    ): Response<Unit>
 
     @POST("/users/signup")
     suspend fun signUp(
         @Body body: SignUpParams,
-    ): Response<VinylaResponse<SignUpResponse>>
+    ): Response<SignUpResponse>
 
     // TODO: Token Interceptor 만들어야함
     @GET("/home")
-    suspend fun getHomeInfo(): VinylaResponse<HomeResponse>
+    suspend fun getHomeInfo(): Response<*>
 
     @GET("/vinyls/search/detail/{id}")
     suspend fun getVinyl(
         @Path("id") vinylId: Int,
-    ): Response<VinylaResponse<VinylDetailsResponse>>
+    ): Response<VinylDetailsResponse>
 
     @GET("/vinyls/search")
     suspend fun searchVinyls(
         @Query("q") query: String,
-    ): Response<VinylaResponse<List<SearchingVinylResponse>>>
+    ): Response<List<SearchingVinylResponse>>
 
     companion object {
         const val BASE_URL = ""

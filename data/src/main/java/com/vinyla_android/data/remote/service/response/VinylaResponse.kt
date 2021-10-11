@@ -6,7 +6,7 @@ package com.vinyla_android.data.remote.service.response
  */
 
 data class VinylaResponse<T>(
-    val statusCode: Int,
-    val responseMessage: String,
+    val status: Int,
+    val message: String,
     val data: T
 )

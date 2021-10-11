@@ -1,6 +1,7 @@
 package com.vinyla_android.data.di
 
 import com.vinyla_android.data.remote.interceptor.HTTP_LOGGING_INTERCEPTOR
+import com.vinyla_android.data.remote.interceptor.VinylaResponseUnboxingInterceptor
 import com.vinyla_android.data.remote.service.VinylaService
 import dagger.Module
 import dagger.Provides
@@ -34,6 +35,7 @@ internal object RetrofitModule {
     private fun createOkHttpClient(): OkHttpClient {
         return OkHttpClient.Builder()
             .addInterceptor(HTTP_LOGGING_INTERCEPTOR)
+            .addInterceptor(VinylaResponseUnboxingInterceptor())
             .build()
     }
 }
