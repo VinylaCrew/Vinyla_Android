@@ -15,6 +15,9 @@
         android:theme="@style/Theme.Vinyla_Android"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".presentation.vinyl.search.SearchVinylActivity"
+            android:exported="true" />
+        <activity
             android:name=".presentation.vinyl.request.RequestVinyl"
             android:exported="true" />
         <activity
@@ -25,10 +28,10 @@
             android:exported="false" />
         <activity
             android:name=".presentation.home.HomeActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".presentation.signup.SignUpActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".presentation.vinyl.detail.VinylDetailsActivity"
             android:exported="false" />
@@ -82,4 +85,5 @@
             </intent-filter>
         </activity>
     </application>
+
 </manifest>
