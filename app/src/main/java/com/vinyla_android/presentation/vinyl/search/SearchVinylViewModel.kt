@@ -2,10 +2,10 @@ package com.vinyla_android.presentation.vinyl.search
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.vinyla_android.domain.entity.SimpleVinyl
 import com.vinyla_android.domain.repository.VinylsRepository
+import com.vinyla_android.presentation.utils.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -18,20 +18,16 @@ import javax.inject.Inject
 @HiltViewModel
 class SearchVinylViewModel @Inject constructor(
     private val vinylsRepository: VinylsRepository,
-) : ViewModel() {
+) : BaseViewModel() {
     val query = MutableLiveData("")
 
     private val _searchedVinyls = MutableLiveData<List<SimpleVinyl>>()
     val searchedVinyls: LiveData<List<SimpleVinyl>> = _searchedVinyls
 
-    private val _isLoading = MutableLiveData(false)
-    val isLoading: LiveData<Boolean> = _isLoading
-
     fun searchVinyls() = viewModelScope.launch {
-        _isLoading.value = true
+        notifyLoading(true)
         _searchedVinyls.value = vinylsRepository.searchVinyls(query.value.orEmpty())
-
-    }.invokeOnCompletion { _isLoading.value = false }
+    }.invokeOnCompletion { notifyLoading(false) }
 
     fun clearQuery() {
         query.value = ""

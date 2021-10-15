@@ -7,6 +7,7 @@ data class Vinyl(
     val name: String,
     val artiestName: String,
     val genre: String,
+    val releaseYear: Int,
 
     val imageUrl: String?,
     val thumbnailUrl: String?,

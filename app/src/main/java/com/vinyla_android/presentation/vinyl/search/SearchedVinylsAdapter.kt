@@ -16,6 +16,8 @@ import com.vinyla_android.domain.entity.SimpleVinyl
 class SearchedVinylsAdapter :
     ListAdapter<SimpleVinyl, SearchedVinylsAdapter.ViewHolder>(ItemComparator()) {
 
+    private var onVinylClickListener: ((SimpleVinyl) -> Unit)? = null
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         val binding = ItemVinylSearchedBinding.inflate(layoutInflater, parent, false)
@@ -23,14 +25,19 @@ class SearchedVinylsAdapter :
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(getItem(position))
+        holder.bind(getItem(position), this.onVinylClickListener)
+    }
+
+    fun setOnVinylClickListener(listener: ((SimpleVinyl) -> Unit)?) {
+        this.onVinylClickListener = listener
     }
 
     class ViewHolder(
         private val binding: ItemVinylSearchedBinding
     ) : RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(simpleVinyl: SimpleVinyl) {
+        fun bind(simpleVinyl: SimpleVinyl, onVinylClickListener: ((SimpleVinyl) -> Unit)?) {
+            binding.root.setOnClickListener { onVinylClickListener?.invoke(simpleVinyl) }
             binding.vinyl = simpleVinyl
         }
     }

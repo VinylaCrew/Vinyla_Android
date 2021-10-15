@@ -24,13 +24,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="15dp"
-            app:layout_constraintBottom_toBottomOf="@+id/editTextTextPersonName"
+            app:layout_constraintBottom_toBottomOf="@+id/textSearchQuery"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/editTextTextPersonName"
+            app:layout_constraintTop_toTopOf="@+id/textSearchQuery"
             app:srcCompat="@drawable/icn_btn_back" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName"
+            android:id="@+id/textSearchQuery"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -62,9 +62,9 @@
             android:text="검색"
             android:textColor="@color/white"
             android:textSize="15dp"
-            app:layout_constraintBottom_toBottomOf="@+id/editTextTextPersonName"
+            app:layout_constraintBottom_toBottomOf="@+id/textSearchQuery"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/editTextTextPersonName" />
+            app:layout_constraintTop_toTopOf="@+id/textSearchQuery" />
 
         <ImageView
             android:id="@+id/buttonDeleteQuery"
@@ -72,9 +72,9 @@
             android:layout_height="wrap_content"
             android:onClick="@{(v) -> viewModel.clearQuery()}"
             android:padding="10dp"
-            app:layout_constraintBottom_toBottomOf="@+id/editTextTextPersonName"
+            app:layout_constraintBottom_toBottomOf="@+id/textSearchQuery"
             app:layout_constraintEnd_toStartOf="@+id/buttonSearch"
-            app:layout_constraintTop_toTopOf="@+id/editTextTextPersonName"
+            app:layout_constraintTop_toTopOf="@+id/textSearchQuery"
             app:srcCompat="@drawable/icn_search_delete" />
 
         <TextView
@@ -88,7 +88,7 @@
             android:textSize="13dp"
             android:visibility="@{viewModel.searchedVinyls.size() == 0 ? View.GONE : View.VISIBLE}"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName"
+            app:layout_constraintTop_toBottomOf="@+id/textSearchQuery"
             tools:text="23개의 검색 결과가 있습니다." />
 
 

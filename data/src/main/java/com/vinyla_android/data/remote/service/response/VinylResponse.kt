@@ -20,5 +20,6 @@ data class VinylResponse(
         genre = "",
         imageUrl = imageUrl,
         thumbnailUrl = imageUrl,
+        releaseYear = 0,
     )
 }

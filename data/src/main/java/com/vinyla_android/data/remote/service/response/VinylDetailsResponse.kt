@@ -35,5 +35,6 @@ data class VinylDetailsResponse(
         genre = genres[0], // 여기 변경해야함
         imageUrl = imageUrl,
         thumbnailUrl = imageUrl,
+        releaseYear = year,
     )
 }

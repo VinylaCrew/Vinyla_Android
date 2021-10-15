@@ -36,6 +36,7 @@ class VinylBoxViewModel @Inject constructor() : ViewModel() {
                         genre = "장르",
                         imageUrl = "",
                         thumbnailUrl = "",
+                        releaseYear = 1995,
                     ),
                     Vinyl(
                         id = 1,
@@ -44,6 +45,7 @@ class VinylBoxViewModel @Inject constructor() : ViewModel() {
                         genre = "장르",
                         imageUrl = "",
                         thumbnailUrl = "",
+                        releaseYear = 1995,
                     ),
                     Vinyl(
                         id = 2,
@@ -52,6 +54,7 @@ class VinylBoxViewModel @Inject constructor() : ViewModel() {
                         genre = "장르",
                         imageUrl = "",
                         thumbnailUrl = "",
+                        releaseYear = 1995,
                     ),
                     Vinyl(
                         id = 3,
@@ -60,6 +63,7 @@ class VinylBoxViewModel @Inject constructor() : ViewModel() {
                         genre = "장르",
                         imageUrl = "",
                         thumbnailUrl = "",
+                        releaseYear = 1995,
                     ),
                     Vinyl(
                         id = 4,
@@ -68,6 +72,7 @@ class VinylBoxViewModel @Inject constructor() : ViewModel() {
                         genre = "장르",
                         imageUrl = "",
                         thumbnailUrl = "",
+                        releaseYear = 1995,
                     ),
                     Vinyl(
                         id = 5,
@@ -76,6 +81,7 @@ class VinylBoxViewModel @Inject constructor() : ViewModel() {
                         genre = "장르",
                         imageUrl = "",
                         thumbnailUrl = "",
+                        releaseYear = 1995,
                     ),
                     Vinyl(
                         id = 6,
@@ -84,6 +90,7 @@ class VinylBoxViewModel @Inject constructor() : ViewModel() {
                         genre = "장르",
                         imageUrl = "",
                         thumbnailUrl = "",
+                        releaseYear = 1995,
                     ),
                     Vinyl(
                         id = 7,
@@ -92,6 +99,7 @@ class VinylBoxViewModel @Inject constructor() : ViewModel() {
                         genre = "장르",
                         imageUrl = "",
                         thumbnailUrl = "",
+                        releaseYear = 1995,
                     ),
                     Vinyl(
                         id = 8,
@@ -100,6 +108,7 @@ class VinylBoxViewModel @Inject constructor() : ViewModel() {
                         genre = "장르",
                         imageUrl = "",
                         thumbnailUrl = "",
+                        releaseYear = 1995,
                     ),
                 )
             ),
@@ -112,6 +121,7 @@ class VinylBoxViewModel @Inject constructor() : ViewModel() {
                         genre = "장르",
                         imageUrl = "",
                         thumbnailUrl = "",
+                        releaseYear = 1995,
                     ),
                     Vinyl(
                         id = 11,
@@ -120,6 +130,7 @@ class VinylBoxViewModel @Inject constructor() : ViewModel() {
                         genre = "장르",
                         imageUrl = "",
                         thumbnailUrl = "",
+                        releaseYear = 1995,
                     ),
                     Vinyl(
                         id = 12,
@@ -128,6 +139,7 @@ class VinylBoxViewModel @Inject constructor() : ViewModel() {
                         genre = "장르",
                         imageUrl = "",
                         thumbnailUrl = "",
+                        releaseYear = 1995,
                     ),
                     Vinyl(
                         id = 13,
@@ -136,6 +148,7 @@ class VinylBoxViewModel @Inject constructor() : ViewModel() {
                         genre = "장르",
                         imageUrl = "",
                         thumbnailUrl = "",
+                        releaseYear = 1995,
                     ),
                     Vinyl(
                         id = 14,
@@ -144,6 +157,7 @@ class VinylBoxViewModel @Inject constructor() : ViewModel() {
                         genre = "장르",
                         imageUrl = "",
                         thumbnailUrl = "",
+                        releaseYear = 1995,
                     ),
                     Vinyl(
                         id = 15,
@@ -152,6 +166,7 @@ class VinylBoxViewModel @Inject constructor() : ViewModel() {
                         genre = "장르",
                         imageUrl = "",
                         thumbnailUrl = "",
+                        releaseYear = 1995,
                     ),
                     Vinyl(
                         id = 16,
@@ -160,6 +175,7 @@ class VinylBoxViewModel @Inject constructor() : ViewModel() {
                         genre = "장르",
                         imageUrl = "",
                         thumbnailUrl = "",
+                        releaseYear = 1995,
                     ),
                     Vinyl(
                         id = 17,
@@ -168,6 +184,7 @@ class VinylBoxViewModel @Inject constructor() : ViewModel() {
                         genre = "장르",
                         imageUrl = "",
                         thumbnailUrl = "",
+                        releaseYear = 1995,
                     ),
                 )
             ),
