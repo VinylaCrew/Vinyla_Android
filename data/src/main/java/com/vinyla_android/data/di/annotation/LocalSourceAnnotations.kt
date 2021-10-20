@@ -9,4 +9,4 @@ import javax.inject.Qualifier
 
 @Qualifier
 @Retention(AnnotationRetention.BINARY)
-annotation class VinylMembersLocal
+annotation class VinylaMembersLocal
