@@ -2,12 +2,10 @@ package com.vinyla_android.presentation.vinyl.detail
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
 import com.vinyla_android.domain.entity.Vinyl
 import com.vinyla_android.domain.repository.VinylsRepository
+import com.vinyla_android.presentation.utils.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 /**
@@ -18,18 +16,23 @@ import javax.inject.Inject
 @HiltViewModel
 class VinylDetailsViewModel @Inject constructor(
     private val vinylsRepository: VinylsRepository,
-) : ViewModel() {
+) : BaseViewModel() {
 
     private val _vinyl = MutableLiveData<Vinyl>()
     val vinyl: LiveData<Vinyl> = _vinyl
 
-    private val _isLoading = MutableLiveData(false)
-    val isLoading: LiveData<Boolean> = _isLoading
+    private val _isCollected = MutableLiveData(false)
+    val isCollected: LiveData<Boolean> = _isCollected
 
-    fun getVinylDetails(vinylId: Int) = viewModelScope.launch {
-        _isLoading.value = true
-        _vinyl.value = vinylsRepository.getVinylOf(vinylId)
-    }.invokeOnCompletion {
-        _isLoading.value = false
+    fun loadVinylDetails(vinylId: Int) = launchViewModelScopeWithLoading {
+        //        _vinyl.value = vinylsRepository.getVinylOf(vinylId)
+    }
+
+    fun makeRepresentativeVinyl() = launchViewModelScopeWithLoading {
+        // 대표 바이닐 등록
+    }
+
+    fun removeCollectedVinyl() = launchViewModelScopeWithLoading {
+        // 수집된 바이닐 삭제
     }
 }

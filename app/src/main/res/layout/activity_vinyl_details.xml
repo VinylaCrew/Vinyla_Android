@@ -1,20 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
+        <import type="android.view.View" />
 
         <variable
             name="viewModel"
             type="com.vinyla_android.presentation.vinyl.detail.VinylDetailsViewModel" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <ScrollView
+            android:id="@+id/scrollView2"
             android:layout_width="0dp"
             android:layout_height="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -32,11 +35,11 @@
                     android:id="@+id/image_vinyl"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
-                    app:vinylImageUrl="@{viewModel.vinyl.imageUrl}"
                     app:layout_constraintDimensionRatio="1:1"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:vinylImageUrl="@{viewModel.vinyl.imageUrl}">
 
                     <ImageView
                         android:id="@+id/button_back"
@@ -52,6 +55,7 @@
                         android:id="@+id/button_heart"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:onClick="@{(view) -> viewModel.makeRepresentativeVinyl()}"
                         android:padding="6dp"
                         app:layout_constraintBottom_toBottomOf="@+id/button_share_instagram"
                         app:layout_constraintEnd_toStartOf="@+id/button_share_instagram"
@@ -78,10 +82,10 @@
                     android:layout_marginTop="20dp"
                     android:textColor="@color/white"
                     android:textSize="19dp"
-                    app:text="@{viewModel.vinyl.name}"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/image_vinyl"
+                    app:text="@{viewModel.vinyl.name}"
                     tools:text="Memories...Do Not Open" />
 
                 <TextView
@@ -136,22 +140,22 @@
                     android:layout_marginStart="38dp"
                     android:textColor="@color/white"
                     android:textSize="13dp"
-                    app:text="@{viewModel.vinyl.artiestName}"
                     app:layout_constraintBottom_toBottomOf="@+id/textView28"
                     app:layout_constraintStart_toEndOf="@+id/textView28"
                     app:layout_constraintTop_toTopOf="@+id/textView28"
+                    app:text="@{viewModel.vinyl.artiestName}"
                     tools:text="The Chainsmokers" />
 
                 <TextView
                     android:id="@+id/text_vinyl_release_year"
                     android:layout_width="wrap_content"
-                    app:text="@{String.valueOf(viewModel.vinyl.releaseYear)}"
                     android:layout_height="wrap_content"
                     android:textColor="@color/white"
                     android:textSize="13dp"
                     app:layout_constraintBottom_toBottomOf="@+id/textView30"
                     app:layout_constraintStart_toStartOf="@+id/text_vinyl_artist"
                     app:layout_constraintTop_toTopOf="@+id/textView30"
+                    app:text="@{String.valueOf(viewModel.vinyl.releaseYear)}"
                     tools:text="2017" />
 
                 <TextView
@@ -232,7 +236,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/list_vinyl_tracks" />
 
                 <TextView
-                    android:id="@+id/button_delete"
+                    android:id="@+id/buttonRemoveCollection"
                     style="@style/Bottom_Text_Button"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -241,11 +245,13 @@
                     android:layout_marginEnd="15dp"
                     android:layout_marginBottom="28dp"
                     android:backgroundTint="@color/black232324"
+                    android:onClick="@{(view) -> viewModel.removeCollectedVinyl()}"
                     android:paddingTop="19dp"
                     android:paddingBottom="19dp"
                     android:text="삭제하기"
                     android:textColor="@color/gray88"
                     android:textSize="17dp"
+                    android:visibility="@{viewModel.vinyl.isCollected ? View.VISIBLE : View.GONE}"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -264,11 +270,24 @@
                     android:paddingBottom="19dp"
                     android:text="보관함에 저장하기(1/2)"
                     android:textSize="17dp"
+                    android:visibility="@{viewModel.vinyl.isCollected ? View.GONE : View.VISIBLE}"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/view14" />
+
             </androidx.constraintlayout.widget.ConstraintLayout>
         </ScrollView>
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="@{viewModel.isLoading() ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

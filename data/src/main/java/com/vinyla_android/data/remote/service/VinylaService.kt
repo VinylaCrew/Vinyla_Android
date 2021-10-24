@@ -34,7 +34,7 @@ internal interface VinylaService {
     @GET("/home")
     suspend fun getHomeInfo(): Response<HomeResponse>
 
-    @GET("/vinyls/search/detail/{id}")
+    @GET("/vinyls/search/{id}")
     suspend fun getVinyl(
         @Path("id") vinylId: Int,
     ): Response<VinylDetailsResponse>
