@@ -16,7 +16,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class VinylDetailsActivity : AppCompatActivity() {
 
     private val vinylDetailsViewModel: VinylDetailsViewModel by viewModels()
-    private val reviewVinylActivityLauncher: ActivityResultLauncher<Intent> by lazy { createReviewVinylActivityLauncher() }
+    private val reviewVinylActivityLauncher = createReviewVinylActivityLauncher()
 
     private fun createReviewVinylActivityLauncher(): ActivityResultLauncher<Intent> {
         val contract = ActivityResultContracts.StartActivityForResult()

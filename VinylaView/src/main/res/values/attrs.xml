@@ -16,6 +16,7 @@
         </attr>
         <attr name="inputTextSize" format="dimension" />
         <attr name="inputTextPaddingTop" format="dimension" />
+        <attr name="maxLength" format="integer" />
     </declare-styleable>
 
     <declare-styleable name="TopBar">

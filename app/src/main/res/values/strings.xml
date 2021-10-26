@@ -36,4 +36,6 @@
     <string name="hint_search">앨범명/아티스트명을 입력해주세요.</string>
     <string name="search_count"><font fgcolor='#FFFFFF'>%d개</font>의 검색 결과가 있습니다.</string>
     <string name="request_new_vinyl">찾는 바이닐 요청하기</string>
+    <string name="text_count_50"><font fgcolor='#FFFFFF'>%d</font>/50</string>
+    <string name="star_point_review_count"><font fgcolor="#FFFFFF">%.2f</font> <font fgcolor="#AAAAAA">(%d건)</font></string>
 </resources>

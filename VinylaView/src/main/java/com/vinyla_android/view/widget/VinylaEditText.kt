@@ -3,6 +3,7 @@ package com.vinyla_android.view.widget
 import android.content.Context
 import android.content.res.TypedArray
 import android.text.Editable
+import android.text.InputFilter
 import android.util.AttributeSet
 import android.util.TypedValue
 import android.view.LayoutInflater
@@ -101,6 +102,13 @@ class VinylaEditText @JvmOverloads constructor(
             R.styleable.VinylaEditText_inputTextPaddingTop,
             resources.getDimension(R.dimen.default_vinyla_text_padding_top)
         )
+        val maxLength = typedArray.getInt(R.styleable.VinylaEditText_maxLength, NON_MAX_LENGTH)
+        setEditTextMaxLength(maxLength)
+    }
+
+    private fun setEditTextMaxLength(maxLength: Int) {
+        if (maxLength == NON_MAX_LENGTH) return
+        binding.textInput.filters += InputFilter.LengthFilter(maxLength)
     }
 
     fun addTextChangedListener(listener: (text: Editable?) -> Unit) {
@@ -108,6 +116,8 @@ class VinylaEditText @JvmOverloads constructor(
     }
 
     companion object {
+        private const val NON_MAX_LENGTH = -1
+
         @JvmStatic
         @BindingAdapter("inputText")
         fun bindingVinylaEditText(view: VinylaEditText, text: String?) {

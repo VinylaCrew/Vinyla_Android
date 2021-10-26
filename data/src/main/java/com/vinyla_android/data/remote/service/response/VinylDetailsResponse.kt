@@ -15,12 +15,12 @@ data class VinylDetailsResponse(
     val title: String,
     @SerializedName("artist")
     val artistName: String,
-    @SerializedName("cover_img")
+    @SerializedName("image")
     val imageUrl: String,
     @SerializedName("year")
     val year: Int,
     @SerializedName("rate")
-    val rate: Double,
+    val rate: Float,
     @SerializedName("rateCount")
     val rateCount: Int,
     @SerializedName("genres")
@@ -36,5 +36,7 @@ data class VinylDetailsResponse(
         imageUrl = imageUrl,
         thumbnailUrl = imageUrl,
         releaseYear = year,
+        starScore = rate,
+        reviewCount = rateCount,
     )
 }

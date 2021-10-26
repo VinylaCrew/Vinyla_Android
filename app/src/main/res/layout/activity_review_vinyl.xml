@@ -1,159 +1,192 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:background="@color/black141415"
-    tools:context=".presentation.vinyl.review.ReviewVinylActivity">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="7dp"
-        android:padding="8dp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView27"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView27"
-        app:srcCompat="@drawable/icn_btn_back" />
+    <data>
 
-    <TextView
-        android:id="@+id/textView27"
-        android:layout_width="0dp"
-        android:layout_height="62dp"
-        android:gravity="center|left"
-        android:text="추천지수 남기기"
-        android:textColor="@color/white"
-        android:textSize="17dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageView4"
-        app:layout_constraintTop_toTopOf="parent" />
+        <variable
+            name="viewModel"
+            type="com.vinyla_android.presentation.vinyl.review.ReviewVinylViewModel" />
+    </data>
 
-    <com.vinyla_android.view.widget.VinylView
-        android:id="@+id/vinylView"
-        android:layout_width="77dp"
-        android:layout_height="77dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="10dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView27" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:background="@color/black141415"
+        tools:context=".presentation.vinyl.review.ReviewVinylActivity">
 
-    <TextView
-        android:id="@+id/textView29"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:textColor="@color/white"
-        android:textSize="13dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView33"
-        app:layout_constraintStart_toEndOf="@+id/vinylView"
-        app:layout_constraintTop_toTopOf="@+id/vinylView"
-        tools:text="Memories...Do Not Open" />
+        <ImageView
+            android:id="@+id/buttonBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="7dp"
+            android:padding="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/textView27"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/textView27"
+            app:srcCompat="@drawable/icn_btn_back" />
 
-    <TextView
-        android:id="@+id/textView33"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="2dp"
-        android:textColor="@color/grayAA"
-        android:textSize="13dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView34"
-        app:layout_constraintStart_toStartOf="@+id/textView29"
-        app:layout_constraintTop_toBottomOf="@+id/textView29"
-        tools:text="The Chainsmokers" />
+        <TextView
+            android:id="@+id/textView27"
+            android:layout_width="0dp"
+            android:layout_height="62dp"
+            android:gravity="center|left"
+            android:text="추천지수 남기기"
+            android:textColor="@color/white"
+            android:textSize="17dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/buttonBack"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textView34"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="6dp"
-        android:drawableStart="@drawable/icn_star"
-        android:drawablePadding="2dp"
-        android:textColor="@color/white"
-        android:textSize="13dp"
-        app:layout_constraintBottom_toBottomOf="@+id/vinylView"
-        app:layout_constraintStart_toStartOf="@+id/textView33"
-        app:layout_constraintTop_toBottomOf="@+id/textView33"
-        tools:text="7.81 (3918건)" />
+        <com.vinyla_android.view.widget.VinylView
+            android:id="@+id/vinylView"
+            android:layout_width="77dp"
+            android:layout_height="77dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView27"
+            app:vinylImageUrl="@{viewModel.vinyl.thumbnailUrl}" />
 
-    <com.vinyla_android.view.widget.VinylaEditText
-        android:id="@+id/inputTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        app:inputVisibility="gone"
-        app:layout_constraintStart_toStartOf="@+id/vinylView"
-        app:layout_constraintTop_toBottomOf="@+id/vinylView"
-        app:title="추천지수" />
+        <TextView
+            android:id="@+id/textView29"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:text="@{viewModel.vinyl.name}"
+            android:textColor="@color/white"
+            android:textSize="13dp"
+            app:layout_constraintBottom_toTopOf="@+id/textView33"
+            app:layout_constraintStart_toEndOf="@+id/vinylView"
+            app:layout_constraintTop_toTopOf="@+id/vinylView"
+            tools:text="Memories...Do Not Open" />
 
-    <RatingBar
-        android:id="@+id/ratingBar"
-        style="@style/VinylaRatingBarStyle"
-        android:rating="3.5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="19dp"
-        app:layout_constraintStart_toStartOf="@+id/inputTextView"
-        app:layout_constraintTop_toBottomOf="@+id/inputTextView" />
+        <TextView
+            android:id="@+id/textView33"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="@{viewModel.vinyl.artiestName}"
+            android:textColor="@color/grayAA"
+            android:textSize="13dp"
+            app:layout_constraintBottom_toTopOf="@+id/textView34"
+            app:layout_constraintStart_toStartOf="@+id/textView29"
+            app:layout_constraintTop_toBottomOf="@+id/textView29"
+            tools:text="The Chainsmokers" />
 
-    <TextView
-        android:id="@+id/textView35"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:textColor="@color/white"
-        android:textSize="30dp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/ratingBar"
-        app:layout_constraintStart_toEndOf="@+id/ratingBar"
-        app:layout_constraintTop_toTopOf="@+id/ratingBar"
-        tools:text="0" />
+        <TextView
+            android:id="@+id/textView34"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:drawableStart="@drawable/icn_star"
+            android:drawablePadding="2dp"
+            android:text="@{@string/star_point_review_count(viewModel.vinyl.starScore, viewModel.vinyl.reviewCount)}"
+            android:textColor="@color/grayAA"
+            android:textSize="13dp"
+            app:layout_constraintBottom_toBottomOf="@+id/vinylView"
+            app:layout_constraintStart_toStartOf="@+id/textView33"
+            app:layout_constraintTop_toBottomOf="@+id/textView33"
+            tools:text="7.81 (3918건)" />
 
-    <TextView
-        android:id="@+id/textView36"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="별점을 눌러 추천지수를 알려주세요"
-        android:textColor="@color/grayAA"
-        android:textSize="13dp"
-        app:layout_constraintStart_toStartOf="@+id/ratingBar"
-        app:layout_constraintTop_toBottomOf="@+id/ratingBar" />
+        <com.vinyla_android.view.widget.VinylaEditText
+            android:id="@+id/inputTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            app:inputVisibility="gone"
+            app:layout_constraintStart_toStartOf="@+id/vinylView"
+            app:layout_constraintTop_toBottomOf="@+id/vinylView"
+            app:title="추천지수" />
 
-    <com.vinyla_android.view.widget.VinylaEditText
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="15dp"
-        app:hint="이 음반에 대해 감상평을 솔직하게 남겨주세요."
-        app:inputTextPaddingTop="9dp"
-        app:inputTextSize="13dp"
-        app:isOptional="true"
-        app:isRequired="false"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/textView36"
-        app:layout_constraintTop_toBottomOf="@+id/textView36"
-        app:minInputHeight="120dp"
-        app:title="한줄평">
+        <RatingBar
+            android:id="@+id/ratingBar"
+            style="@style/VinylaRatingBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="19dp"
+            android:max="5"
+            android:rating="@={viewModel.starScore}"
+            android:stepSize="0.5"
+            app:layout_constraintStart_toStartOf="@+id/inputTextView"
+            app:layout_constraintTop_toBottomOf="@+id/inputTextView" />
 
-    </com.vinyla_android.view.widget.VinylaEditText>
+        <TextView
+            android:id="@+id/textView35"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="@{String.valueOf(viewModel.shownStarScore)}"
+            android:textColor="@color/white"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/ratingBar"
+            app:layout_constraintStart_toEndOf="@+id/ratingBar"
+            app:layout_constraintTop_toTopOf="@+id/ratingBar"
+            tools:text="0" />
 
-    <TextView
-        android:id="@+id/button_add_collection"
-        style="@style/Bottom_Text_Button"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginEnd="15dp"
-        android:layout_marginBottom="28dp"
-        android:paddingTop="19dp"
-        android:paddingBottom="19dp"
-        android:text="보관함에 저장하기(2/2)"
-        android:textSize="17dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        <TextView
+            android:id="@+id/textView36"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="별점을 눌러 추천지수를 알려주세요"
+            android:textColor="@color/grayAA"
+            android:textSize="13dp"
+            app:layout_constraintStart_toStartOf="@+id/ratingBar"
+            app:layout_constraintTop_toBottomOf="@+id/ratingBar" />
+
+        <com.vinyla_android.view.widget.VinylaEditText
+            android:id="@+id/vinylaEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="15dp"
+            app:maxLength="50"
+            app:hint="이 음반에 대해 감상평을 솔직하게 남겨주세요."
+            app:inputText="@={viewModel.reviewContent}"
+            app:inputTextPaddingTop="9dp"
+            app:inputTextSize="13dp"
+            app:isOptional="true"
+            app:isRequired="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/textView36"
+            app:layout_constraintTop_toBottomOf="@+id/textView36"
+            app:minInputHeight="120dp"
+            app:title="한줄평">
+
+        </com.vinyla_android.view.widget.VinylaEditText>
+
+        <TextView
+            android:id="@+id/textView43"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="12dp"
+            android:text="@{@string/text_count_50(viewModel.reviewContent.length)}"
+            android:textColor="@color/gray66"
+            app:layout_constraintBottom_toBottomOf="@+id/vinylaEditText"
+            app:layout_constraintEnd_toEndOf="@+id/vinylaEditText"
+            tools:text="38/50" />
+
+        <TextView
+            android:id="@+id/button_add_collection"
+            style="@style/Bottom_Text_Button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="28dp"
+            android:onClick="@{(view) -> viewModel.saveVinylCollection()}"
+            android:paddingTop="19dp"
+            android:paddingBottom="19dp"
+            android:text="보관함에 저장하기(2/2)"
+            android:textSize="17dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

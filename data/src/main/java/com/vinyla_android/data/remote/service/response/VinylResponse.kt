@@ -21,5 +21,7 @@ data class VinylResponse(
         imageUrl = imageUrl,
         thumbnailUrl = imageUrl,
         releaseYear = 0,
+        starScore = 0.0f,
+        reviewCount = 0,
     )
 }
