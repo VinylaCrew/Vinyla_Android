@@ -33,6 +33,8 @@ internal class RealVinylsRepositoryTest {
             imageUrl = "",
             thumbnailUrl = "",
             releaseYear = 1995,
+            starScore = 0.0f,
+            reviewCount = 0,
         )
         coEvery { vinylsRemoteSource.getVinylOf(1) } returns expectedVinyl
 

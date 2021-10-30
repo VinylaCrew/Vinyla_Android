@@ -20,8 +20,7 @@ internal class VinylaMembersRemoteSource @Inject constructor(
     override suspend fun checkNickname(nickname: String): NicknameStatus {
         val response = vinylaService.checkNickname(CheckNicknameParams(nickname))
         if (response.isSuccessful) return NicknameStatus.AVAILABLE
-        return NicknameStatus.DUPLICATED // errorbody일 때 응답 읽어서 처리 따로해야됨 ㅠ
-        // 우선 시간 없으니까 여긴 좀 나중에 다듬자 ㅠㅠ..
+        return NicknameStatus.DUPLICATED
     }
 
     override suspend fun signUp(signUpInfo: SignUpInfo): Result<Unit> {
