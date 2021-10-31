@@ -16,9 +16,11 @@ class VinylaResponseUnboxingInterceptor : Interceptor {
     override fun intercept(chain: Interceptor.Chain): Response {
         val response = chain.proceed(chain.request())
         val responseJson = response.extractResponseJson()
+
+        val dataPayload = if (responseJson.has(KEY_DATA)) responseJson[KEY_DATA] else EMPTY_JSON
         return response.newBuilder()
             .message(responseJson[KEY_MESSAGE].toString())
-            .body(responseJson[KEY_DATA].toString().toResponseBody())
+            .body(dataPayload.toString().toResponseBody())
             .build()
     }
 

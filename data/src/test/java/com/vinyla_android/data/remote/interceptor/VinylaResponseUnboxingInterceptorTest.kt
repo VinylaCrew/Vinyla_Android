@@ -103,4 +103,6 @@ internal class VinylaResponseUnboxingInterceptorTest {
             { assertThat(exception).hasMessageThat().contains("알 수 없는 에러가 발생했습니다.") }
         )
     }
+
+    //응답실패시 data 못가져오는거
 }
