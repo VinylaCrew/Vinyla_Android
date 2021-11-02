@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Vinyla_Android</string>
+    <string name="app_name">Vinyla</string>
 
     <string name="terms_and_conditions_of_service"><u>서비스 이용약관 동의</u><font fgcolor='#FF5000'> (필수)</font></string>
     <string name="privacy_policy"><u>개인정보 수집 및 이용 동의</u><font fgcolor='#FF5000'> (필수)</font></string>

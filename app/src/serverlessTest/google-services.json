@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "295438514268",
+    "project_id": "vinyla-aa334",
+    "storage_bucket": "vinyla-aa334.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:295438514268:android:da0b702c693cdfa1ec8e99",
+        "android_client_info": {
+          "package_name": "com.vinyla_android"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "295438514268-io9oafe2e78n8aih8ev57ug66lrm1ss5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA9L5K-uM713h8Fi__fjDgHyfkXsqFDoJ4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "295438514268-io9oafe2e78n8aih8ev57ug66lrm1ss5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
