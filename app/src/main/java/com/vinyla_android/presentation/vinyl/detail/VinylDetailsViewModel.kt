@@ -25,7 +25,7 @@ class VinylDetailsViewModel @Inject constructor(
     val isCollected: LiveData<Boolean> = _isCollected
 
     fun loadVinylDetails(vinylId: Int) = launchViewModelScopeWithLoading {
-        //        _vinyl.value = vinylsRepository.getVinylOf(vinylId)
+        _vinyl.value = vinylsRepository.getVinylOf(vinylId)
     }
 
     fun makeRepresentativeVinyl() = launchViewModelScopeWithLoading {

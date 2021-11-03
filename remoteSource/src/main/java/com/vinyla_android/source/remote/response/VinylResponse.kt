@@ -15,9 +15,10 @@ data class VinylResponse(
 ) {
     fun toVinyl(): Vinyl = Vinyl(
         id = vinylIdx,
-        name = title,
-        artiestName = artist,
+        title = title,
+        artistName = artist,
         genre = "",
+        trackList = emptyList(),
         imageUrl = imageUrl,
         thumbnailUrl = imageUrl,
         releaseYear = 0,

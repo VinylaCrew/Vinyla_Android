@@ -9,5 +9,5 @@ data class SimpleVinyl(
     val id: Int,
     val thumbnailUrl: String,
     val title: String,
-    val artiestName: String,
+    val artistName: String,
 )

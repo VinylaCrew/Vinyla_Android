@@ -22,6 +22,6 @@ data class SearchingVinylResponse(
         id = vinylId,
         thumbnailUrl = thumbnailUrl,
         title = title,
-        artiestName = artistName,
+        artistName = artistName,
     )
 }

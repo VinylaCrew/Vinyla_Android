@@ -4,9 +4,10 @@ import java.util.*
 
 data class Vinyl(
     val id: Int,
-    val name: String,
-    val artiestName: String,
+    val title: String,
+    val artistName: String,
     val genre: String,
+    val trackList: List<String>,
     val releaseYear: Int,
     val starScore: Float,
     val reviewCount: Int,
@@ -16,4 +17,11 @@ data class Vinyl(
 
     var isCollected: Boolean = false,
     var collectedDate: Date? = null
-)
+) {
+    fun toSimpleVinyl(): SimpleVinyl = SimpleVinyl(
+        id = id,
+        thumbnailUrl = thumbnailUrl.orEmpty(),
+        title = title,
+        artistName = artistName,
+    )
+}

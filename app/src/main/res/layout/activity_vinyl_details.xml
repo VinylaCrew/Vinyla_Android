@@ -85,7 +85,7 @@
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/image_vinyl"
-                    app:text="@{viewModel.vinyl.name}"
+                    app:text="@{viewModel.vinyl.title}"
                     tools:text="Memories...Do Not Open" />
 
                 <TextView
@@ -143,7 +143,7 @@
                     app:layout_constraintBottom_toBottomOf="@+id/textView28"
                     app:layout_constraintStart_toEndOf="@+id/textView28"
                     app:layout_constraintTop_toTopOf="@+id/textView28"
-                    app:text="@{viewModel.vinyl.artiestName}"
+                    app:text="@{viewModel.vinyl.artistName}"
                     tools:text="The Chainsmokers" />
 
                 <TextView

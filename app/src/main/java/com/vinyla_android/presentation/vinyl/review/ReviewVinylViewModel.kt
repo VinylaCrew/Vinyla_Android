@@ -28,9 +28,10 @@ class ReviewVinylViewModel @Inject constructor(
 //        _vinyl.value = vinylsRepository.getVinylOf(vinylId)
         _vinyl.value = Vinyl(
             id = 0,
-            name = "Loving You Girl (Feat. Hkeem)",
-            artiestName = "Peder Elias",
+            title = "Loving You Girl (Feat. Hkeem)",
+            artistName = "Peder Elias",
             genre = "",
+            trackList = emptyList(),
             releaseYear = 0,
             starScore = 7.81f,
             reviewCount = 3918,

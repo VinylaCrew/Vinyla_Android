@@ -27,9 +27,10 @@ internal class RealVinylsRepositoryTest {
         // given
         val expectedVinyl = Vinyl(
             id = 1,
-            name = "name",
-            artiestName = "artist",
+            title = "name",
+            artistName = "artist",
             genre = "pop",
+            trackList = emptyList(),
             imageUrl = "",
             thumbnailUrl = "",
             releaseYear = 1995,
@@ -51,7 +52,7 @@ internal class RealVinylsRepositoryTest {
         val expectedVinyl = SimpleVinyl(
             id = 1,
             title = "Memories...Do Not Open",
-            artiestName = "The Chainsmokers",
+            artistName = "The Chainsmokers",
             thumbnailUrl = "",
         )
         coEvery { vinylsRemoteSource.searchVinyls("Memories") } returns listOf(expectedVinyl)

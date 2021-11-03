@@ -26,13 +26,14 @@ data class VinylDetailsResponse(
     @SerializedName("genres")
     val genres: List<String>,
     @SerializedName("tracklist")
-    val tracks: List<VinylTrackResponse>,
+    val tracks: List<String>,
 ) {
     fun toVinyl(): Vinyl = Vinyl(
         id = id,
-        name = title,
-        artiestName = artistName,
+        title = title,
+        artistName = artistName,
         genre = genres[0], // 여기 변경해야함
+        trackList = tracks,
         imageUrl = imageUrl,
         thumbnailUrl = imageUrl,
         releaseYear = year,
