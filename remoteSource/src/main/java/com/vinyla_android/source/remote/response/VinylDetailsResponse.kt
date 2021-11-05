@@ -2,6 +2,7 @@ package com.vinyla_android.source.remote.response
 
 import com.google.gson.annotations.SerializedName
 import com.vinyla_android.domain.entity.Vinyl
+import com.vinyla_android.domain.entity.VinylTrack
 
 /**
  * Created By Malibin
@@ -33,7 +34,7 @@ data class VinylDetailsResponse(
         title = title,
         artistName = artistName,
         genre = genres[0], // 여기 변경해야함
-        trackList = tracks,
+        trackList = tracks.map { VinylTrack(it) },
         imageUrl = imageUrl,
         thumbnailUrl = imageUrl,
         releaseYear = year,

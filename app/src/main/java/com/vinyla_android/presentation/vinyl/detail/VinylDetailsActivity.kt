@@ -16,6 +16,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class VinylDetailsActivity : AppCompatActivity() {
 
     private val vinylDetailsViewModel: VinylDetailsViewModel by viewModels()
+    private val vinylTracksAdapter: VinylTracksAdapter by lazy { VinylTracksAdapter() }
     private val reviewVinylActivityLauncher = createReviewVinylActivityLauncher()
 
     private fun createReviewVinylActivityLauncher(): ActivityResultLauncher<Intent> {
@@ -29,6 +30,7 @@ class VinylDetailsActivity : AppCompatActivity() {
         val binding = ActivityVinylDetailsBinding.inflate(layoutInflater)
         initView(binding)
         vinylDetailsViewModel.loadVinylDetails(getVinylId())
+        vinylDetailsViewModel.vinyl.observe(this) { vinylTracksAdapter.submitList(it.trackList) }
     }
 
     private fun getVinylId(): Int {
@@ -41,6 +43,7 @@ class VinylDetailsActivity : AppCompatActivity() {
         setContentView(binding.root)
         binding.viewModel = vinylDetailsViewModel
         binding.lifecycleOwner = this
+        binding.listVinylTracks.adapter = vinylTracksAdapter
         binding.buttonAddCollection.setOnClickListener { deployReviewVinylActivity() }
         binding.buttonBack.setOnClickListener { finish() }
         binding.buttonShareInstagram.setOnClickListener { shareInstagram() }
@@ -48,6 +51,7 @@ class VinylDetailsActivity : AppCompatActivity() {
 
     private fun deployReviewVinylActivity() {
         val intent = Intent(this, ReviewVinylActivity::class.java)
+        intent.putExtra(ReviewVinylActivity.KEY_VINYL_ID, getVinylId())
         reviewVinylActivityLauncher.launch(intent)
     }
 

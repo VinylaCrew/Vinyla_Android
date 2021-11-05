@@ -21,6 +21,17 @@ class ReviewVinylActivity : AppCompatActivity() {
         binding.lifecycleOwner = this
         binding.buttonBack.setOnClickListener { finish() }
 
-        reviewVinylViewModel.loadVinyl(0)
+        reviewVinylViewModel.loadVinyl(getVinylId())
+    }
+
+    private fun getVinylId(): Int {
+        return intent.getIntExtra(KEY_VINYL_ID, KEY_DEFAULT_VALUE)
+            .takeIf { it != KEY_DEFAULT_VALUE }
+            ?: throw IllegalArgumentException("Vinyl Key must be send")
+    }
+
+    companion object {
+        const val KEY_VINYL_ID = "KEY_VINYL_ID"
+        const val KEY_DEFAULT_VALUE = Int.MIN_VALUE
     }
 }

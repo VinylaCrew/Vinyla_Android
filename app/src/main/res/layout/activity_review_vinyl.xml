@@ -82,13 +82,26 @@
             android:layout_marginTop="6dp"
             android:drawableStart="@drawable/icn_star"
             android:drawablePadding="2dp"
-            android:text="@{@string/star_point_review_count(viewModel.vinyl.starScore, viewModel.vinyl.reviewCount)}"
-            android:textColor="@color/grayAA"
+            android:text="@{@string/star_point(viewModel.vinyl.starScore)}"
+            android:textColor="@color/white"
             android:textSize="13dp"
             app:layout_constraintBottom_toBottomOf="@+id/vinylView"
             app:layout_constraintStart_toStartOf="@+id/textView33"
             app:layout_constraintTop_toBottomOf="@+id/textView33"
-            tools:text="7.81 (3918건)" />
+            tools:text="7.81" />
+
+        <TextView
+            android:id="@+id/textView46"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
+            android:text="@{@string/d_count(viewModel.vinyl.reviewCount)}"
+            android:textColor="@color/grayAA"
+            android:textSize="13dp"
+            app:layout_constraintBottom_toBottomOf="@+id/textView34"
+            app:layout_constraintStart_toEndOf="@+id/textView34"
+            app:layout_constraintTop_toTopOf="@+id/textView34"
+            tools:text="(3918건)" />
 
         <com.vinyla_android.view.widget.VinylaEditText
             android:id="@+id/inputTextView"
@@ -143,7 +156,6 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
             android:layout_marginEnd="15dp"
-            app:maxLength="50"
             app:hint="이 음반에 대해 감상평을 솔직하게 남겨주세요."
             app:inputText="@={viewModel.reviewContent}"
             app:inputTextPaddingTop="9dp"
@@ -153,10 +165,22 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/textView36"
             app:layout_constraintTop_toBottomOf="@+id/textView36"
+            app:maxLength="50"
             app:minInputHeight="120dp"
             app:title="한줄평">
 
         </com.vinyla_android.view.widget.VinylaEditText>
+
+        <TextView
+            android:id="@+id/textView47"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{@string/integer_number(viewModel.reviewContent.length)}"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="@+id/textView43"
+            app:layout_constraintEnd_toStartOf="@+id/textView43"
+            app:layout_constraintTop_toTopOf="@+id/textView43"
+            tools:text="0" />
 
         <TextView
             android:id="@+id/textView43"
@@ -164,11 +188,11 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="15dp"
             android:layout_marginBottom="12dp"
-            android:text="@{@string/text_count_50(viewModel.reviewContent.length)}"
+            android:text="@string/text_count_50"
             android:textColor="@color/gray66"
             app:layout_constraintBottom_toBottomOf="@+id/vinylaEditText"
             app:layout_constraintEnd_toEndOf="@+id/vinylaEditText"
-            tools:text="38/50" />
+            tools:text="@string/text_count_50" />
 
         <TextView
             android:id="@+id/button_add_collection"

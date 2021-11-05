@@ -20,6 +20,7 @@
             android:id="@+id/scrollView2"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:overScrollMode="never"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -162,25 +163,39 @@
                     android:id="@+id/text_vinyl_genre"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="일렉트로니카"
+                    android:text="@{viewModel.vinyl.genre}"
                     android:textColor="@color/white"
                     android:textSize="13dp"
                     app:layout_constraintBottom_toBottomOf="@+id/textView31"
                     app:layout_constraintStart_toStartOf="@+id/text_vinyl_release_year"
-                    app:layout_constraintTop_toTopOf="@+id/textView31" />
+                    app:layout_constraintTop_toTopOf="@+id/textView31"
+                    tools:text="일렉트로니카" />
 
                 <TextView
                     android:id="@+id/text_vinyl_recommend_count"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:drawableStart="@drawable/icn_star"
-                    android:text="@string/recommend_text"
+                    android:text="@{@string/star_point(viewModel.vinyl.starScore)}"
                     android:textColor="@color/white"
                     android:textSize="13dp"
                     app:layout_constraintBottom_toBottomOf="@+id/textView32"
                     app:layout_constraintStart_toStartOf="@+id/text_vinyl_genre"
                     app:layout_constraintTop_toTopOf="@+id/textView32"
-                    tools:text="7.81(3918건)" />
+                    tools:text="7.81" />
+
+                <TextView
+                    android:id="@+id/textReviewCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="2dp"
+                    android:text="@{@string/d_count(viewModel.vinyl.reviewCount)}"
+                    android:textColor="@color/grayAA"
+                    android:textSize="13dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/text_vinyl_recommend_count"
+                    app:layout_constraintStart_toEndOf="@+id/text_vinyl_recommend_count"
+                    app:layout_constraintTop_toTopOf="@+id/text_vinyl_recommend_count"
+                    tools:text="(3918건)" />
 
                 <View
                     android:id="@+id/view3"
@@ -200,11 +215,25 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="15dp"
                     android:layout_marginTop="20dp"
-                    android:text="수록곡 %d"
+                    android:text="@string/vinyl_tracks"
                     android:textColor="@color/white"
                     android:textSize="19dp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/view3" />
+                    app:layout_constraintTop_toBottomOf="@+id/view3"
+                    tools:text="수록곡" />
+
+                <TextView
+                    android:id="@+id/textTracksCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:text="@{@string/integer_number(viewModel.vinyl.trackList.size)}"
+                    android:textColor="@color/mainColor"
+                    android:textSize="19dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/text_vinyl_tracks"
+                    app:layout_constraintStart_toEndOf="@+id/text_vinyl_tracks"
+                    app:layout_constraintTop_toTopOf="@+id/text_vinyl_tracks"
+                    tools:text="6" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/list_vinyl_tracks"
@@ -275,6 +304,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/view14" />
+
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </ScrollView>
