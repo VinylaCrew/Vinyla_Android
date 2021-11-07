@@ -1,9 +1,11 @@
 package com.vinyla_android.source.remote.source
 
-import com.vinyla_android.source.remote.service.VinylaService
 import com.vinyla_android.data.source.VinylsSource
 import com.vinyla_android.domain.entity.SimpleVinyl
 import com.vinyla_android.domain.entity.Vinyl
+import com.vinyla_android.domain.exception.UnexpectedServerError
+import com.vinyla_android.source.remote.params.CollectVinylParams
+import com.vinyla_android.source.remote.service.VinylaService
 import javax.inject.Inject
 
 /**
@@ -17,14 +19,32 @@ internal class VinylsRemoteSource @Inject constructor(
 
     override suspend fun getVinylOf(vinylId: Int): Vinyl? {
         val response = vinylaService.getVinyl(vinylId)
-        return response.body()?.toVinyl()
-        // response 관련 리팩터링 해야함 우선은 간단하게 처리
-        // interceptor에서 가공 후 가져오는 작업도 만들어야함
+        if (response.isSuccessful) return response.body()?.toVinyl()
+        if (response.code() == 400) return null
+        throw UnexpectedServerError()
     }
 
     override suspend fun searchVinyls(query: String): List<SimpleVinyl> {
-        return vinylaService.searchVinyls(query)
-            .body().orEmpty()
-            .map { it.toSimpleVinyl() }
+        if (query.isBlank()) return emptyList()
+        val response = vinylaService.searchVinyls(query)
+        if (response.isSuccessful) return response.body().orEmpty().map { it.toSimpleVinyl() }
+        throw UnexpectedServerError()
+    }
+
+    override suspend fun collectVinyl(
+        vinylId: Int,
+        starScore: Float,
+        comment: String
+    ): Result<Unit> {
+        val params = CollectVinylParams(vinylId, starScore, comment)
+        val response = vinylaService.collectVinyl(params)
+        if (response.isSuccessful) return Result.success(Unit)
+        return Result.failure(UnexpectedServerError())
+    }
+
+    override suspend fun cancelCollectVinyl(vinylId: Int): Result<Unit> {
+        val response = vinylaService.cancelCollectVinyl(vinylId)
+        if (response.isSuccessful) return Result.success(Unit)
+        return Result.failure(UnexpectedServerError())
     }
 }

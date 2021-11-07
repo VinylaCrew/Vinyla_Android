@@ -22,4 +22,16 @@ internal class RealVinylsRepository @Inject constructor(
     override suspend fun searchVinyls(query: String): List<SimpleVinyl> {
         return vinylsRemoteSource.searchVinyls(query)
     }
+
+    override suspend fun collectVinyl(
+        vinylId: Int,
+        starScore: Float,
+        comment: String
+    ): Result<Unit> {
+        return vinylsRemoteSource.collectVinyl(vinylId, starScore, comment)
+    }
+
+    override suspend fun cancelCollectVinyl(vinylId: Int): Result<Unit> {
+        return vinylsRemoteSource.cancelCollectVinyl(vinylId)
+    }
 }

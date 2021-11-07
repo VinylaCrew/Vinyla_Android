@@ -1,13 +1,15 @@
 package com.vinyla_android.source.remote.service
 
 import com.vinyla_android.source.remote.params.CheckNicknameParams
+import com.vinyla_android.source.remote.params.CollectVinylParams
 import com.vinyla_android.source.remote.params.SignUpParams
 import com.vinyla_android.source.remote.response.HomeResponse
-import com.vinyla_android.source.remote.response.SearchingVinylResponse
+import com.vinyla_android.source.remote.response.SearchVinylsResponse
 import com.vinyla_android.source.remote.response.SignUpResponse
 import com.vinyla_android.source.remote.response.VinylDetailsResponse
 import retrofit2.Response
 import retrofit2.http.Body
+import retrofit2.http.DELETE
 import retrofit2.http.GET
 import retrofit2.http.POST
 import retrofit2.http.Path
@@ -42,7 +44,17 @@ internal interface VinylaService {
     @GET("/vinyls/search")
     suspend fun searchVinyls(
         @Query("q") query: String,
-    ): Response<List<SearchingVinylResponse>>
+    ): Response<List<SearchVinylsResponse>>
+
+    @POST("/vinyls/???")
+    suspend fun collectVinyl(
+        @Body body: CollectVinylParams,
+    ): Response<Unit>
+
+    @DELETE("/vinyls/???")
+    suspend fun cancelCollectVinyl(
+        @Query("id") vinylId: Int,
+    ): Response<Unit>
 
     companion object {
         const val BASE_URL = "http://13.209.245.76:3000"

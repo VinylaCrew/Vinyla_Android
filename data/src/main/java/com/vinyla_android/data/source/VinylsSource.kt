@@ -13,4 +13,8 @@ interface VinylsSource {
     suspend fun getVinylOf(vinylId: Int): Vinyl?
 
     suspend fun searchVinyls(query: String): List<SimpleVinyl>
+
+    suspend fun collectVinyl(vinylId: Int, starScore: Float, comment: String): Result<Unit>
+
+    suspend fun cancelCollectVinyl(vinylId: Int): Result<Unit>
 }
