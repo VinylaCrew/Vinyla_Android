@@ -17,4 +17,10 @@ interface VinylsSource {
     suspend fun collectVinyl(vinylId: Int, starScore: Float, comment: String): Result<Unit>
 
     suspend fun cancelCollectVinyl(vinylId: Int): Result<Unit>
+
+    suspend fun getRepresentativeVinyl(): Vinyl?
+
+    suspend fun saveRepresentativeVinyl(vinylId: Int): Result<Unit>
+
+    suspend fun removeRepresentativeVinyl(): Result<Unit>
 }

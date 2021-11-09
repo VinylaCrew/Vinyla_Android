@@ -34,4 +34,16 @@ internal class RealVinylsRepository @Inject constructor(
     override suspend fun cancelCollectVinyl(vinylId: Int): Result<Unit> {
         return vinylsRemoteSource.cancelCollectVinyl(vinylId)
     }
+
+    override suspend fun getRepresentativeVinyl(): Vinyl? {
+        return vinylsRemoteSource.getRepresentativeVinyl()
+    }
+
+    override suspend fun saveRepresentativeVinyl(vinylId: Int): Result<Unit> {
+        return vinylsRemoteSource.saveRepresentativeVinyl(vinylId)
+    }
+
+    override suspend fun removeRepresentativeVinyl(): Result<Unit> {
+        return vinylsRemoteSource.removeRepresentativeVinyl()
+    }
 }

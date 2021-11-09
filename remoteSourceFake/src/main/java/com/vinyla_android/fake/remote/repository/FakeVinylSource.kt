@@ -8,12 +8,14 @@ import javax.inject.Inject
 
 internal class FakeVinylSource @Inject constructor() : VinylsSource {
 
+    private val inMemoryVinyls: MutableList<Vinyl> = STUB_VINYLS.toMutableList()
+
     override suspend fun getVinylOf(vinylId: Int): Vinyl? {
-        return STUB_VINYLS.find { it.id == vinylId }
+        return inMemoryVinyls.find { it.id == vinylId }
     }
 
     override suspend fun searchVinyls(query: String): List<SimpleVinyl> {
-        return STUB_VINYLS.map { it.toSimpleVinyl() }
+        return inMemoryVinyls.map { it.toSimpleVinyl() }
     }
 
     override suspend fun collectVinyl(
@@ -21,14 +23,44 @@ internal class FakeVinylSource @Inject constructor() : VinylsSource {
         starScore: Float,
         comment: String
     ): Result<Unit> {
-        val vinyl = getVinylOf(vinylId) ?: throw IllegalArgumentException("모임?")
-        vinyl.isCollected = true
+        val vinyl = findVinylForce(vinylId)
+        val updatedVinyl = vinyl.copy(isCollected = true)
+        replaceInMemoryVinyl(vinyl, updatedVinyl)
         return Result.success(Unit)
     }
 
     override suspend fun cancelCollectVinyl(vinylId: Int): Result<Unit> {
-        val vinyl = getVinylOf(vinylId) ?: throw IllegalArgumentException("모임?")
-        vinyl.isCollected = false
+        val vinyl = findVinylForce(vinylId)
+        val updatedVinyl = vinyl.copy(isCollected = false)
+        replaceInMemoryVinyl(vinyl, updatedVinyl)
         return Result.success(Unit)
+    }
+
+    override suspend fun getRepresentativeVinyl(): Vinyl? {
+        return inMemoryVinyls.find { it.isRepresentative }
+    }
+
+    override suspend fun saveRepresentativeVinyl(vinylId: Int): Result<Unit> {
+        val vinyl = findVinylForce(vinylId)
+        val updatedVinyl = vinyl.copy(isRepresentative = true)
+        replaceInMemoryVinyl(vinyl, updatedVinyl)
+        return Result.success(Unit)
+    }
+
+    override suspend fun removeRepresentativeVinyl(): Result<Unit> {
+        val vinyl = inMemoryVinyls.find { it.isRepresentative }
+            ?: error("cannot find representative Vinyl. maybe you don't save representative vinyl yet")
+        val updatedVinyl = vinyl.copy(isRepresentative = false)
+        replaceInMemoryVinyl(vinyl, updatedVinyl)
+        return Result.success(Unit)
+    }
+
+    private suspend fun findVinylForce(vinylId: Int): Vinyl =
+        getVinylOf(vinylId) ?: error("cannot find vinyl of id : $vinylId")
+
+    private fun replaceInMemoryVinyl(old: Vinyl, new: Vinyl) {
+        val oldIndex = inMemoryVinyls.indexOf(old)
+        inMemoryVinyls.remove(old)
+        inMemoryVinyls.add(oldIndex, new)
     }
 }

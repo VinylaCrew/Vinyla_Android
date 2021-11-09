@@ -47,4 +47,16 @@ internal class VinylsRemoteSource @Inject constructor(
         if (response.isSuccessful) return Result.success(Unit)
         return Result.failure(UnexpectedServerError())
     }
+
+    override suspend fun getRepresentativeVinyl(): Vinyl? {
+        TODO("Not yet implemented")
+    }
+
+    override suspend fun saveRepresentativeVinyl(vinylId: Int): Result<Unit> {
+        TODO("Not yet implemented")
+    }
+
+    override suspend fun removeRepresentativeVinyl(): Result<Unit> {
+        TODO("Not yet implemented")
+    }
 }

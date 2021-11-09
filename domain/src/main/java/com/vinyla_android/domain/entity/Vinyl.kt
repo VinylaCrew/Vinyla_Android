@@ -15,8 +15,9 @@ data class Vinyl(
     val imageUrl: String?,
     val thumbnailUrl: String?,
 
-    var isCollected: Boolean = false,
-    var collectedDate: Date? = null
+    val isRepresentative: Boolean = false,
+    val isCollected: Boolean = false,
+    val collectedDate: Date? = null,
 ) {
     fun toSimpleVinyl(): SimpleVinyl = SimpleVinyl(
         id = id,
