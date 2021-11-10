@@ -9,6 +9,8 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.vinyla_android.databinding.ActivityVinylDetailsBinding
+import com.vinyla_android.domain.event.SubmitEvent
+import com.vinyla_android.presentation.utils.showToast
 import com.vinyla_android.presentation.vinyl.review.ReviewVinylActivity
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -31,6 +33,7 @@ class VinylDetailsActivity : AppCompatActivity() {
         initView(binding)
         vinylDetailsViewModel.loadVinylDetails(getVinylId())
         vinylDetailsViewModel.vinyl.observe(this) { vinylTracksAdapter.submitList(it.trackList) }
+        vinylDetailsViewModel.removeCollectEvent.observe(this) { handleRemoveCollectEvent(it) }
     }
 
     private fun getVinylId(): Int {
@@ -62,6 +65,11 @@ class VinylDetailsActivity : AppCompatActivity() {
 
     private fun shareInstagram() {
 
+    }
+
+    private fun handleRemoveCollectEvent(event: SubmitEvent): Unit = when (event) {
+        is SubmitEvent.Success -> finish()
+        is SubmitEvent.Fail -> showToast(event.getToastMessage())
     }
 
     companion object {

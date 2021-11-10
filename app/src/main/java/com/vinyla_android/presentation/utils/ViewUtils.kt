@@ -14,12 +14,11 @@ import com.orhanobut.logger.Logger
 
 fun printLog(message: String?) = Logger.d(message.toString())
 
-fun Context.showToast(message: String) {
-    Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
-}
-
-fun Context.showToast(@StringRes stringResId: Int) {
-    Toast.makeText(this, stringResId, Toast.LENGTH_SHORT).show()
+fun Context.showToast(toastMessage: ToastMessage) = when (toastMessage) {
+    is ToastMessage.ResourceId ->
+        Toast.makeText(this, toastMessage.message, Toast.LENGTH_SHORT).show()
+    is ToastMessage.StringValue ->
+        Toast.makeText(this, toastMessage.message, Toast.LENGTH_SHORT).show()
 }
 
 fun AdView.loadAd() {

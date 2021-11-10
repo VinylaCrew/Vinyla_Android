@@ -3,6 +3,8 @@ package com.vinyla_android.presentation.vinyl.detail
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.vinyla_android.domain.entity.Vinyl
+import com.vinyla_android.domain.event.SingleLiveEvent
+import com.vinyla_android.domain.event.SubmitEvent
 import com.vinyla_android.domain.repository.VinylsRepository
 import com.vinyla_android.presentation.utils.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -18,6 +20,9 @@ class VinylDetailsViewModel @Inject constructor(
     private val vinylsRepository: VinylsRepository,
 ) : BaseViewModel() {
 
+    private val _removeCollectEvent = SingleLiveEvent<SubmitEvent>()
+    val removeCollectEvent: LiveData<SubmitEvent> = _removeCollectEvent
+
     private val _vinyl = MutableLiveData<Vinyl>()
     val vinyl: LiveData<Vinyl> = _vinyl
 
@@ -25,7 +30,14 @@ class VinylDetailsViewModel @Inject constructor(
     val isCollected: LiveData<Boolean> = _isCollected
 
     fun loadVinylDetails(vinylId: Int) = launchViewModelScopeWithLoading {
-        _vinyl.value = vinylsRepository.getVinylOf(vinylId)
+        val vinyl = vinylsRepository.getVinylOf(vinylId)
+        if (vinyl != null) {
+            _vinyl.value = vinyl
+            _isCollected.value = vinyl.isCollected
+            return@launchViewModelScopeWithLoading
+        }
+        notifyToastMessage("해당 바이닐을 찾을 수 없습니다!")
+        // TODO: getVinyl의 반환을 Result<Vinyl>로 바꿀 것.
     }
 
     fun makeRepresentativeVinyl() = launchViewModelScopeWithLoading {
@@ -33,6 +45,10 @@ class VinylDetailsViewModel @Inject constructor(
     }
 
     fun removeCollectedVinyl() = launchViewModelScopeWithLoading {
-        // 수집된 바이닐 삭제
+        vinylsRepository.cancelCollectVinyl(getVinylId())
+            .onSuccess { _removeCollectEvent.value = SubmitEvent.Success }
+            .onFailure { _removeCollectEvent.value = SubmitEvent.Fail(it) }
     }
+
+    private fun getVinylId(): Int = _vinyl.value?.id ?: error("vinyl is not loaded yet")
 }
