@@ -2,6 +2,7 @@ package com.vinyla_android.domain.repository
 
 import com.vinyla_android.domain.entity.SimpleVinyl
 import com.vinyla_android.domain.entity.Vinyl
+import com.vinyla_android.domain.entity.Vinyls
 
 /**
  * Created By Malibin
@@ -11,6 +12,8 @@ import com.vinyla_android.domain.entity.Vinyl
 interface VinylsRepository {
 
     suspend fun getVinylOf(vinylId: Int): Vinyl?
+
+    suspend fun getCollectedVinyls(): Vinyls
 
     suspend fun searchVinyls(query: String): List<SimpleVinyl>
 

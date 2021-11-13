@@ -3,6 +3,7 @@ package com.vinyla_android.source.remote.source
 import com.vinyla_android.data.source.VinylsSource
 import com.vinyla_android.domain.entity.SimpleVinyl
 import com.vinyla_android.domain.entity.Vinyl
+import com.vinyla_android.domain.entity.Vinyls
 import com.vinyla_android.domain.exception.UnexpectedServerError
 import com.vinyla_android.source.remote.params.CollectVinylParams
 import com.vinyla_android.source.remote.service.VinylaService
@@ -22,6 +23,10 @@ internal class VinylsRemoteSource @Inject constructor(
         if (response.isSuccessful) return response.body()?.toVinyl()
         if (response.code() == 400) return null
         throw UnexpectedServerError()
+    }
+
+    override suspend fun getCollectedVinyls(): Vinyls {
+        TODO("Not yet implemented")
     }
 
     override suspend fun searchVinyls(query: String): List<SimpleVinyl> {

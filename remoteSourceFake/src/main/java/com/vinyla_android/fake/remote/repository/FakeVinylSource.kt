@@ -3,7 +3,9 @@ package com.vinyla_android.fake.remote.repository
 import com.vinyla_android.data.source.VinylsSource
 import com.vinyla_android.domain.entity.SimpleVinyl
 import com.vinyla_android.domain.entity.Vinyl
+import com.vinyla_android.domain.entity.Vinyls
 import com.vinyla_android.fake.remote.STUB_VINYLS
+import java.util.*
 import javax.inject.Inject
 
 internal class FakeVinylSource @Inject constructor() : VinylsSource {
@@ -12,6 +14,12 @@ internal class FakeVinylSource @Inject constructor() : VinylsSource {
 
     override suspend fun getVinylOf(vinylId: Int): Vinyl? {
         return inMemoryVinyls.find { it.id == vinylId }
+    }
+
+    override suspend fun getCollectedVinyls(): Vinyls {
+        return inMemoryVinyls.filter { it.isCollected }
+            .sortedByDescending { it.collectedDate }
+            .let { Vinyls.from(it) }
     }
 
     override suspend fun searchVinyls(query: String): List<SimpleVinyl> {
@@ -24,14 +32,14 @@ internal class FakeVinylSource @Inject constructor() : VinylsSource {
         comment: String
     ): Result<Unit> {
         val vinyl = findVinylForce(vinylId)
-        val updatedVinyl = vinyl.copy(isCollected = true)
+        val updatedVinyl = vinyl.copy(isCollected = true, collectedDate = Date())
         replaceInMemoryVinyl(vinyl, updatedVinyl)
         return Result.success(Unit)
     }
 
     override suspend fun cancelCollectVinyl(vinylId: Int): Result<Unit> {
         val vinyl = findVinylForce(vinylId)
-        val updatedVinyl = vinyl.copy(isCollected = false)
+        val updatedVinyl = vinyl.copy(isCollected = false, collectedDate = null)
         replaceInMemoryVinyl(vinyl, updatedVinyl)
         return Result.success(Unit)
     }

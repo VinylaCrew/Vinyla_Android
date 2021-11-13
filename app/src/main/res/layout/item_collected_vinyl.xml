@@ -20,16 +20,15 @@
         android:layout_marginEnd="11dp"
         tools:background="@color/black141415">
 
-        <ImageView
+        <com.vinyla_android.view.widget.VinylView
             android:id="@+id/image_vinyl"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:imageUrl="@{vinly.imageUrl}"
             app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/vinyl_default_black" />
+            app:vinylImageUrl="@{vinly.imageUrl}" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/widget_has_vinyl"
@@ -37,7 +36,7 @@
             android:layout_height="34dp"
             android:background="@drawable/circle"
             android:backgroundTint="@color/mainColor"
-            android:visibility="@{vinly.isCollected ? View.VISIBLE : View.GONE}"
+            android:visibility="@{vinly.isRepresentative ? View.VISIBLE : View.GONE}"
             app:layout_constraintBottom_toBottomOf="@+id/image_vinyl"
             app:layout_constraintEnd_toEndOf="@+id/image_vinyl">
 

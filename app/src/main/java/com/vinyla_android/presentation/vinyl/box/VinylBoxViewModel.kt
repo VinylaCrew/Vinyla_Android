@@ -4,8 +4,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.vinyla_android.domain.entity.Vinyl
 import com.vinyla_android.domain.entity.Vinyls
+import com.vinyla_android.domain.repository.VinylsRepository
+import com.vinyla_android.presentation.utils.printLog
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -16,12 +17,17 @@ import javax.inject.Inject
  */
 
 @HiltViewModel
-class VinylBoxViewModel @Inject constructor() : ViewModel() {
+class VinylBoxViewModel @Inject constructor(
+    private val vinylsRepository: VinylsRepository,
+) : ViewModel() {
 
     private val _pagedCollectedVinyls = MutableLiveData<List<Vinyls>>()
     val pagedCollectedVinyls: LiveData<List<Vinyls>> = _pagedCollectedVinyls
 
     fun loadCollectedVinyls() = viewModelScope.launch {
-//        _pagedCollectedVinyls.value = STUB_VINYLS
+        _pagedCollectedVinyls.value = vinylsRepository.getCollectedVinyls()
+            .get()
+            .chunked(9) { Vinyls.from(it) }
+            .also { printLog(it.toString()) }
     }
 }

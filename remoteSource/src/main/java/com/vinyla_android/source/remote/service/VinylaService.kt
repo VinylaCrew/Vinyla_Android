@@ -46,6 +46,9 @@ internal interface VinylaService {
         @Query("q") query: String,
     ): Response<List<SearchVinylsResponse>>
 
+    @GET("/vinyls/???")
+    suspend fun getCollectedVinyls(): Response<Unit>
+
     @POST("/vinyls/???")
     suspend fun collectVinyl(
         @Body body: CollectVinylParams,

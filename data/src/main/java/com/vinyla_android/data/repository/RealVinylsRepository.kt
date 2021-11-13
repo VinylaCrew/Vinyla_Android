@@ -3,6 +3,7 @@ package com.vinyla_android.data.repository
 import com.vinyla_android.data.source.VinylsSource
 import com.vinyla_android.domain.entity.SimpleVinyl
 import com.vinyla_android.domain.entity.Vinyl
+import com.vinyla_android.domain.entity.Vinyls
 import com.vinyla_android.domain.repository.VinylsRepository
 import javax.inject.Inject
 
@@ -17,6 +18,10 @@ internal class RealVinylsRepository @Inject constructor(
 
     override suspend fun getVinylOf(vinylId: Int): Vinyl? {
         return vinylsRemoteSource.getVinylOf(vinylId)
+    }
+
+    override suspend fun getCollectedVinyls(): Vinyls {
+        return vinylsRemoteSource.getCollectedVinyls()
     }
 
     override suspend fun searchVinyls(query: String): List<SimpleVinyl> {

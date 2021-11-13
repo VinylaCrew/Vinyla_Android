@@ -5,23 +5,28 @@ package com.vinyla_android.domain.entity
  * on 7월 28, 2021
  */
 
-data class Vinyls(
+@JvmInline
+value class Vinyls private constructor(
     private val vinyls: List<Vinyl>
 ) {
     fun get(): List<Vinyl> = this.vinyls
 
-    override fun equals(other: Any?): Boolean {
-        if (this === other) return true
-        if (javaClass != other?.javaClass) return false
+    operator fun plus(other: Vinyls): Vinyls = Vinyls(this.vinyls + other.vinyls)
 
-        other as Vinyls
+    operator fun plus(vinylList: List<Vinyl>): Vinyls = Vinyls(this.vinyls + vinylList)
 
-        if (vinyls != other.vinyls) return false
+    operator fun minus(other: Vinyls): Vinyls = Vinyls(this.vinyls - other.vinyls)
 
-        return true
+    operator fun minus(vinylList: List<Vinyl>): Vinyls = Vinyls(this.vinyls - vinylList)
+
+    override fun toString(): String {
+        return vinyls.joinToString(
+            prefix = "[",
+            postfix = "]",
+            transform = { "Vinyl(${it.title})" })
     }
 
-    override fun hashCode(): Int {
-        return vinyls.hashCode()
+    companion object {
+        fun from(vinyls: List<Vinyl>): Vinyls = Vinyls(vinyls.toList())
     }
 }

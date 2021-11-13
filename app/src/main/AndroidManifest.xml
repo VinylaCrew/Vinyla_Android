@@ -16,6 +16,18 @@
         android:usesCleartextTraffic="true">
         <activity
             android:name=".presentation.vinyl.search.SearchVinylActivity"
+            android:exported="true" />
+        <activity
+            android:name=".presentation.vinyl.request.RequestVinyl"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.vinyl.review.ReviewVinylActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.mypage.MyPageActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.home.HomeActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,20 +35,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".presentation.vinyl.request.RequestVinyl"
-            android:exported="true" />
-        <activity
-            android:name=".presentation.vinyl.review.ReviewVinylActivity"
-            android:exported="true">
-
-        </activity>
-        <activity
-            android:name=".presentation.mypage.MyPageActivity"
-            android:exported="false" />
-        <activity
-            android:name=".presentation.home.HomeActivity"
-            android:exported="false" />
         <activity
             android:name=".presentation.signup.SignUpActivity"
             android:exported="false" />

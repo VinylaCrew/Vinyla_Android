@@ -5,8 +5,9 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.vinyla_android.domain.entity.Vinyls
 import com.vinyla_android.databinding.ItemVinylBoxPageBinding
+import com.vinyla_android.domain.entity.Vinyl
+import com.vinyla_android.domain.entity.Vinyls
 
 /**
  * Created By Malibin
@@ -16,6 +17,8 @@ import com.vinyla_android.databinding.ItemVinylBoxPageBinding
 class VinylBoxPagesAdapter :
     ListAdapter<Vinyls, VinylBoxPagesAdapter.VinylBoxPageViewHolder>(ItemComparator()) {
 
+    private var onVinylClickListener: ((Vinyl) -> Unit)? = null
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VinylBoxPageViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         val binding = ItemVinylBoxPageBinding.inflate(layoutInflater, parent, false)
@@ -23,17 +26,21 @@ class VinylBoxPagesAdapter :
     }
 
     override fun onBindViewHolder(holder: VinylBoxPageViewHolder, position: Int) {
-        holder.bind(getItem(position))
+        holder.bind(getItem(position), onVinylClickListener)
     }
 
-    inner class VinylBoxPageViewHolder(
+    fun setOnVinylClickListener(listener: ((Vinyl) -> Unit)?) {
+        this.onVinylClickListener = listener
+    }
+
+    class VinylBoxPageViewHolder(
         private val binding: ItemVinylBoxPageBinding
     ) : RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(vinyls: Vinyls) {
-            val collectedVinylsAdapter = CollectedVinylsAdapter()
-            binding.listVinyls.adapter = collectedVinylsAdapter
-            collectedVinylsAdapter.submitList(vinyls.get())
+        fun bind(vinyls: Vinyls, onVinylClickListener: ((Vinyl) -> Unit)?) {
+            binding.listVinyls.adapter = CollectedVinylsAdapter()
+                .apply { setOnVinylClickListener(onVinylClickListener) }
+                .also { it.submitList(vinyls.get()) }
         }
     }
 

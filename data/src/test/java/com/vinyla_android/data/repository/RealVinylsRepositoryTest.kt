@@ -4,6 +4,7 @@ import com.google.common.truth.Truth.assertThat
 import com.vinyla_android.data.source.VinylsSource
 import com.vinyla_android.domain.entity.SimpleVinyl
 import com.vinyla_android.domain.entity.Vinyl
+import com.vinyla_android.domain.entity.Vinyls
 import com.vinyla_android.domain.repository.VinylsRepository
 import io.mockk.coEvery
 import io.mockk.every
@@ -42,10 +43,30 @@ internal class RealVinylsRepositoryTest {
         coEvery { vinylsRemoteSource.getVinylOf(1) } returns expectedVinyl
 
         // when
-        val retrieveVinyl = realVinylsRepository.getVinylOf(1)
+        val actualVinyl = realVinylsRepository.getVinylOf(1)
 
         // then
-        assertThat(retrieveVinyl).isEqualTo(expectedVinyl)
+        assertThat(actualVinyl).isEqualTo(expectedVinyl)
+    }
+
+    @Test
+    fun `수집한 바이닐들을 가져올 수 있다`(): Unit = runBlocking {
+        // given
+        val expectedVinyls = Vinyls.from(
+            listOf(
+                mockk<Vinyl> {
+                    every { id } returns 1
+                    every { isCollected } returns true
+                }
+            )
+        )
+        coEvery { vinylsRemoteSource.getCollectedVinyls() } returns expectedVinyls
+
+        // when
+        val actualVinyls = realVinylsRepository.getCollectedVinyls()
+
+        // then
+        assertThat(actualVinyls).isEqualTo(expectedVinyls)
     }
 
     @Test
@@ -60,10 +81,10 @@ internal class RealVinylsRepositoryTest {
         coEvery { vinylsRemoteSource.searchVinyls("Memories") } returns listOf(expectedVinyl)
 
         // when
-        val retrieveVinyls = realVinylsRepository.searchVinyls("Memories")
+        val actualVinyls = realVinylsRepository.searchVinyls("Memories")
 
         // then
-        assertThat(retrieveVinyls).containsExactlyElementsIn(listOf(expectedVinyl))
+        assertThat(actualVinyls).containsExactlyElementsIn(listOf(expectedVinyl))
     }
 
     @Test

@@ -5,8 +5,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.vinyla_android.domain.entity.Vinyl
 import com.vinyla_android.databinding.ItemCollectedVinylBinding
+import com.vinyla_android.domain.entity.Vinyl
 
 class CollectedVinylsAdapter :
     ListAdapter<Vinyl, CollectedVinylsAdapter.CollectedVinylViewHolder>(ItemComparator()) {
@@ -20,14 +20,18 @@ class CollectedVinylsAdapter :
     }
 
     override fun onBindViewHolder(holder: CollectedVinylViewHolder, position: Int) {
-        holder.bind(getItem(position))
+        holder.bind(getItem(position), onVinylClickListener)
     }
 
-    inner class CollectedVinylViewHolder(
+    fun setOnVinylClickListener(listener: ((Vinyl) -> Unit)?) {
+        this.onVinylClickListener = listener
+    }
+
+    class CollectedVinylViewHolder(
         private val binding: ItemCollectedVinylBinding,
     ) : RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(vinyl: Vinyl) {
+        fun bind(vinyl: Vinyl, onVinylClickListener: ((Vinyl) -> Unit)?) {
             binding.vinly = vinyl
             binding.root.setOnClickListener { onVinylClickListener?.invoke(vinyl) }
         }
