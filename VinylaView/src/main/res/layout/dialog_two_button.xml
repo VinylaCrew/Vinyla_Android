@@ -8,7 +8,7 @@
     android:backgroundTint="@color/black19191a">
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/buttonLeft"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -27,14 +27,14 @@
         android:layout_width="1dp"
         android:layout_height="20dp"
         android:background="@color/gray66"
-        app:layout_constraintBottom_toBottomOf="@+id/textView2"
-        app:layout_constraintEnd_toStartOf="@+id/textView3"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonLeft"
+        app:layout_constraintEnd_toStartOf="@+id/buttonRight"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/textView2"
-        app:layout_constraintTop_toTopOf="@+id/textView2" />
+        app:layout_constraintStart_toEndOf="@+id/buttonLeft"
+        app:layout_constraintTop_toTopOf="@+id/buttonLeft" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/buttonRight"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -50,7 +50,7 @@
         tools:text="버튼2" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/textContents"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
@@ -60,7 +60,7 @@
         tools:text="Contents"
         android:textColor="@color/white"
         android:textSize="15dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView2"
+        app:layout_constraintBottom_toTopOf="@+id/buttonLeft"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
