@@ -11,7 +11,9 @@ import androidx.appcompat.app.AppCompatActivity
 import com.vinyla_android.databinding.ActivityVinylDetailsBinding
 import com.vinyla_android.domain.event.SubmitEvent
 import com.vinyla_android.presentation.utils.showToast
+import com.vinyla_android.presentation.vinyl.detail.dialog.WarningDeleteVinylDialog
 import com.vinyla_android.presentation.vinyl.review.ReviewVinylActivity
+import com.vinyla_android.view.dialog.TwoButtonDialog
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -50,6 +52,20 @@ class VinylDetailsActivity : AppCompatActivity() {
         binding.buttonAddCollection.setOnClickListener { deployReviewVinylActivity() }
         binding.buttonBack.setOnClickListener { finish() }
         binding.buttonShareInstagram.setOnClickListener { shareInstagram() }
+
+        binding.buttonRemoveCollection.setOnClickListener {
+            WarningDeleteVinylDialog()
+                .setOnButtonClickListener(object : TwoButtonDialog.OnButtonClickListener {
+                    override fun onLeftButtonClick(dialog: TwoButtonDialog) {
+                        dialog.dismiss()
+                    }
+
+                    override fun onRightButtonClick(dialog: TwoButtonDialog) {
+                        vinylDetailsViewModel.removeCollectedVinyl()
+                    }
+                })
+                .show(supportFragmentManager, "")
+        }
     }
 
     private fun deployReviewVinylActivity() {

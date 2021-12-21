@@ -2,6 +2,7 @@
 <resources>
     <color name="mainColor">#FF5000</color>
     <color name="darkOrange">#FA6432</color>
+    <color name="purple">#9132FF</color>
 
     <color name="black">#FF000000</color>
     <color name="black141415">#141415</color>

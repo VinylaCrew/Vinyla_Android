@@ -1,9 +1,12 @@
 package com.vinyla_android.view.dialog
 
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.DialogFragment
 import com.vinyla_android.view.R
 import com.vinyla_android.view.databinding.DialogTwoButtonBinding
@@ -31,15 +34,20 @@ abstract class TwoButtonDialog : DialogFragment() {
     }
 
     private fun initView(binding: DialogTwoButtonBinding) {
+        setBackgroundTransparent()
         binding.textContents.setText(contentsTextResId)
 
-        binding.buttonLeft.setText(leftButtonTextResId)
-        binding.buttonLeft.setTextColor(leftButtonTextColorResId)
         binding.buttonLeft.setOnClickListener { onButtonClickListener?.onLeftButtonClick(this) }
+        binding.buttonLeft.setText(leftButtonTextResId)
+        binding.buttonLeft.setTextColor(
+            ContextCompat.getColor(requireContext(), leftButtonTextColorResId)
+        )
 
-        binding.buttonRight.setText(rightButtonTextResId)
-        binding.buttonRight.setTextColor(rightButtonTextColorResId)
         binding.buttonRight.setOnClickListener { onButtonClickListener?.onRightButtonClick(this) }
+        binding.buttonRight.setText(rightButtonTextResId)
+        binding.buttonRight.setTextColor(
+            ContextCompat.getColor(requireContext(), rightButtonTextColorResId)
+        )
     }
 
     override fun onDestroyView() {
@@ -47,8 +55,13 @@ abstract class TwoButtonDialog : DialogFragment() {
         binding = null
     }
 
-    fun setOnButtonClickListener(onButtonClickListener: OnButtonClickListener?) {
+    private fun setBackgroundTransparent() {
+        dialog?.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+    }
+
+    fun setOnButtonClickListener(onButtonClickListener: OnButtonClickListener?): TwoButtonDialog {
         this.onButtonClickListener = onButtonClickListener
+        return this
     }
 
     protected fun requireBinding(): DialogTwoButtonBinding {

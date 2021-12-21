@@ -5,7 +5,8 @@
     android:layout_width="300dp"
     android:layout_height="wrap_content"
     android:background="@drawable/round_rectangle_8dp"
-    android:backgroundTint="@color/black19191a">
+    android:backgroundTint="@color/black19191a"
+    android:minWidth="300dp">
 
     <TextView
         android:id="@+id/buttonLeft"
@@ -57,11 +58,11 @@
         android:layout_marginBottom="4dp"
         android:gravity="center_horizontal"
         android:minLines="2"
-        tools:text="Contents"
         android:textColor="@color/white"
         android:textSize="15dp"
         app:layout_constraintBottom_toTopOf="@+id/buttonLeft"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Contents" />
 </androidx.constraintlayout.widget.ConstraintLayout>

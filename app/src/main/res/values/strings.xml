@@ -41,4 +41,7 @@
     <string name="vinyl_tracks">수록곡</string>
     <string name="d_count">(%d건)</string>
     <string name="integer_number">%d</string>
+    <string name="warning_delete_vinyl">이 바이닐을 정말 삭제하시겠어요?</string>
+    <string name="cancel">취소</string>
+    <string name="delete">삭제</string>
 </resources>
