@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.vinyla_android.databinding.ActivityVinylDetailsBinding
 import com.vinyla_android.domain.event.SubmitEvent
 import com.vinyla_android.presentation.utils.showToast
+import com.vinyla_android.presentation.vinyl.detail.dialog.AskingMakeRepresentativeVinylDialog
 import com.vinyla_android.presentation.vinyl.detail.dialog.WarningDeleteVinylDialog
 import com.vinyla_android.presentation.vinyl.review.ReviewVinylActivity
 import com.vinyla_android.view.dialog.TwoButtonDialog
@@ -52,7 +53,27 @@ class VinylDetailsActivity : AppCompatActivity() {
         binding.buttonAddCollection.setOnClickListener { deployReviewVinylActivity() }
         binding.buttonBack.setOnClickListener { finish() }
         binding.buttonShareInstagram.setOnClickListener { shareInstagram() }
+        initButtonHeart(binding)
+        initButtonRemoveCollection(binding)
+    }
 
+    private fun initButtonHeart(binding: ActivityVinylDetailsBinding) {
+        binding.buttonHeart.setOnClickListener {
+            AskingMakeRepresentativeVinylDialog()
+                .setOnButtonClickListener(object : TwoButtonDialog.OnButtonClickListener {
+                    override fun onLeftButtonClick(dialog: TwoButtonDialog) {
+                        dialog.dismiss()
+                    }
+
+                    override fun onRightButtonClick(dialog: TwoButtonDialog) {
+                        vinylDetailsViewModel.makeRepresentativeVinyl()
+                    }
+                })
+                .show(supportFragmentManager, "AskingMakeRepresentativeVinylDialog")
+        }
+    }
+
+    private fun initButtonRemoveCollection(binding: ActivityVinylDetailsBinding) {
         binding.buttonRemoveCollection.setOnClickListener {
             WarningDeleteVinylDialog()
                 .setOnButtonClickListener(object : TwoButtonDialog.OnButtonClickListener {
@@ -64,7 +85,7 @@ class VinylDetailsActivity : AppCompatActivity() {
                         vinylDetailsViewModel.removeCollectedVinyl()
                     }
                 })
-                .show(supportFragmentManager, "")
+                .show(supportFragmentManager, "WarningDeleteVinylDialog")
         }
     }
 

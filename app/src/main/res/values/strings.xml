@@ -44,4 +44,6 @@
     <string name="warning_delete_vinyl">이 바이닐을 정말 삭제하시겠어요?</string>
     <string name="cancel">취소</string>
     <string name="delete">삭제</string>
+    <string name="asking_make_representative_vinyl">이 바이닐을 대표 바이닐로\n등록하시겠어요?</string>
+    <string name="register">등록</string>
 </resources>

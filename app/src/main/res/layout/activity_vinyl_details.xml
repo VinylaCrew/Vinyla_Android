@@ -56,7 +56,6 @@
                         android:id="@+id/button_heart"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:onClick="@{(view) -> viewModel.makeRepresentativeVinyl()}"
                         android:padding="6dp"
                         app:layout_constraintBottom_toBottomOf="@+id/button_share_instagram"
                         app:layout_constraintEnd_toStartOf="@+id/button_share_instagram"
