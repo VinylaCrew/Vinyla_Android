@@ -1,5 +1,12 @@
 <resources>
     <string name="app_name">Vinyla</string>
+    <string name="vinyla">Vinyla</string>
+    <string name="work_life_vinyl">Work, Life, Vinyl</string>
+
+    <!-- Login -->
+    <string name="sign_up_with_apple">Apple로 로그인</string>
+    <string name="sign_up_with_facebook">Facebook으로 로그인</string>
+    <string name="sign_up_with_google">Google로 로그인</string>
 
     <string name="terms_and_conditions_of_service"><u>서비스 이용약관 동의</u><font fgcolor='#FF5000'> (필수)</font></string>
     <string name="privacy_policy"><u>개인정보 수집 및 이용 동의</u><font fgcolor='#FF5000'> (필수)</font></string>
@@ -46,4 +53,5 @@
     <string name="delete">삭제</string>
     <string name="asking_make_representative_vinyl">이 바이닐을 대표 바이닐로\n등록하시겠어요?</string>
     <string name="register">등록</string>
+    <string name="coming_soon">아직 준비중입니다!</string>
 </resources>
