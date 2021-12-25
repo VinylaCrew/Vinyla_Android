@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <style name="Bottom_Text_Button">
+        <item name="android:background">@drawable/round_rectangle_8dp</item>
+        <item name="android:backgroundTint">@color/selector_main_black232324_color</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">20dp</item>
+    </style>
+
     <style name="VinylaRatingBarStyle" parent="Widget.AppCompat.RatingBar">
         <item name="android:progressDrawable">@drawable/vinyla_rating_star</item>
         <item name="android:minHeight">48dp</item>

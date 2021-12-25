@@ -1,5 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name">Vinyla</string>
+    <string name="vinyla">Vinyla</string>
+    <string name="work_life_vinyl">Work, Life, Vinyl</string>
+
+    <!-- Login -->
+    <string name="sign_up_with_apple">Apple로 로그인</string>
+    <string name="sign_up_with_facebook">Facebook으로 로그인</string>
+    <string name="sign_up_with_google">Google로 로그인</string>
+
+    <string name="terms_and_conditions_of_service"><u>서비스 이용약관 동의</u><font fgcolor='#FF5000'> (필수)</font></string>
+    <string name="privacy_policy"><u>개인정보 수집 및 이용 동의</u><font fgcolor='#FF5000'> (필수)</font></string>
+    <string name="marketing_agree"><u>마케팅 수신 동의</u> (선택)</string>
+    <string name="accept_all_terms_and_conditions">전체 동의</string>
+    <string name="nickname_cannot_modify">닉네임은 수정할 수 없으므로 신중하게 결정 해주세요.</string>
+    <string name="check">확인</string>
+    <string name="login">로그인</string>
+    <string name="quit_warning"><font fgcolor='#FF5000'>주의사항</font>을 꼭 읽어주세요.</string>
+    <string name="lv_n">lv.%d</string>
+    <string name="how_to_enjoy_vinyl_special">바이닐을 <font fgcolor='#FF5000'>남다르게</font> 즐기는 방법!</string>
+    <string name="enjoy_vinyl_1">바이닐 레벨은 바이닐 등록에 의해 자동으로 적용 됩니다.</string>
+    <string name="enjoy_vinyl_2">바닐라 신규 가입 시 닐페이스 레벨부터 시작합니다.</string>
+    <string name="terms_and_conditions_of_service_content">terms_and_conditions_of_service_content</string>
+    <string name="privacy_policy_content">privacy_policy_content</string>
+    <string name="recent_collected_vinly">최근 수집한 바이닐</string>
+    <string name="collected_vinyl">수집된 바이닐</string>
+    <string name="my_genre">내 장르</string>
+    <string name="how_to_add_my_vinyl">보관함 > 바이닐 정보 > 하트 아이콘</string>
+    <string name="add_my_vinyl">인생 바이닐 설정하기</string>
+    <string name="bottom_lined_string"><u>%s</u></string>
+    <string name="leave_underline"><u>탈퇴하기</u></string>
+    <string name="login_from_s">%s로 로그인</string>
+    <string name="sir">님</string>
+    <string name="logout">logout</string>
+    <string name="notify_service_push">서비스 푸시알림</string>
+    <string name="push_notication_details">신규 바이닐 업데이트 알림 주요 공지 등\n서비스관련 푸쉬 알림을 받습니다</string>
+    <string name="service_info">서비스 정보</string>
+    <string name="inquire">문의하기</string>
+    <string name="terms_of_service">서비스 약관</string>
+    <string name="version_info">버전 정보</string>
+    <string name="my">MY</string>
+    <string name="underline_string"><u>%s</u></string>
+    <string name="hint_search">앨범명/아티스트명을 입력해주세요.</string>
+    <string name="search_count"><font fgcolor='#FFFFFF'>%d개</font>의 검색 결과가 있습니다.</string>
+    <string name="request_new_vinyl">찾는 바이닐 요청하기</string>
+    <string name="text_count_50">/50</string>
+    <string name="star_point">%.2f</string>
+    <string name="vinyl_tracks">수록곡</string>
+    <string name="d_count">(%d건)</string>
+    <string name="integer_number">%d</string>
+    <string name="warning_delete_vinyl">이 바이닐을 정말 삭제하시겠어요?</string>
+    <string name="cancel">취소</string>
+    <string name="delete">삭제</string>
+    <string name="asking_make_representative_vinyl">이 바이닐을 대표 바이닐로\n등록하시겠어요?</string>
+    <string name="register">등록</string>
+    <string name="coming_soon">아직 준비중입니다!</string>
     <string name="photo_counter"><font fgcolor='#FFFFFF'>%d</font>/1</string>
     <string name="memo_text_counter"><font fgcolor='#cccccc'>%d</font>/100</string>
 </resources>
