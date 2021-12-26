@@ -33,6 +33,6 @@ class TopBar @JvmOverloads constructor(
     }
 
     fun setOnBackButtonClickListener(listener: ((View) -> Unit)?) {
-        binding.root.setOnClickListener(listener)
+        binding.buttonBack.setOnClickListener(listener)
     }
 }

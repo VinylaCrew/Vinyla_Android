@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="Bottom_Text_Button">
+
+    <style name="BottomTextButton">
         <item name="android:background">@drawable/round_rectangle_8dp</item>
-        <item name="android:backgroundTint">@color/selector_main_black232324_color</item>
+        <item name="android:backgroundTint">@color/selector_enabled_main_black232324_color</item>
         <item name="android:gravity">center</item>
-        <item name="android:textColor">@color/white</item>
-        <item name="android:textSize">20dp</item>
+        <item name="android:fontFamily">font/notosanscjkkrregularter</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:textColor">@color/selector_enabled_white_grayaa_color</item>
+        <item name="android:textSize">19dp</item>
+        <item name="android:paddingTop">19dp</item>
+        <item name="android:paddingBottom">19dp</item>
     </style>
 
     <style name="VinylaRatingBarStyle" parent="Widget.AppCompat.RatingBar">

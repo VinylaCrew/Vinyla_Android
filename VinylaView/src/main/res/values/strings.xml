@@ -16,6 +16,7 @@
     <string name="nickname_cannot_modify">닉네임은 수정할 수 없으므로 신중하게 결정 해주세요.</string>
     <string name="check">확인</string>
     <string name="login">로그인</string>
+    <string name="join">가입하기</string>
     <string name="quit_warning"><font fgcolor='#FF5000'>주의사항</font>을 꼭 읽어주세요.</string>
     <string name="lv_n">lv.%d</string>
     <string name="how_to_enjoy_vinyl_special">바이닐을 <font fgcolor='#FF5000'>남다르게</font> 즐기는 방법!</string>

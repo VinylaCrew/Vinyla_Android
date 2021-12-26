@@ -21,23 +21,29 @@ class SignUpActivity : AppCompatActivity() {
         binding.viewModel = signUpViewModel
         binding.lifecycleOwner = this
 
-        signUpViewModel.nickname.observe(this){
+        initView(binding)
+
+        signUpViewModel.nickname.observe(this) {
             printLog("nickname = $it")
         }
-        signUpViewModel.instagramId.observe(this){
+        signUpViewModel.instagramId.observe(this) {
             printLog("instagramId = $it")
         }
-        signUpViewModel.isAllChecked.observe(this){
+        signUpViewModel.isAllChecked.observe(this) {
             printLog("isAllChecked = $it")
         }
-        signUpViewModel.isTermsAndConditionOfServiceChecked.observe(this){
+        signUpViewModel.isTermsAndConditionOfServiceChecked.observe(this) {
             printLog("isTermsAndConditionOfServiceChecked = $it")
         }
-        signUpViewModel.isPrivacyPolicyChecked.observe(this){
+        signUpViewModel.isPrivacyPolicyChecked.observe(this) {
             printLog("isPrivacyPolicyChecked = $it")
         }
-        signUpViewModel.isMarketingChecked.observe(this){
+        signUpViewModel.isMarketingChecked.observe(this) {
             printLog("isMarketingChecked = $it")
         }
+    }
+
+    private fun initView(binding: ActivitySignUpBinding) {
+        binding.topBar.setOnBackButtonClickListener { finish() }
     }
 }

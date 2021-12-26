@@ -28,6 +28,8 @@
         android:text="Title"
         android:textColor="@color/white"
         android:textSize="17dp"
+        android:fontFamily="@font/notosanscjkkrmedium"
+        android:includeFontPadding="false"
         app:layout_constraintBottom_toBottomOf="@+id/button_back"
         app:layout_constraintStart_toEndOf="@+id/button_back"
         app:layout_constraintTop_toTopOf="@+id/button_back" />

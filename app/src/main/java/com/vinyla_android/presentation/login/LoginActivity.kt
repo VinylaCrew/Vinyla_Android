@@ -10,6 +10,7 @@ import com.malibin.sns.auth.model.UserProfile
 import com.vinyla_android.R
 import com.vinyla_android.databinding.ActivityLoginBinding
 import com.vinyla_android.presentation.TempHomeActivity
+import com.vinyla_android.presentation.signup.SignUpActivity
 import com.vinyla_android.presentation.utils.printLog
 
 class LoginActivity : AppCompatActivity() {
@@ -40,7 +41,7 @@ class LoginActivity : AppCompatActivity() {
 
     private fun initView(binding: ActivityLoginBinding) {
         setContentView(binding.root)
-        binding.buttonGoogle.setOnClickListener { login(SnsType.KAKAO) }
+        binding.buttonGoogle.setOnClickListener { login(SnsType.GOOGLE) }
         binding.buttonFacebook.setOnClickListener { login(SnsType.FACEBOOK) }
         binding.buttonApple.setOnClickListener {
             Toast.makeText(this, R.string.coming_soon, Toast.LENGTH_SHORT).show()
@@ -49,6 +50,8 @@ class LoginActivity : AppCompatActivity() {
 
     private fun login(type: SnsType) {
 //        snsAuthManager?.login(this, type, ::onSnsResponse)
+        Intent(this, SignUpActivity::class.java)
+            .also { startActivity(it) }
     }
 
     private fun onSnsResponse(profile: UserProfile?) {

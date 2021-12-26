@@ -265,7 +265,7 @@
 
                 <TextView
                     android:id="@+id/buttonRemoveCollection"
-                    style="@style/Bottom_Text_Button"
+                    style="@style/BottomTextButton"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="15dp"
@@ -286,7 +286,7 @@
 
                 <TextView
                     android:id="@+id/button_add_collection"
-                    style="@style/Bottom_Text_Button"
+                    style="@style/BottomTextButton"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="15dp"

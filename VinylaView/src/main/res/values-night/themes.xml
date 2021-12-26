@@ -1,16 +1,14 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
+<resources>
+
     <style name="Theme.Vinyla_Android" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <!-- Primary brand color. -->
         <item name="colorPrimary">@color/mainColor</item>
         <item name="colorPrimaryVariant">@color/mainColor</item>
         <item name="colorOnPrimary">@color/black141415</item>
-        <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/mainColor</item>
         <item name="colorSecondaryVariant">@color/mainColor</item>
         <item name="colorOnSecondary">@color/black141415</item>
-        <!-- Status bar color. -->
-        <item name="android:statusBarColor">@color/black19191a</item>
-        <!-- Customize your theme here. -->
+
+        <item name="android:statusBarColor">@color/black141415</item>
+        <item name="android:windowBackground">@color/black141415</item>
     </style>
 </resources>
