@@ -5,6 +5,7 @@ import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.vinyla_android.R
+import com.vinyla_android.domain.nickname.Nickname
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
@@ -16,7 +17,6 @@ class SignUpViewModel @Inject constructor(
     val nickname = MutableLiveData("")
     val instagramId = MutableLiveData("")
 
-    private val nicknameFormatRegex = Regex("[a-zA-Z0-9]+")
     val isNicknameFormatted = MediatorLiveData<Boolean>().apply {
         addSource(nickname) { checkNicknameFormat(it) }
     }
@@ -37,8 +37,7 @@ class SignUpViewModel @Inject constructor(
     }
 
     private fun checkNicknameFormat(inputText: String) {
-        isNicknameFormatted.value =
-            nicknameFormatRegex.matches(inputText) && inputText.length <= MAX_NICKNAME_LENGTH
+        isNicknameFormatted.value = Nickname.isValid(inputText)
     }
 
     private fun checkAllChecked() {
