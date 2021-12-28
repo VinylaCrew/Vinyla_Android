@@ -6,12 +6,13 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.vinyla_android.R
 import com.vinyla_android.domain.entity.member.nickname.Nickname
+import com.vinyla_android.domain.usecase.member.CheckNicknameStateUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
 class SignUpViewModel @Inject constructor(
-
+    private val checkNicknameStateUseCase: CheckNicknameStateUseCase,
 ) : ViewModel() {
     private var availableNickname: String = ""
     val nickname = MutableLiveData("")
@@ -37,7 +38,7 @@ class SignUpViewModel @Inject constructor(
     }
 
     private fun checkNicknameFormat(inputText: String) {
-        isNicknameFormatted.value = Nickname.isValid(inputText)
+//        isNicknameFormatted.value = Nickname.isValid(inputText)
     }
 
     private fun checkAllChecked() {

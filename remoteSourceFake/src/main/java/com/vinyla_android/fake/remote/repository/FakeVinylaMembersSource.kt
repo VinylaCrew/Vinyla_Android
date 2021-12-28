@@ -1,7 +1,7 @@
 package com.vinyla_android.fake.remote.repository
 
 import com.vinyla_android.data.source.VinylaMembersSource
-import com.vinyla_android.domain.entity.member.nickname.NicknameStatus
+import com.vinyla_android.domain.entity.member.nickname.NicknameState
 import com.vinyla_android.domain.entity.member.SignUpInfo
 import javax.inject.Inject
 
@@ -12,7 +12,7 @@ import javax.inject.Inject
 
 internal class FakeVinylaMembersSource @Inject constructor() : VinylaMembersSource {
 
-    override suspend fun checkNickname(nickname: String): NicknameStatus {
+    override suspend fun checkNickname(nickname: String): NicknameState {
         throw UnsupportedOperationException("stub!")
     }
 

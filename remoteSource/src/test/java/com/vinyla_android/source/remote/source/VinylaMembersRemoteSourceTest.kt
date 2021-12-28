@@ -2,7 +2,7 @@ package com.vinyla_android.source.remote.source
 
 import com.google.common.truth.Truth.assertThat
 import com.vinyla_android.source.remote.service.VinylaService
-import com.vinyla_android.domain.entity.member.nickname.NicknameStatus
+import com.vinyla_android.domain.entity.member.nickname.NicknameState
 import com.vinyla_android.source.remote.params.CheckNicknameParams
 import io.mockk.coEvery
 import io.mockk.mockk
@@ -40,7 +40,7 @@ internal class VinylaMembersRemoteSourceTest {
         val result = vinylaMembersRemoteSource.checkNickname("dup")
 
         // then
-        assertThat(result).isEqualTo(NicknameStatus.DUPLICATED)
+        assertThat(result).isEqualTo(NicknameState.DUPLICATED)
     }
 
     @Test
@@ -55,6 +55,6 @@ internal class VinylaMembersRemoteSourceTest {
         val result = vinylaMembersRemoteSource.checkNickname("unique")
 
         // then
-        assertThat(result).isEqualTo(NicknameStatus.AVAILABLE)
+        assertThat(result).isEqualTo(NicknameState.AVAILABLE)
     }
 }

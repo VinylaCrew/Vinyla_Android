@@ -2,7 +2,7 @@ package com.vinyla_android.data.repository
 
 import com.google.common.truth.Truth.assertThat
 import com.vinyla_android.data.source.VinylaMembersSource
-import com.vinyla_android.domain.entity.member.nickname.NicknameStatus
+import com.vinyla_android.domain.entity.member.nickname.NicknameState
 import com.vinyla_android.domain.entity.member.SignUpInfo
 import com.vinyla_android.domain.entity.member.SnsType
 import com.vinyla_android.domain.repository.VinylaMembersRepository
@@ -36,25 +36,25 @@ internal class RealVinylaMembersRepositoryTest {
     @Test
     fun `중복된 닉네임을 입력하면 중복 되었다는 결과가 나온다`(): Unit = runBlocking {
         // given
-        coEvery { vinylaMembersRemoteSource.checkNickname("중복된 닉네임") } returns NicknameStatus.DUPLICATED
+        coEvery { vinylaMembersRemoteSource.checkNickname("중복된 닉네임") } returns NicknameState.DUPLICATED
 
         // when
-        val actualNicknameStatus = realVinylaMembersRepository.checkNickname("중복된 닉네임")
+        val actualNicknameState = realVinylaMembersRepository.checkNickname("중복된 닉네임")
 
         // then
-        assertThat(actualNicknameStatus).isEqualTo(NicknameStatus.DUPLICATED)
+        assertThat(actualNicknameState).isEqualTo(NicknameState.DUPLICATED)
     }
 
     @Test
     fun `중복되지 않은 닉네임을 입력하면 사용 가능한 결과가 나온다`(): Unit = runBlocking {
         // given
-        coEvery { vinylaMembersRemoteSource.checkNickname("닉네임") } returns NicknameStatus.AVAILABLE
+        coEvery { vinylaMembersRemoteSource.checkNickname("닉네임") } returns NicknameState.AVAILABLE
 
         // when
-        val actualNicknameStatus = realVinylaMembersRepository.checkNickname("닉네임")
+        val actualNicknameState = realVinylaMembersRepository.checkNickname("닉네임")
 
         // then
-        assertThat(actualNicknameStatus).isEqualTo(NicknameStatus.AVAILABLE)
+        assertThat(actualNicknameState).isEqualTo(NicknameState.AVAILABLE)
     }
 
     @Test

@@ -5,7 +5,7 @@ package com.vinyla_android.domain.entity.member.nickname
  * on 10월 09, 2021
  */
 
-enum class NicknameStatus {
+enum class NicknameState {
     AVAILABLE,
     DUPLICATED,
     INVALID;

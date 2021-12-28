@@ -1,6 +1,7 @@
 plugins {
     id 'java-library'
     id 'kotlin'
+    id 'kotlin-kapt'
 }
 
 java {
@@ -13,8 +14,15 @@ tasks.test {
 }
 
 dependencies {
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.1'
+
+    // Hilt Core
+    implementation "com.google.dagger:hilt-core:2.39.1"
+    kapt "com.google.dagger:hilt-compiler:2.39.1"
+
     // test
     testImplementation "com.google.truth:truth:1.1.3"
+    testImplementation "io.mockk:mockk:1.12.0"
     testImplementation "org.junit.jupiter:junit-jupiter:5.8.1"
     testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:5.8.1"
 }

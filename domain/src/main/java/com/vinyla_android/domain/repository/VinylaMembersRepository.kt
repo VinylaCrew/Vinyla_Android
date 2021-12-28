@@ -1,6 +1,6 @@
 package com.vinyla_android.domain.repository
 
-import com.vinyla_android.domain.entity.member.nickname.NicknameStatus
+import com.vinyla_android.domain.entity.member.nickname.NicknameState
 import com.vinyla_android.domain.entity.member.SignUpInfo
 
 /**
@@ -10,7 +10,7 @@ import com.vinyla_android.domain.entity.member.SignUpInfo
 
 interface VinylaMembersRepository {
 
-    suspend fun checkNickname(nickname: String): NicknameStatus
+    suspend fun checkNickname(nickname: String): NicknameState
 
     suspend fun signUp(signUpInfo: SignUpInfo): Result<Unit>
 }

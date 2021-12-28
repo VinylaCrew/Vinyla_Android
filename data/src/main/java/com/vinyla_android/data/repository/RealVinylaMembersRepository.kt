@@ -3,7 +3,7 @@ package com.vinyla_android.data.repository
 import com.vinyla_android.data.di.annotation.VinylaMembersLocal
 import com.vinyla_android.data.di.annotation.VinylaMembersRemote
 import com.vinyla_android.data.source.VinylaMembersSource
-import com.vinyla_android.domain.entity.member.nickname.NicknameStatus
+import com.vinyla_android.domain.entity.member.nickname.NicknameState
 import com.vinyla_android.domain.entity.member.SignUpInfo
 import com.vinyla_android.domain.repository.VinylaMembersRepository
 import javax.inject.Inject
@@ -18,7 +18,7 @@ internal class RealVinylaMembersRepository @Inject constructor(
     @VinylaMembersRemote private val vinylaMembersRemoteSource: VinylaMembersSource,
 ) : VinylaMembersRepository {
 
-    override suspend fun checkNickname(nickname: String): NicknameStatus {
+    override suspend fun checkNickname(nickname: String): NicknameState {
         return vinylaMembersRemoteSource.checkNickname(nickname)
     }
 
