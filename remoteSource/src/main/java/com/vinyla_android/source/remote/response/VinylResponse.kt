@@ -1,6 +1,6 @@
 package com.vinyla_android.source.remote.response
 
-import com.vinyla_android.domain.entity.Vinyl
+import com.vinyla_android.domain.entity.vinyl.Vinyl
 
 /**
  * Created By Malibin

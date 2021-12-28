@@ -2,9 +2,9 @@ package com.vinyla_android.data.repository
 
 import com.google.common.truth.Truth.assertThat
 import com.vinyla_android.data.source.VinylsSource
-import com.vinyla_android.domain.entity.SimpleVinyl
-import com.vinyla_android.domain.entity.Vinyl
-import com.vinyla_android.domain.entity.Vinyls
+import com.vinyla_android.domain.entity.vinyl.SimpleVinyl
+import com.vinyla_android.domain.entity.vinyl.Vinyl
+import com.vinyla_android.domain.entity.vinyl.Vinyls
 import com.vinyla_android.domain.repository.VinylsRepository
 import io.mockk.coEvery
 import io.mockk.every

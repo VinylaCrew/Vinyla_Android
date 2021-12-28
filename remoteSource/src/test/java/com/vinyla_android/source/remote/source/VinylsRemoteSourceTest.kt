@@ -1,8 +1,8 @@
 package com.vinyla_android.source.remote.source
 
 import com.google.common.truth.Truth.assertThat
-import com.vinyla_android.domain.entity.SimpleVinyl
-import com.vinyla_android.domain.entity.Vinyl
+import com.vinyla_android.domain.entity.vinyl.SimpleVinyl
+import com.vinyla_android.domain.entity.vinyl.Vinyl
 import com.vinyla_android.source.remote.response.SearchVinylsResponse
 import com.vinyla_android.source.remote.response.VinylDetailsResponse
 import com.vinyla_android.source.remote.service.VinylaService

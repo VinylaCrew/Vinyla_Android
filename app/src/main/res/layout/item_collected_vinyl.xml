@@ -9,7 +9,7 @@
 
         <variable
             name="vinly"
-            type="com.vinyla_android.domain.entity.Vinyl" />
+            type="com.vinyla_android.domain.entity.vinyl.Vinyl" />
 
     </data>
 

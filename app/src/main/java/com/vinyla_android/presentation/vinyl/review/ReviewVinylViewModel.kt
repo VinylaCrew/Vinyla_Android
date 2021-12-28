@@ -3,7 +3,7 @@ package com.vinyla_android.presentation.vinyl.review
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
-import com.vinyla_android.domain.entity.Vinyl
+import com.vinyla_android.domain.entity.vinyl.Vinyl
 import com.vinyla_android.domain.event.SingleLiveEvent
 import com.vinyla_android.domain.event.SubmitEvent
 import com.vinyla_android.domain.repository.VinylsRepository

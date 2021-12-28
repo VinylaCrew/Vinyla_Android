@@ -7,7 +7,7 @@
 
         <variable
             name="level"
-            type="com.vinyla_android.domain.entity.VinylLevel" />
+            type="com.vinyla_android.domain.entity.vinyl.VinylLevel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

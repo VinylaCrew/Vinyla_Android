@@ -2,7 +2,7 @@ package com.vinyla_android.source.remote.source
 
 import com.vinyla_android.source.remote.service.VinylaService
 import com.vinyla_android.data.source.VinylaHomeSource
-import com.vinyla_android.domain.entity.VinylHome
+import com.vinyla_android.domain.entity.vinyl.VinylHome
 import javax.inject.Inject
 
 /**

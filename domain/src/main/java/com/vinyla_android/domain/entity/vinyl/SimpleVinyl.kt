@@ -1,4 +1,4 @@
-package com.vinyla_android.domain.entity
+package com.vinyla_android.domain.entity.vinyl
 
 /**
  * Created By Malibin

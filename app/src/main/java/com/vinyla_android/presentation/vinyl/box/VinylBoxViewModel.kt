@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.vinyla_android.domain.entity.Vinyls
+import com.vinyla_android.domain.entity.vinyl.Vinyls
 import com.vinyla_android.domain.repository.VinylsRepository
 import com.vinyla_android.presentation.utils.printLog
 import dagger.hilt.android.lifecycle.HiltViewModel

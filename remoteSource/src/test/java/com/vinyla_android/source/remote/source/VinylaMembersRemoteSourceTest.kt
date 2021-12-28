@@ -2,7 +2,7 @@ package com.vinyla_android.source.remote.source
 
 import com.google.common.truth.Truth.assertThat
 import com.vinyla_android.source.remote.service.VinylaService
-import com.vinyla_android.domain.member.NicknameStatus
+import com.vinyla_android.domain.entity.member.nickname.NicknameStatus
 import com.vinyla_android.source.remote.params.CheckNicknameParams
 import io.mockk.coEvery
 import io.mockk.mockk

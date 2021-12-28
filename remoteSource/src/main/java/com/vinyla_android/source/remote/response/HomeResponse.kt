@@ -1,7 +1,7 @@
 package com.vinyla_android.source.remote.response
 
-import com.vinyla_android.domain.entity.VinylHome
-import com.vinyla_android.domain.entity.VinylLevel
+import com.vinyla_android.domain.entity.vinyl.VinylHome
+import com.vinyla_android.domain.entity.vinyl.VinylLevel
 
 /**
  * Created By Malibin

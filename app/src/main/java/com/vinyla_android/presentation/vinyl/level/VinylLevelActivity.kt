@@ -3,7 +3,7 @@ package com.vinyla_android.presentation.vinyl.level
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.vinyla_android.databinding.ActivityVinylLevelBinding
-import com.vinyla_android.domain.entity.VinylLevel
+import com.vinyla_android.domain.entity.vinyl.VinylLevel
 
 class VinylLevelActivity : AppCompatActivity() {
 

@@ -3,8 +3,8 @@ package com.vinyla_android.data.repository
 import com.vinyla_android.data.di.annotation.VinylaMembersLocal
 import com.vinyla_android.data.di.annotation.VinylaMembersRemote
 import com.vinyla_android.data.source.VinylaMembersSource
-import com.vinyla_android.domain.member.NicknameStatus
-import com.vinyla_android.domain.member.SignUpInfo
+import com.vinyla_android.domain.entity.member.nickname.NicknameStatus
+import com.vinyla_android.domain.entity.member.SignUpInfo
 import com.vinyla_android.domain.repository.VinylaMembersRepository
 import javax.inject.Inject
 

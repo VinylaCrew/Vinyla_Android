@@ -1,7 +1,7 @@
 package com.vinyla_android.data.source
 
-import com.vinyla_android.domain.member.NicknameStatus
-import com.vinyla_android.domain.member.SignUpInfo
+import com.vinyla_android.domain.entity.member.nickname.NicknameStatus
+import com.vinyla_android.domain.entity.member.SignUpInfo
 
 /**
  * Created By Malibin

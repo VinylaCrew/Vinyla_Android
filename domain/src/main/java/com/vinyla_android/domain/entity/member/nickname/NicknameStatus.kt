@@ -1,4 +1,4 @@
-package com.vinyla_android.domain.member
+package com.vinyla_android.domain.entity.member.nickname
 
 /**
  * Created By Malibin

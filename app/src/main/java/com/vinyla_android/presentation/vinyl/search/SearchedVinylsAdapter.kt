@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.vinyla_android.databinding.ItemVinylSearchedBinding
-import com.vinyla_android.domain.entity.SimpleVinyl
+import com.vinyla_android.domain.entity.vinyl.SimpleVinyl
 
 /**
  * Created By Malibin

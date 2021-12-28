@@ -1,6 +1,6 @@
 package com.vinyla_android.source.remote.params
 
-import com.vinyla_android.domain.member.SignUpInfo
+import com.vinyla_android.domain.entity.member.SignUpInfo
 
 /**
  * Created By Malibin

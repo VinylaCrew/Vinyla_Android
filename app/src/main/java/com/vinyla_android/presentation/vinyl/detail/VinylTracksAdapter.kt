@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.vinyla_android.databinding.ItemVinylTrackBinding
-import com.vinyla_android.domain.entity.VinylTrack
+import com.vinyla_android.domain.entity.vinyl.VinylTrack
 
 class VinylTracksAdapter :
     ListAdapter<VinylTrack, VinylTracksAdapter.ViewHolder>(ItemComparator()) {

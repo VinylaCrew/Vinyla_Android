@@ -1,8 +1,8 @@
 package com.vinyla_android.source.remote.response
 
 import com.google.gson.annotations.SerializedName
-import com.vinyla_android.domain.entity.Vinyl
-import com.vinyla_android.domain.entity.VinylTrack
+import com.vinyla_android.domain.entity.vinyl.Vinyl
+import com.vinyla_android.domain.entity.vinyl.VinylTrack
 
 /**
  * Created By Malibin

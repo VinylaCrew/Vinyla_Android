@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.vinyla_android.R
 import com.vinyla_android.databinding.ItemVinylLevelBinding
-import com.vinyla_android.domain.entity.VinylLevel
+import com.vinyla_android.domain.entity.vinyl.VinylLevel
 
 class VinylLevelAdapter : ListAdapter<VinylLevel, VinylLevelAdapter.ViewHolder>(ItemComparator()) {
 

@@ -3,7 +3,7 @@ package com.vinyla_android.presentation.vinyl.search
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import com.vinyla_android.domain.entity.SimpleVinyl
+import com.vinyla_android.domain.entity.vinyl.SimpleVinyl
 import com.vinyla_android.domain.repository.VinylsRepository
 import com.vinyla_android.presentation.utils.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel

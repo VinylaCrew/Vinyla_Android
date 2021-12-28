@@ -1,7 +1,7 @@
 package com.vinyla_android.fake.remote.repository
 
 import com.vinyla_android.data.source.VinylaHomeSource
-import com.vinyla_android.domain.entity.VinylHome
+import com.vinyla_android.domain.entity.vinyl.VinylHome
 import javax.inject.Inject
 
 /**

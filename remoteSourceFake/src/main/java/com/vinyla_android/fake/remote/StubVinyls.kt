@@ -1,7 +1,7 @@
 package com.vinyla_android.fake.remote
 
-import com.vinyla_android.domain.entity.Vinyl
-import com.vinyla_android.domain.entity.VinylTrack
+import com.vinyla_android.domain.entity.vinyl.Vinyl
+import com.vinyla_android.domain.entity.vinyl.VinylTrack
 
 val VINYL_IU = Vinyl(
     id = 1111,

@@ -1,8 +1,8 @@
 package com.vinyla_android.data.source
 
-import com.vinyla_android.domain.entity.SimpleVinyl
-import com.vinyla_android.domain.entity.Vinyl
-import com.vinyla_android.domain.entity.Vinyls
+import com.vinyla_android.domain.entity.vinyl.SimpleVinyl
+import com.vinyla_android.domain.entity.vinyl.Vinyl
+import com.vinyla_android.domain.entity.vinyl.Vinyls
 
 /**
  * Created By Malibin

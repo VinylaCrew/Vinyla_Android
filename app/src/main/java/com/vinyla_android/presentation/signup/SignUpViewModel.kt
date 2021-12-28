@@ -5,7 +5,7 @@ import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.vinyla_android.R
-import com.vinyla_android.domain.nickname.Nickname
+import com.vinyla_android.domain.entity.member.nickname.Nickname
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 

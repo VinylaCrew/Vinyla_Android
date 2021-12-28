@@ -1,4 +1,4 @@
-package com.vinyla_android.domain.nickname
+package com.vinyla_android.domain.entity.member.nickname
 
 class Nickname {
 

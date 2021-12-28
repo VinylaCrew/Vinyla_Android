@@ -1,9 +1,9 @@
 package com.vinyla_android.source.remote.source
 
 import com.vinyla_android.data.source.VinylsSource
-import com.vinyla_android.domain.entity.SimpleVinyl
-import com.vinyla_android.domain.entity.Vinyl
-import com.vinyla_android.domain.entity.Vinyls
+import com.vinyla_android.domain.entity.vinyl.SimpleVinyl
+import com.vinyla_android.domain.entity.vinyl.Vinyl
+import com.vinyla_android.domain.entity.vinyl.Vinyls
 import com.vinyla_android.domain.exception.UnexpectedServerError
 import com.vinyla_android.source.remote.params.CollectVinylParams
 import com.vinyla_android.source.remote.service.VinylaService
