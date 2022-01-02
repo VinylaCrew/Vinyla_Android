@@ -1,8 +1,8 @@
 package com.vinyla_android.source.local.source
 
 import com.vinyla_android.data.source.VinylaMembersSource
-import com.vinyla_android.domain.entity.member.nickname.NicknameState
 import com.vinyla_android.domain.entity.member.SignUpInfo
+import com.vinyla_android.domain.entity.member.nickname.NicknameState
 import javax.inject.Inject
 
 /**
@@ -11,7 +11,6 @@ import javax.inject.Inject
  */
 
 internal class VinylaMembersLocalSource @Inject constructor(
-
 ) : VinylaMembersSource {
 
     override suspend fun checkNickname(nickname: String): NicknameState {
