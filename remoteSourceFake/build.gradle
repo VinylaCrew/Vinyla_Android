@@ -14,7 +14,6 @@ tasks.test {
 }
 
 dependencies {
-    implementation project(':data')
     implementation project(':domain')
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.1'
 
