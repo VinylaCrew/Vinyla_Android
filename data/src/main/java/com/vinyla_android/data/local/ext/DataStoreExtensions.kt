@@ -20,6 +20,6 @@ import kotlinx.coroutines.flow.map
  *
  */
 
-operator fun <T> DataStore<Preferences>.get(key: Preferences.Key<T>): Flow<T?> {
+internal operator fun <T> DataStore<Preferences>.get(key: Preferences.Key<T>): Flow<T?> {
     return this.data.map { it[key] }
 }

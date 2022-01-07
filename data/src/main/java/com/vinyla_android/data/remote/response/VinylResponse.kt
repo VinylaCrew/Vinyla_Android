@@ -7,7 +7,7 @@ import com.vinyla_android.domain.entity.vinyl.Vinyl
  * on 7월 02, 2021
  */
 
-data class VinylResponse(
+internal data class VinylResponse(
     val vinylIdx: Int,
     val title: String,
     val imageUrl: String,

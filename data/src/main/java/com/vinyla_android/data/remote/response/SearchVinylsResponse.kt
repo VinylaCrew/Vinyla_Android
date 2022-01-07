@@ -8,7 +8,7 @@ import com.vinyla_android.domain.entity.vinyl.SimpleVinyl
  * on 9월 02, 2021
  */
 
-data class SearchVinylsResponse(
+internal data class SearchVinylsResponse(
     @SerializedName("id")
     val vinylId: Int,
     @SerializedName("thumb")

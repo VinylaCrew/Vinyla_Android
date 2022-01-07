@@ -13,7 +13,7 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-object DataStoreModule {
+internal object DataStoreModule {
 
     private val Context.dataStore by preferencesDataStore(name = "VinylaMemberTokenDB")
 

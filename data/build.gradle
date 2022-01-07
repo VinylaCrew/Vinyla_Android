@@ -50,7 +50,6 @@ dependencies {
     // Coroutine
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.1'
 
-
     // Data Store
     implementation "androidx.datastore:datastore:1.0.0"
     implementation "androidx.datastore:datastore-preferences:1.0.0"
@@ -64,6 +63,9 @@ dependencies {
     // Hilt Core
     implementation "com.google.dagger:hilt-android:2.39.1"
     kapt "com.google.dagger:hilt-android-compiler:2.39.1"
+
+    // Log
+    implementation 'com.orhanobut:logger:2.2.0'
 
     // test
     testImplementation "com.google.truth:truth:1.1.3"

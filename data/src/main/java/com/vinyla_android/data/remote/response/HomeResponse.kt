@@ -8,7 +8,7 @@ import com.vinyla_android.domain.entity.vinyl.VinylLevel
  * on 7월 02, 2021
  */
 
-data class HomeResponse(
+internal data class HomeResponse(
     val myVinyl: VinylResponse,
     val recentVinyls: List<VinylResponse>,
     val nickname: String,

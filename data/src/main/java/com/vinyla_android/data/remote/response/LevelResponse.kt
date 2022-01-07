@@ -5,7 +5,7 @@ package com.vinyla_android.data.remote.response
  * on 7월 02, 2021
  */
 
-data class LevelResponse(
+internal data class LevelResponse(
     val rankIdx: Int,
     val rankName: String,
     val rankIcon: String?,

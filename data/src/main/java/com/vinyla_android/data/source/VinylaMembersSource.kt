@@ -8,7 +8,7 @@ import com.vinyla_android.domain.entity.member.nickname.NicknameState
  * on 10월 09, 2021
  */
 
-interface VinylaMembersSource {
+internal interface VinylaMembersSource {
 
     suspend fun checkNickname(nickname: String): NicknameState
 

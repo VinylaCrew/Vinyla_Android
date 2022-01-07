@@ -9,7 +9,7 @@ import com.vinyla_android.domain.entity.vinyl.Vinyls
  * on 9월 02, 2021
  */
 
-interface VinylsSource {
+internal interface VinylsSource {
 
     suspend fun getVinylOf(vinylId: Int): Vinyl?
 
