@@ -1,14 +1,13 @@
-package com.vinyla_android.fake.remote.repository
+package com.vinyla_android.data.fake.repository
 
-import com.vinyla_android.data.source.VinylsSource
+import com.vinyla_android.data.fake.STUB_VINYLS
 import com.vinyla_android.domain.entity.vinyl.SimpleVinyl
 import com.vinyla_android.domain.entity.vinyl.Vinyl
 import com.vinyla_android.domain.entity.vinyl.Vinyls
-import com.vinyla_android.fake.remote.STUB_VINYLS
+import com.vinyla_android.domain.repository.VinylsRepository
 import java.util.*
-import javax.inject.Inject
 
-internal class FakeVinylSource @Inject constructor() : VinylsSource {
+internal class FakeVinylsRepository : VinylsRepository {
 
     private val inMemoryVinyls: MutableList<Vinyl> = STUB_VINYLS.toMutableList()
 
