@@ -1,17 +1,18 @@
 package com.vinyla_android.presentation
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.motion.widget.MotionLayout
 import androidx.core.app.ActivityOptionsCompat
+import com.malibin.sns.auth.SnsAuth
 import com.vinyla_android.R
 import com.vinyla_android.databinding.ActivitySplashBinding
 import com.vinyla_android.presentation.login.LoginActivity
 
 class SplashActivity : AppCompatActivity() {
 
-    private var binding: ActivitySplashBinding? = null
+    private lateinit var binding: ActivitySplashBinding
     private var willFinish: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,11 +26,6 @@ class SplashActivity : AppCompatActivity() {
         super.onStop()
 
         if (willFinish) finish()
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        binding = null
     }
 
     private fun initView(binding: ActivitySplashBinding) {

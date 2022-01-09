@@ -42,6 +42,7 @@ class KakaoAuth(
             nickname = this?.kakaoAccount?.profile?.nickname ?: return null,
             profileUrl = this.kakaoAccount?.profile?.thumbnailImageUrl ?: return null,
             authType = SnsType.KAKAO,
+            token = "",
         )
     }
 

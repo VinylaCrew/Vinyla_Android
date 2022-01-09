@@ -3,22 +3,28 @@ package com.malibin.sns.auth.module.facebook
 import android.content.Context
 import android.content.Intent
 import androidx.fragment.app.FragmentActivity
-import com.facebook.*
+import com.facebook.AccessToken
+import com.facebook.CallbackManager
+import com.facebook.FacebookCallback
+import com.facebook.FacebookException
+import com.facebook.GraphRequest
+import com.facebook.HttpMethod
+import com.facebook.Profile
+import com.facebook.ProfileTracker
 import com.facebook.login.LoginManager
 import com.facebook.login.LoginResult
 import com.facebook.login.widget.LoginButton
+import com.google.firebase.auth.FacebookAuthProvider
+import com.google.firebase.auth.FirebaseAuth
 import com.malibin.sns.auth.model.SnsType
 import com.malibin.sns.auth.model.UserProfile
 import com.malibin.sns.auth.module.SnsAuthModule
-import com.malibin.sns.auth.module.facebook.service.FacebookAuthService
 import com.malibin.sns.auth.printLog
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.tasks.await
 
 class FacebookAuth(
     private val context: Context,
-    private val facebookAuthService: FacebookAuthService,
 ) : SnsAuthModule {
     private val callbackManager: CallbackManager = CallbackManager.Factory.create()
     private var profileTracker: ProfileTracker? = null
@@ -77,10 +83,23 @@ class FacebookAuth(
 
     private fun createUserProfile(profile: Profile? = null): UserProfile? {
         val facebookProfile = profile ?: Profile.getCurrentProfile() ?: return null
+
+        val faceBookToken = AccessToken.getCurrentAccessToken()
+        val firebaseFacebookCredential = FacebookAuthProvider.getCredential(faceBookToken.token)
+
+        val firebaseUniqueToken = runBlocking {
+            FirebaseAuth.getInstance()
+                .signInWithCredential(firebaseFacebookCredential)
+                .await()
+            FirebaseAuth.getInstance().currentUser?.uid
+        }
+
         return UserProfile(
             nickname = facebookProfile.name,
             profileUrl = facebookProfile.getProfilePictureUri(500, 500).toString(),
             authType = SnsType.FACEBOOK,
+            token = AccessToken.getCurrentAccessToken().token,
+            firebaseUniqueToken = firebaseUniqueToken,
         )
     }
 
@@ -116,16 +135,11 @@ class FacebookAuth(
     }
 
     override fun unlink(endCallback: (() -> Unit)?) {
-        val id = Profile.getCurrentProfile()?.id.orEmpty()
-        val accessToken = AccessToken.getCurrentAccessToken()?.token.orEmpty()
-        CoroutineScope(Dispatchers.IO).launch {
+        val token = AccessToken.getCurrentAccessToken()
+        GraphRequest(token, "/me/permissions", null, HttpMethod.DELETE) {
             logout()
-            val response = facebookAuthService.unLink(id, accessToken)
-            if (!response.isSuccessful) {
-                printLog("Response Error Body : ${response.errorBody()?.string()}")
-            }
             endCallback?.invoke()
-        }
+        }.executeAsync()
     }
 
     companion object {

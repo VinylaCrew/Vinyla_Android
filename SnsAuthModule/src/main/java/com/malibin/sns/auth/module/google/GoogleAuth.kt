@@ -62,6 +62,7 @@ class GoogleAuth : SnsAuthModule {
             nickname = googleAccount.account?.name ?: return null,
             profileUrl = googleAccount.photoUrl?.toString() ?: return null,
             authType = SnsType.GOOGLE,
+            token = "",
         )
     }
 
