@@ -3,8 +3,9 @@ package com.vinyla_android.data.fake.repository
 import com.vinyla_android.domain.entity.member.SignUpInfo
 import com.vinyla_android.domain.entity.member.nickname.NicknameState
 import com.vinyla_android.domain.repository.VinylaMembersRepository
+import javax.inject.Inject
 
-internal class FakeVinylaMembersRepository : VinylaMembersRepository {
+internal class FakeVinylaMembersRepository @Inject constructor() : VinylaMembersRepository {
 
     override suspend fun checkNickname(nickname: String): NicknameState {
         return when (nickname) {

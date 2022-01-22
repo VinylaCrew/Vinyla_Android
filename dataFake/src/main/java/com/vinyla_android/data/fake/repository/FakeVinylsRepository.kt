@@ -6,8 +6,9 @@ import com.vinyla_android.domain.entity.vinyl.Vinyl
 import com.vinyla_android.domain.entity.vinyl.Vinyls
 import com.vinyla_android.domain.repository.VinylsRepository
 import java.util.*
+import javax.inject.Inject
 
-internal class FakeVinylsRepository : VinylsRepository {
+internal class FakeVinylsRepository @Inject constructor(): VinylsRepository {
 
     private val inMemoryVinyls: MutableList<Vinyl> = STUB_VINYLS.toMutableList()
 

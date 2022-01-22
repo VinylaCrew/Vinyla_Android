@@ -1,8 +1,8 @@
 package com.vinyla_android.presentation.signup
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import com.vinyla_android.databinding.ActivitySignUpBinding
 import com.vinyla_android.presentation.utils.printLog
 import dagger.hilt.android.AndroidEntryPoint
@@ -45,5 +45,9 @@ class SignUpActivity : AppCompatActivity() {
 
     private fun initView(binding: ActivitySignUpBinding) {
         binding.topBar.setOnBackButtonClickListener { finish() }
+    }
+
+    companion object {
+        const val KEY_NICKNAME = "KEY_NICKNAME"
     }
 }

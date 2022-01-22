@@ -1,6 +1,5 @@
 package com.malibin.sns.auth.module.facebook
 
-import android.content.Context
 import android.content.Intent
 import androidx.fragment.app.FragmentActivity
 import com.facebook.AccessToken
@@ -23,9 +22,7 @@ import com.malibin.sns.auth.printLog
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.tasks.await
 
-class FacebookAuth(
-    private val context: Context,
-) : SnsAuthModule {
+class FacebookAuth : SnsAuthModule {
     private val callbackManager: CallbackManager = CallbackManager.Factory.create()
     private var profileTracker: ProfileTracker? = null
 
@@ -87,12 +84,12 @@ class FacebookAuth(
         val faceBookToken = AccessToken.getCurrentAccessToken()
         val firebaseFacebookCredential = FacebookAuthProvider.getCredential(faceBookToken.token)
 
-        val firebaseUniqueToken = runBlocking {
+        runBlocking {
             FirebaseAuth.getInstance()
                 .signInWithCredential(firebaseFacebookCredential)
                 .await()
-            FirebaseAuth.getInstance().currentUser?.uid
         }
+        val firebaseUniqueToken = FirebaseAuth.getInstance().currentUser?.uid
 
         return UserProfile(
             nickname = facebookProfile.name,

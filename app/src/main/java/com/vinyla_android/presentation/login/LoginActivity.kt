@@ -10,16 +10,18 @@ import com.malibin.sns.auth.model.SnsType
 import com.malibin.sns.auth.model.UserProfile
 import com.vinyla_android.R
 import com.vinyla_android.databinding.ActivityLoginBinding
+import com.vinyla_android.domain.event.LoginEvent
 import com.vinyla_android.presentation.home.HomeActivity
 import com.vinyla_android.presentation.signup.SignUpActivity
 import com.vinyla_android.presentation.utils.printLog
+import com.vinyla_android.presentation.utils.showToast
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class LoginActivity : AppCompatActivity() {
 
     private var binding: ActivityLoginBinding? = null
-    private var snsAuth: SnsAuth? = SnsAuth.getInstance(this)
+    private var snsAuth: SnsAuth? = SnsAuth.getInstance()
 
     private val loginViewModel: LoginViewModel by viewModels()
 
@@ -29,15 +31,12 @@ class LoginActivity : AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
             .also { initView(it) }
 
-        loginViewModel.isLoginSuccess.observe(this) {
-            // 로그인이 성공한것임 바로 홈으로 보내야함
-            Intent(this, HomeActivity::class.java)
-                .also { startActivity(it) }
-        }
-        loginViewModel.isSignUpRequired.observe(this) {
-            // sns 로그인은 성공했으나, 회원이 아닌것임. 회원가입으로 보내야함
-            Intent(this, SignUpActivity::class.java)
-                .also { startActivity(it) }
+        loginViewModel.loginEvent.observe(this) {
+            when (it) {
+                is LoginEvent.SignupNeeded -> deploySignUpActivity(it.userProfile)
+                LoginEvent.Success -> deployHomeActivity()
+                LoginEvent.Fail -> showLoginFail()
+            }
         }
     }
 
@@ -45,7 +44,6 @@ class LoginActivity : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
         snsAuth?.onActivityResult(requestCode, resultCode, data)
     }
-//로그아웃하고 다시 누르면 또 권한 허용하겟느냐고 물어봄
 
     override fun onDestroy() {
         super.onDestroy()
@@ -59,12 +57,30 @@ class LoginActivity : AppCompatActivity() {
         binding.buttonFacebook.setOnClickListener { login(SnsType.FACEBOOK) }
         binding.buttonApple.setOnClickListener {
             Toast.makeText(this, R.string.coming_soon, Toast.LENGTH_SHORT).show()
+            snsAuth?.unlink(SnsType.FACEBOOK) {
+                printLog("unlinked")
+            }
         }
     }
 
-    private fun login(type: SnsType) {
-        snsAuth?.login(type, this, ::onSnsResponse)
+    private fun deploySignUpActivity(userProfile: UserProfile) {
+        Intent(this, SignUpActivity::class.java)
+            .putExtra(SignUpActivity.KEY_NICKNAME, userProfile.nickname)
+            .also { startActivity(it) }
+    }
 
+    private fun deployHomeActivity() {
+        Intent(this, HomeActivity::class.java)
+            .also { startActivity(it) }
+    }
+
+    private fun showLoginFail() {
+        showToast("로그인에 실패했네요 ㅠㅠ")
+    }
+
+    private fun login(type: SnsType) {
+        loginViewModel.notifyLoading(true)
+        snsAuth?.login(type, this, ::onSnsResponse)
     }
 
     private fun onSnsResponse(profile: UserProfile?) {

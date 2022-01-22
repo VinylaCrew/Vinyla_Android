@@ -14,6 +14,10 @@ import com.orhanobut.logger.Logger
 
 fun printLog(message: String?) = Logger.d(message.toString())
 
+fun Context.showToast(@StringRes stringRes: Int) = showToast(ToastMessage.ResourceId(stringRes))
+
+fun Context.showToast(message: String) = showToast(ToastMessage.StringValue(message))
+
 fun Context.showToast(toastMessage: ToastMessage) = when (toastMessage) {
     is ToastMessage.ResourceId ->
         Toast.makeText(this, toastMessage.message, Toast.LENGTH_SHORT).show()

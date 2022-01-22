@@ -1,6 +1,5 @@
 package com.malibin.sns.auth
 
-import android.content.Context
 import android.content.Intent
 import androidx.fragment.app.FragmentActivity
 import com.malibin.sns.auth.model.SnsType
@@ -49,14 +48,14 @@ class SnsAuth private constructor(
 
         private var instance: SnsAuth? = null
 
-        fun getInstance(): SnsAuth = instance
-            ?: error("initSnsLogin is missing. check \"initSnsLogin\" on Application")
+//        fun getInstance(): SnsAuth = instance
+//            ?: error("initSnsLogin is missing. check \"initSnsLogin\" on Application")
 
         @Deprecated("임시로 만든 것 리팩터링 할 것")
-        fun getInstance(context: Context): SnsAuth {
+        fun getInstance(): SnsAuth {
             val modules = SnsAuthModules(
                 mapOf(
-                    SnsType.FACEBOOK to FacebookAuth(context),
+                    SnsType.FACEBOOK to FacebookAuth(),
                     SnsType.GOOGLE to GoogleAuth(),
                 )
             )
