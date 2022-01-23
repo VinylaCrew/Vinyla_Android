@@ -4,7 +4,6 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.vinyla_android.databinding.ActivitySignUpBinding
-import com.vinyla_android.presentation.utils.printLog
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -22,29 +21,13 @@ class SignUpActivity : AppCompatActivity() {
         binding.lifecycleOwner = this
 
         initView(binding)
-
-        signUpViewModel.nickname.observe(this) {
-            printLog("nickname = $it")
-        }
-        signUpViewModel.instagramId.observe(this) {
-            printLog("instagramId = $it")
-        }
-        signUpViewModel.isAllChecked.observe(this) {
-            printLog("isAllChecked = $it")
-        }
-        signUpViewModel.isTermsAndConditionOfServiceChecked.observe(this) {
-            printLog("isTermsAndConditionOfServiceChecked = $it")
-        }
-        signUpViewModel.isPrivacyPolicyChecked.observe(this) {
-            printLog("isPrivacyPolicyChecked = $it")
-        }
-        signUpViewModel.isMarketingChecked.observe(this) {
-            printLog("isMarketingChecked = $it")
-        }
     }
+
+    private fun getSnsNickname(): String = intent.getStringExtra(KEY_NICKNAME).orEmpty()
 
     private fun initView(binding: ActivitySignUpBinding) {
         binding.topBar.setOnBackButtonClickListener { finish() }
+        signUpViewModel.loadNickname(getSnsNickname())
     }
 
     companion object {

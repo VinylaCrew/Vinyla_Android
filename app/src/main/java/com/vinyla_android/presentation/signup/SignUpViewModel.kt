@@ -5,7 +5,6 @@ import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.vinyla_android.R
-import com.vinyla_android.domain.entity.member.nickname.Nickname
 import com.vinyla_android.domain.usecase.member.CheckNicknameStateUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
@@ -35,6 +34,10 @@ class SignUpViewModel @Inject constructor(
         addSource(isTermsAndConditionOfServiceChecked) { checkAllChecked() }
         addSource(isPrivacyPolicyChecked) { checkAllChecked() }
         addSource(isMarketingChecked) { checkAllChecked() }
+    }
+
+    fun loadNickname(nickname: String) {
+        this.nickname.value = nickname
     }
 
     private fun checkNicknameFormat(inputText: String) {

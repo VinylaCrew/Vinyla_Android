@@ -1,8 +1,10 @@
 package com.vinyla_android.presentation.login
 
-import android.util.Log
+import android.content.Intent
+import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.LiveData
 import com.malibin.sns.auth.SnsAuth
+import com.malibin.sns.auth.model.SnsType
 import com.malibin.sns.auth.model.UserProfile
 import com.vinyla_android.domain.event.LoginEvent
 import com.vinyla_android.domain.event.SingleLiveEvent
@@ -20,14 +22,27 @@ class LoginViewModel @Inject constructor(
     private val _loginEvent = SingleLiveEvent<LoginEvent>()
     val loginEvent: LiveData<LoginEvent> = _loginEvent
 
-    fun login(profile: UserProfile) {
-        // SNS 로그인이 성공해서 호출 되는 것
-        // 바이닐 서버에 로그인 요청
-        // 로그인이 안되면 회원가입으로 보내야함
-        // 토큰 저장
+    /**
+     * 와 진심 이렇게 만들기 너무 싫은데 시간 비용 타협하기로함.
+     * 이놈의 google auth 때문에 어쩔 수가 없음 빌어먹을놈에 sns로그인
+     */
+    fun login(snsType: SnsType, activity: FragmentActivity) {
+        notifyLoading(true)
+        snsAuth.login(snsType, activity, ::onSnsResponse)
+    }
 
+    private fun onSnsResponse(profile: UserProfile?) {
+        if (profile == null) {
+            _loginEvent.value = LoginEvent.Fail
+            return
+        }
+        // 바닐라 서버에 이 정보로 회원가입을 했었는지 물어봐야함
+//        _loginEvent.value = LoginEvent.Success
+        _loginEvent.value = LoginEvent.SignupNeeded(profile)
         notifyLoading(false)
-        _loginEvent.value = LoginEvent.Success
-        Log.d("MalibinDebug" ,"login successed $profile")
+    }
+
+    fun handleOnActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        snsAuth.onActivityResult(requestCode, resultCode, data)
     }
 }

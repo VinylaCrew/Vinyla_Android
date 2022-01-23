@@ -5,23 +5,21 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import com.malibin.sns.auth.SnsAuth
 import com.malibin.sns.auth.model.SnsType
 import com.malibin.sns.auth.model.UserProfile
+import com.malibin.sns.auth.printLog
 import com.vinyla_android.R
 import com.vinyla_android.databinding.ActivityLoginBinding
 import com.vinyla_android.domain.event.LoginEvent
 import com.vinyla_android.presentation.home.HomeActivity
 import com.vinyla_android.presentation.signup.SignUpActivity
-import com.vinyla_android.presentation.utils.printLog
 import com.vinyla_android.presentation.utils.showToast
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class LoginActivity : AppCompatActivity() {
 
-    private var binding: ActivityLoginBinding? = null
-    private var snsAuth: SnsAuth? = SnsAuth.getInstance()
+    private lateinit var binding: ActivityLoginBinding
 
     private val loginViewModel: LoginViewModel by viewModels()
 
@@ -29,6 +27,10 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         binding = ActivityLoginBinding.inflate(layoutInflater)
+            .apply {
+                lifecycleOwner = this@LoginActivity
+                viewModel = loginViewModel
+            }
             .also { initView(it) }
 
         loginViewModel.loginEvent.observe(this) {
@@ -42,13 +44,7 @@ class LoginActivity : AppCompatActivity() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        snsAuth?.onActivityResult(requestCode, resultCode, data)
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        binding = null
-        snsAuth = null
+        loginViewModel.handleOnActivityResult(requestCode, resultCode, data)
     }
 
     private fun initView(binding: ActivityLoginBinding) {
@@ -57,9 +53,6 @@ class LoginActivity : AppCompatActivity() {
         binding.buttonFacebook.setOnClickListener { login(SnsType.FACEBOOK) }
         binding.buttonApple.setOnClickListener {
             Toast.makeText(this, R.string.coming_soon, Toast.LENGTH_SHORT).show()
-            snsAuth?.unlink(SnsType.FACEBOOK) {
-                printLog("unlinked")
-            }
         }
     }
 
@@ -79,15 +72,6 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun login(type: SnsType) {
-        loginViewModel.notifyLoading(true)
-        snsAuth?.login(type, this, ::onSnsResponse)
-    }
-
-    private fun onSnsResponse(profile: UserProfile?) {
-        if (profile == null) {
-            printLog("몬가 SNS 로그인 실패함 profile : $profile")
-            return
-        }
-        loginViewModel.login(profile)
+        loginViewModel.login(type, this)
     }
 }
