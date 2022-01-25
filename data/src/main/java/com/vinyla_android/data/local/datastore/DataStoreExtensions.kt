@@ -1,7 +1,9 @@
-package com.vinyla_android.data.local.ext
+package com.vinyla_android.data.local.datastore
 
+import android.content.Context
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
+import androidx.datastore.preferences.preferencesDataStore
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
@@ -19,6 +21,8 @@ import kotlinx.coroutines.flow.map
  * val foo = dataStore.data.map { it[KEY_FOO] }.first()
  *
  */
+
+internal val Context.dataStore by preferencesDataStore(name = "VinylaMemberTokenDB")
 
 internal operator fun <T> DataStore<Preferences>.get(key: Preferences.Key<T>): Flow<T?> {
     return this.data.map { it[key] }

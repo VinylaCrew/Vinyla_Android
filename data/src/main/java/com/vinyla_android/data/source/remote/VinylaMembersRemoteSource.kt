@@ -28,4 +28,12 @@ internal class VinylaMembersRemoteSource @Inject constructor(
         return if (response.isSuccessful) Result.success(Unit)
         else Result.failure(IllegalStateException("회원가입 실패"))
     }
+
+    override suspend fun getFcmToken(): Result<String> {
+        throw UnsupportedOperationException("getFcmToken() should not be called in RemoteSource")
+    }
+
+    override suspend fun saveFcmToken(fcmToken: String) {
+        throw UnsupportedOperationException("saveFcmToken() should not be called in RemoteSource")
+    }
 }

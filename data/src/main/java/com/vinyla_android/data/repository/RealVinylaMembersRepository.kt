@@ -25,4 +25,12 @@ internal class RealVinylaMembersRepository @Inject constructor(
     override suspend fun signUp(signUpInfo: SignUpInfo): Result<Unit> {
         return vinylaMembersRemoteSource.signUp(signUpInfo)
     }
+
+    override suspend fun getFcmToken(): Result<String> {
+        return vinylaMembersLocalSource.getFcmToken()
+    }
+
+    override suspend fun saveFcmToken(fcmToken: String) {
+        vinylaMembersLocalSource.saveFcmToken(fcmToken)
+    }
 }

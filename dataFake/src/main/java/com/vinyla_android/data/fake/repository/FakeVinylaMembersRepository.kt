@@ -18,4 +18,12 @@ internal class FakeVinylaMembersRepository @Inject constructor() : VinylaMembers
     override suspend fun signUp(signUpInfo: SignUpInfo): Result<Unit> {
         return Result.success(Unit)
     }
+
+    override suspend fun getFcmToken(): Result<String> {
+        TODO("Not yet implemented")
+    }
+
+    override suspend fun saveFcmToken(fcmToken: String) {
+        TODO("Not yet implemented")
+    }
 }

@@ -13,4 +13,8 @@ internal interface VinylaMembersSource {
     suspend fun checkNickname(nickname: String): NicknameState
 
     suspend fun signUp(signUpInfo: SignUpInfo): Result<Unit>
+
+    suspend fun getFcmToken(): Result<String>
+
+    suspend fun saveFcmToken(fcmToken: String)
 }
