@@ -13,6 +13,9 @@ import org.json.JSONObject
  */
 
 internal class VinylaResponseUnboxingInterceptor : Interceptor {
+
+    // 아예 interceptor에서 가공해서 response를 가져오는것도 나쁘지 않지 않을가.
+    // 인터넷 연결이 안되어있으면 애초에 proceed에서 exception이 발생해버림.
     override fun intercept(chain: Interceptor.Chain): Response {
         val response = chain.proceed(chain.request())
         val responseJson = response.extractResponseJson()

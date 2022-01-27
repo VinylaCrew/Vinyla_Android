@@ -6,6 +6,7 @@ package com.vinyla_android.domain.entity.member.nickname
  */
 
 enum class NicknameState {
+    UNCHECKED,
     AVAILABLE,
     DUPLICATED,
     INVALID;

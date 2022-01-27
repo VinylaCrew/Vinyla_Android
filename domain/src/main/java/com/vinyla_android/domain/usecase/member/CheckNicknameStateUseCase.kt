@@ -8,8 +8,8 @@ import javax.inject.Inject
 class CheckNicknameStateUseCase @Inject constructor(
     private val vinylaMembersRepository: VinylaMembersRepository
 ) {
-    suspend operator fun invoke(nickname: String): NicknameState {
-        if(Nickname.isNotValid(nickname)) return NicknameState.INVALID
+    suspend operator fun invoke(nickname: String): Result<NicknameState> {
+        if(Nickname.isNotValid(nickname)) return Result.success(NicknameState.INVALID)
         return vinylaMembersRepository.checkNickname(nickname)
     }
 }

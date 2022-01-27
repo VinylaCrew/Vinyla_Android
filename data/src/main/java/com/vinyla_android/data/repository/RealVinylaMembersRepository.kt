@@ -18,7 +18,7 @@ internal class RealVinylaMembersRepository @Inject constructor(
     @VinylaMembersRemote private val vinylaMembersRemoteSource: VinylaMembersSource,
 ) : VinylaMembersRepository {
 
-    override suspend fun checkNickname(nickname: String): NicknameState {
+    override suspend fun checkNickname(nickname: String): Result<NicknameState> {
         return vinylaMembersRemoteSource.checkNickname(nickname)
     }
 

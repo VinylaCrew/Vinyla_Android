@@ -1,30 +1,27 @@
 package com.vinyla_android.presentation.signup
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import com.vinyla_android.R
+import androidx.lifecycle.viewModelScope
+import com.vinyla_android.domain.entity.member.nickname.NicknameState
 import com.vinyla_android.domain.usecase.member.CheckNicknameStateUseCase
+import com.vinyla_android.presentation.utils.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class SignUpViewModel @Inject constructor(
     private val checkNicknameStateUseCase: CheckNicknameStateUseCase,
-) : ViewModel() {
-    private var availableNickname: String = ""
+) : BaseViewModel() {
+    private var validNickname: String = ""
     val nickname = MutableLiveData("")
     val instagramId = MutableLiveData("")
 
-    val isNicknameFormatted = MediatorLiveData<Boolean>().apply {
-        addSource(nickname) { checkNicknameFormat(it) }
-    }
-    private val _isNicknameAvailable = MutableLiveData(false)
-    val isNicknameAvailable: LiveData<Boolean> = _isNicknameAvailable
-
-    private val _nicknameStateText = MutableLiveData(R.string.nickname_cannot_modify)
-    val nicknameStateText: LiveData<Int> = _nicknameStateText
+    private val _nicknameState = MutableLiveData(NicknameState.UNCHECKED)
+    val nicknameState: LiveData<NicknameState> = _nicknameState
 
     val isTermsAndConditionOfServiceChecked = MutableLiveData(false)
     val isPrivacyPolicyChecked = MutableLiveData(false)
@@ -40,8 +37,18 @@ class SignUpViewModel @Inject constructor(
         this.nickname.value = nickname
     }
 
-    private fun checkNicknameFormat(inputText: String) {
-//        isNicknameFormatted.value = Nickname.isValid(inputText)
+    fun checkNicknameFormat() = viewModelScope.launch {
+        notifyLoading(true)
+        val currentNickname = getCurrentNickname()
+
+        checkNicknameStateUseCase(currentNickname)
+            .onSuccess { nicknameState ->
+                nicknameState.also { _nicknameState.value = it }
+                    .takeIf { it == NicknameState.AVAILABLE }
+                    ?.also { validNickname = currentNickname }
+            }.onFailure { Log.d("malibindebug", it.stackTrace.toList().toString()) }
+
+        notifyLoading(false)
     }
 
     private fun checkAllChecked() {
@@ -59,12 +66,7 @@ class SignUpViewModel @Inject constructor(
         isMarketingChecked.value = !currentChecked
     }
 
-    fun checkNicknameAvailable() {
-        availableNickname =
-            nickname.value ?: error("닉네임이 null일 때 checkNicknameAvailable()을 호출 할 수 없음.")
-    }
-
-    companion object {
-        private const val MAX_NICKNAME_LENGTH = 25
+    private fun getCurrentNickname(): String {
+        return nickname.value.orEmpty()
     }
 }

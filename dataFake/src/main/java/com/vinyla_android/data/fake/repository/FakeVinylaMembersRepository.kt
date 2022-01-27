@@ -7,11 +7,11 @@ import javax.inject.Inject
 
 internal class FakeVinylaMembersRepository @Inject constructor() : VinylaMembersRepository {
 
-    override suspend fun checkNickname(nickname: String): NicknameState {
+    override suspend fun checkNickname(nickname: String): Result<NicknameState> {
         return when (nickname) {
-            "malibin" -> NicknameState.AVAILABLE
-            "mome" -> NicknameState.DUPLICATED
-            else -> NicknameState.INVALID
+            "malibin" -> Result.success(NicknameState.AVAILABLE)
+            "mome" -> Result.success(NicknameState.DUPLICATED)
+            else -> Result.success(NicknameState.INVALID)
         }
     }
 

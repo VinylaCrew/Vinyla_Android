@@ -17,10 +17,16 @@ internal class VinylaMembersRemoteSource @Inject constructor(
     private val vinylaService: VinylaService,
 ) : VinylaMembersSource {
 
-    override suspend fun checkNickname(nickname: String): NicknameState {
-        val response = vinylaService.checkNickname(CheckNicknameParams(nickname))
-        if (response.isSuccessful) return NicknameState.AVAILABLE
-        return NicknameState.DUPLICATED
+    //아예 interceptor에서 가공해서 response를 가져오는것도 나쁘지 않지 않을가.
+    override suspend fun checkNickname(nickname: String): Result<NicknameState> {
+        runCatching { vinylaService.checkNickname(CheckNicknameParams(nickname)) }
+            .onSuccess {
+                return if (it.isSuccessful) Result.success(NicknameState.AVAILABLE)
+                else Result.success(NicknameState.DUPLICATED)
+            }.onFailure {
+                return Result.failure(IllegalStateException(it.message))
+            }
+        return Result.failure(IllegalStateException("unknownServerException"))
     }
 
     override suspend fun signUp(signUpInfo: SignUpInfo): Result<Unit> {

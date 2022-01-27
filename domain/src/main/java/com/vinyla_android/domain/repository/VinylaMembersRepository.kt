@@ -10,7 +10,7 @@ import com.vinyla_android.domain.entity.member.nickname.NicknameState
 
 interface VinylaMembersRepository {
 
-    suspend fun checkNickname(nickname: String): NicknameState
+    suspend fun checkNickname(nickname: String): Result<NicknameState>
 
     suspend fun signUp(signUpInfo: SignUpInfo): Result<Unit>
 

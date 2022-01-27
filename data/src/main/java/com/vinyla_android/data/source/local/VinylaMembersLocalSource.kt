@@ -15,7 +15,7 @@ internal class VinylaMembersLocalSource @Inject constructor(
     private val datastore: DataStoreManager,
 ) : VinylaMembersSource {
 
-    override suspend fun checkNickname(nickname: String): NicknameState {
+    override suspend fun checkNickname(nickname: String): Result<NicknameState> {
         throw UnsupportedOperationException("checkNickname() should not be called in LocalSource")
     }
 
