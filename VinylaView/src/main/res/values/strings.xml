@@ -14,6 +14,9 @@
     <string name="marketing_agree"><u>마케팅 수신 동의</u> (선택)</string>
     <string name="accept_all_terms_and_conditions">전체 동의</string>
     <string name="nickname_cannot_modify">닉네임은 수정할 수 없으므로 신중하게 결정 해주세요.</string>
+    <string name="nickname_available">사용 가능한 닉네임 입니다.</string>
+    <string name="nickname_duplicated">사용 중인 닉네임 입니다.</string>
+    <string name="nickname_invalid">올바르지 않은 형식입니다.</string>
     <string name="check">확인</string>
     <string name="login">로그인</string>
     <string name="join">가입하기</string>

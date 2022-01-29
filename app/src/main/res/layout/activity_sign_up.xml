@@ -5,6 +5,8 @@
 
     <data>
 
+        <import type="com.vinyla_android.domain.entity.member.nickname.NicknameState" />
+
         <variable
             name="viewModel"
             type="com.vinyla_android.presentation.signup.SignUpViewModel" />
@@ -46,14 +48,15 @@
             android:layout_marginEnd="16dp"
             android:background="@drawable/round_rectangle_8dp"
             android:backgroundTint="@color/selector_enabled_main_gray66_color"
+            android:enabled="@{!viewModel.nickname.empty}"
             android:fontFamily="@font/notosanscjkkrregular"
             android:includeFontPadding="false"
+            android:onClick="@{(view) -> viewModel.checkNicknameFormat()}"
             android:paddingStart="21dp"
             android:paddingTop="14dp"
             android:paddingEnd="21dp"
             android:paddingBottom="14dp"
             android:text="@string/check"
-            android:onClick="@{(view) -> viewModel.checkNicknameFormat()}"
             android:textColor="@color/white"
             android:textSize="15dp"
             app:layout_constraintBottom_toBottomOf="@+id/text_nickname"
@@ -64,13 +67,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:drawablePadding="5dp"
             android:fontFamily="@font/notosanscjkkrregular"
             android:includeFontPadding="false"
+            android:text="@string/nickname_cannot_modify"
             android:textColor="@color/grayAA"
             android:textSize="13dp"
+            app:bindNicknameState="@{viewModel.nicknameState}"
             app:layout_constraintStart_toStartOf="@+id/text_nickname"
-            app:layout_constraintTop_toBottomOf="@+id/text_nickname"
-            tools:text="@string/nickname_cannot_modify" />
+            app:layout_constraintTop_toBottomOf="@+id/text_nickname" />
 
         <com.vinyla_android.view.widget.VinylaEditText
             android:id="@+id/text_insta_id"
@@ -183,11 +188,24 @@
             android:layout_marginStart="15dp"
             android:layout_marginEnd="15dp"
             android:layout_marginBottom="20dp"
-            android:enabled="@{viewModel.isTermsAndConditionOfServiceChecked() &amp;&amp; viewModel.isPrivacyPolicyChecked()}"
+            android:enabled="@{viewModel.isTermsAndConditionOfServiceChecked() &amp;&amp; viewModel.isPrivacyPolicyChecked() &amp;&amp; viewModel.nicknameState == NicknameState.AVAILABLE}"
             android:text="@string/join"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
+
+        <include
+            android:id="@+id/window_loading"
+            layout="@layout/window_loading"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:elevation="50dp"
+            app:isLoading="@{viewModel.isLoading()}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="visible" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
