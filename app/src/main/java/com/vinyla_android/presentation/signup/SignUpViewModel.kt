@@ -5,8 +5,12 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
+import com.malibin.sns.auth.model.SnsType
+import com.malibin.sns.auth.model.UserProfile
 import com.vinyla_android.domain.entity.member.nickname.NicknameState
+import com.vinyla_android.domain.event.SingleLiveEvent
 import com.vinyla_android.domain.usecase.member.CheckNicknameStateUseCase
+import com.vinyla_android.domain.usecase.member.SignUpUseCase
 import com.vinyla_android.presentation.utils.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -15,10 +19,14 @@ import javax.inject.Inject
 @HiltViewModel
 class SignUpViewModel @Inject constructor(
     private val checkNicknameStateUseCase: CheckNicknameStateUseCase,
+    private val signUpUseCase: SignUpUseCase,
 ) : BaseViewModel() {
     private var validNickname: String = ""
     val nickname = MutableLiveData("")
     val instagramId = MutableLiveData("")
+
+    private val _isSignUpSuccess = SingleLiveEvent<Unit>()
+    val isSignUpSuccess: LiveData<Unit> = _isSignUpSuccess
 
     private val _nicknameState = MutableLiveData(NicknameState.UNCHECKED)
     val nicknameState: LiveData<NicknameState> = _nicknameState
@@ -33,13 +41,16 @@ class SignUpViewModel @Inject constructor(
         addSource(isMarketingChecked) { checkAllChecked() }
     }
 
-    fun loadNickname(nickname: String) {
-        this.nickname.value = nickname
+    private lateinit var profile: UserProfile
+
+    fun loadProfile(profile: UserProfile) {
+        this.profile = profile
+        this.nickname.value = profile.nickname
     }
 
     fun checkNicknameFormat() = viewModelScope.launch {
         notifyLoading(true)
-        val currentNickname = getCurrentNickname()
+        val currentNickname = nickname.value.orEmpty()
 
         checkNicknameStateUseCase(currentNickname)
             .onSuccess { nicknameState ->
@@ -66,7 +77,24 @@ class SignUpViewModel @Inject constructor(
         isMarketingChecked.value = !currentChecked
     }
 
-    private fun getCurrentNickname(): String {
-        return nickname.value.orEmpty()
+    fun signUp() = viewModelScope.launch {
+        notifyLoading(true)
+        signUpUseCase(
+            firebaseUid = profile.firebaseUniqueToken,
+            nickname = validNickname,
+            instagramId = instagramId.value.orEmpty(),
+            profileImageUrl = profile.profileUrl,
+            snsType = when (profile.authType) {
+                SnsType.FACEBOOK -> com.vinyla_android.domain.entity.member.SnsType.FACEBOOK
+                SnsType.GOOGLE -> com.vinyla_android.domain.entity.member.SnsType.GOOGLE
+                else -> com.vinyla_android.domain.entity.member.SnsType.APPLE
+            },
+            marketingAgreed = isMarketingChecked.value ?: false,
+        ).onSuccess {
+            _isSignUpSuccess.value = Unit
+        }.onFailure {
+            notifyToastMessage(it.message)
+        }
+        notifyLoading(false)
     }
 }

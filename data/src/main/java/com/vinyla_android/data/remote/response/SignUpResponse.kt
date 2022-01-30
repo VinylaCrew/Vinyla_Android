@@ -6,6 +6,7 @@ package com.vinyla_android.data.remote.response
  */
 
 internal data class SignUpResponse(
-    val userIdx: Int,
     val token: String,
+    val nickname:String,
+    val subscribeAgreed: Int, // 1 - true // 0 - false
 )

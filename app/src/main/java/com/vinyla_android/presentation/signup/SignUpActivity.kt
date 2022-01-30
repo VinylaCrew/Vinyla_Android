@@ -1,9 +1,12 @@
 package com.vinyla_android.presentation.signup
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import com.malibin.sns.auth.model.UserProfile
 import com.vinyla_android.databinding.ActivitySignUpBinding
+import com.vinyla_android.presentation.home.HomeActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -21,16 +24,27 @@ class SignUpActivity : AppCompatActivity() {
         binding.lifecycleOwner = this
 
         initView(binding)
+
+        signUpViewModel.isSignUpSuccess.observe(this) {
+            deployHomeActivity()
+        }
     }
 
-    private fun getSnsNickname(): String = intent.getStringExtra(KEY_NICKNAME).orEmpty()
+    private fun getUserProfile(): UserProfile = intent.getParcelableExtra(KEY_USER_PROFILE)
+        ?: error("user profile cannot be null")
 
     private fun initView(binding: ActivitySignUpBinding) {
         binding.topBar.setOnBackButtonClickListener { finish() }
-        signUpViewModel.loadNickname(getSnsNickname())
+        signUpViewModel.loadProfile(getUserProfile())
+    }
+
+    private fun deployHomeActivity() {
+        Intent(this, HomeActivity::class.java)
+            .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+            .also { startActivity(it) }
     }
 
     companion object {
-        const val KEY_NICKNAME = "KEY_NICKNAME"
+        const val KEY_USER_PROFILE = "KEY_USER_PROFILE"
     }
 }

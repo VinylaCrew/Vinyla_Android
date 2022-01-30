@@ -7,7 +7,6 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.malibin.sns.auth.model.SnsType
 import com.malibin.sns.auth.model.UserProfile
-import com.malibin.sns.auth.printLog
 import com.vinyla_android.R
 import com.vinyla_android.databinding.ActivityLoginBinding
 import com.vinyla_android.domain.event.LoginEvent
@@ -58,7 +57,7 @@ class LoginActivity : AppCompatActivity() {
 
     private fun deploySignUpActivity(userProfile: UserProfile) {
         Intent(this, SignUpActivity::class.java)
-            .putExtra(SignUpActivity.KEY_NICKNAME, userProfile.nickname)
+            .putExtra(SignUpActivity.KEY_USER_PROFILE, userProfile)
             .also { startActivity(it) }
     }
 

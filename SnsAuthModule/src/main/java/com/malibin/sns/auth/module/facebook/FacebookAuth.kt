@@ -89,7 +89,7 @@ class FacebookAuth : SnsAuthModule {
                 .signInWithCredential(firebaseFacebookCredential)
                 .await()
         }
-        val firebaseUniqueToken = FirebaseAuth.getInstance().currentUser?.uid
+        val firebaseUniqueToken = FirebaseAuth.getInstance().currentUser!!.uid
 
         return UserProfile(
             nickname = facebookProfile.name,

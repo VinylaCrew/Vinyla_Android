@@ -65,11 +65,13 @@ internal class RealVinylaMembersRepositoryTest {
     fun `회원 가입을 할 수 있다`(): Unit = runBlocking {
         // given
         val signupInfo = SignUpInfo(
+            firebaseUid = "",
             nickname = "nickname",
             instagramId = "insta",
             profileImageUrl = "",
             snsType = SnsType.FACEBOOK,
             marketingAgreed = false,
+            fcmToken = "",
         )
         val expectedResult = Result.success(Unit)
         coEvery { vinylaMembersRemoteSource.signUp(signupInfo) } returns expectedResult

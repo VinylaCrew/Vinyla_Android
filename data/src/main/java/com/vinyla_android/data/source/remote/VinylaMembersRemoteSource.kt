@@ -5,6 +5,8 @@ import com.vinyla_android.data.remote.params.SignUpParams
 import com.vinyla_android.data.remote.service.VinylaService
 import com.vinyla_android.data.source.VinylaMembersSource
 import com.vinyla_android.domain.entity.member.SignUpInfo
+import com.vinyla_android.domain.entity.member.SnsType
+import com.vinyla_android.domain.entity.member.VinylaToken
 import com.vinyla_android.domain.entity.member.nickname.NicknameState
 import javax.inject.Inject
 
@@ -29,9 +31,12 @@ internal class VinylaMembersRemoteSource @Inject constructor(
         return Result.failure(IllegalStateException("unknownServerException"))
     }
 
-    override suspend fun signUp(signUpInfo: SignUpInfo): Result<Unit> {
+    override suspend fun signUp(signUpInfo: SignUpInfo): Result<VinylaToken> {
         val response = vinylaService.signUp(SignUpParams.from(signUpInfo))
-        return if (response.isSuccessful) Result.success(Unit)
+        val vinylaToken = VinylaToken(
+            response.body()?.token ?: return Result.failure(IllegalStateException("회원가입 실패"))
+        )
+        return if (response.isSuccessful) Result.success(vinylaToken)
         else Result.failure(IllegalStateException("회원가입 실패"))
     }
 
@@ -41,5 +46,41 @@ internal class VinylaMembersRemoteSource @Inject constructor(
 
     override suspend fun saveFcmToken(fcmToken: String) {
         throw UnsupportedOperationException("saveFcmToken() should not be called in RemoteSource")
+    }
+
+    override suspend fun getMarketingAgreed(): Boolean {
+        throw UnsupportedOperationException("getMarketingAgreed() should not be called in RemoteSource")
+    }
+
+    override suspend fun saveMarketingAgreed(isAgreed: Boolean) {
+        throw UnsupportedOperationException("setMarketingAgreed() should not be called in RemoteSource")
+    }
+
+    override suspend fun getNickname(): String? {
+        throw UnsupportedOperationException("getNickname() should not be called in RemoteSource")
+    }
+
+    override suspend fun saveNickname(nickname: String) {
+        throw UnsupportedOperationException("saveNickname() should not be called in RemoteSource")
+    }
+
+    override suspend fun getLoginSnsType(): SnsType? {
+        throw UnsupportedOperationException("getLoginSnsType() should not be called in RemoteSource")
+    }
+
+    override suspend fun saveLoginSnsType(type: SnsType) {
+        throw UnsupportedOperationException("saveLoginSnsType() should not be called in RemoteSource")
+    }
+
+    override suspend fun getVinylaToken(): VinylaToken? {
+        throw UnsupportedOperationException("getVinylaToken() should not be called in RemoteSource")
+    }
+
+    override suspend fun saveVinylaToken(token: String) {
+        throw UnsupportedOperationException("saveVinylaToken() should not be called in RemoteSource")
+    }
+
+    override suspend fun deleteVinylaToken() {
+        throw UnsupportedOperationException("deleteVinylaToken() should not be called in RemoteSource")
     }
 }

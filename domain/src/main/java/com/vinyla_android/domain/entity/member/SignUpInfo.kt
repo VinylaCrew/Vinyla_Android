@@ -6,9 +6,11 @@ package com.vinyla_android.domain.entity.member
  */
 
 data class SignUpInfo(
+    val firebaseUid: String,
     val nickname: String,
     val instagramId: String,
     val profileImageUrl: String,
     val snsType: SnsType,
     val marketingAgreed: Boolean,
+    val fcmToken: String,
 )

@@ -14,7 +14,7 @@ data class UserProfile(
     val profileUrl: String,
     val authType: SnsType,
     val token: String,
-    val firebaseUniqueToken: String? = null,
+    val firebaseUniqueToken: String,
 ) : Parcelable
 
 // sns login module 쪽 도메인으로 가져가야할듯
