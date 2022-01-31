@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.vinyla_android.databinding.ActivityMyPageBinding
 
 class MyPageActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
