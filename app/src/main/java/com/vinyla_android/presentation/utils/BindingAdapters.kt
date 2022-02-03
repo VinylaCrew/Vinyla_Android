@@ -6,6 +6,7 @@ import androidx.annotation.DrawableRes
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
 import com.vinyla_android.R
+import com.vinyla_android.domain.entity.member.SnsType
 import com.vinyla_android.domain.entity.member.nickname.NicknameState
 
 @BindingAdapter("app:imageUrl")
@@ -43,4 +44,14 @@ fun TextView.bindNicknameState(nicknameState: NicknameState?) = when (nicknameSt
         setText(R.string.nickname_invalid)
         setCompoundDrawablesWithIntrinsicBounds(R.drawable.icn_login_fail, 0, 0, 0)
     }
+}
+
+@BindingAdapter("app:bindSnsLoginIcon")
+fun ImageView.bindSnsLoginIcon(snsType: SnsType?) {
+    val iconResID = when (snsType ?: return) {
+        SnsType.FACEBOOK -> R.drawable.circle_logo_facebook
+        SnsType.GOOGLE -> R.drawable.circle_logo_google
+        SnsType.APPLE -> R.drawable.circle_logo_apple
+    }
+    this.setImageResource(iconResID)
 }

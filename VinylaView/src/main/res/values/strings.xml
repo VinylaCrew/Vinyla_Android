@@ -36,7 +36,7 @@
     <string name="leave_underline"><u>탈퇴하기</u></string>
     <string name="login_from_s">%s로 로그인</string>
     <string name="sir">님</string>
-    <string name="logout">logout</string>
+    <string name="logout">로그아웃</string>
     <string name="notify_service_push">서비스 푸시알림</string>
     <string name="push_notication_details">신규 바이닐 업데이트 알림 주요 공지 등\n서비스관련 푸쉬 알림을 받습니다</string>
     <string name="service_info">서비스 정보</string>
