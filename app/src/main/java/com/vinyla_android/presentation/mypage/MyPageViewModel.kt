@@ -10,9 +10,10 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 @HiltViewModel
-class MyPageViewModel(
+class MyPageViewModel @Inject constructor(
     private val vinylaMembersRepository: VinylaMembersRepository,
 ) : ViewModel() {
 
@@ -24,7 +25,6 @@ class MyPageViewModel(
 
     private var initialIsMarketingAgreed: Boolean = false
     val isMarketingAgreed = MutableLiveData<Boolean>(false)
-
 
     init {
         viewModelScope.launch {

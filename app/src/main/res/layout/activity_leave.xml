@@ -1,83 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/black19191a"
-    tools:context=".presentation.mypage.LeaveActivity">
+<layout>
 
-    <com.vinyla_android.view.widget.TopBar
-        android:id="@+id/topBar2"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:title="계정 탈퇴" />
+    <data>
 
-    <TextView
-        android:id="@+id/textOptional"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="21dp"
-        android:text="@string/quit_warning"
-        android:textSize="19dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/topBar2" />
+        <variable
+            name="viewModel"
+            type="com.vinyla_android.presentation.mypage.LeaveViewModel" />
+    </data>
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:layout_marginEnd="15dp"
-        android:drawableStart="@drawable/text_gray_dot"
-        android:drawablePadding="5dp"
-        android:text="바닐라에 수집된 바이닐 정보 및 계정이용 정보는 모두 삭제되 며 복구 할 수 없습니다."
-        android:textColor="@color/grayDD"
-        android:textSize="13dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/textOptional"
-        app:layout_constraintTop_toBottomOf="@+id/textOptional" />
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black19191a"
+        tools:context=".presentation.mypage.LeaveActivity">
 
-    <TextView
-        android:id="@+id/textView9"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:drawableStart="@drawable/text_gray_dot"
-        android:drawablePadding="5dp"
-        android:text="Google / Facebook / Apple계정 정보는 연동되어 모두 탈퇴 처리됩니다."
-        android:textColor="@color/grayDD"
-        android:textSize="13dp"
-        app:layout_constraintEnd_toEndOf="@+id/textView4"
-        app:layout_constraintStart_toStartOf="@+id/textView4"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        <com.vinyla_android.view.widget.TopBar
+            android:id="@+id/topBar2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:title="계정 탈퇴" />
 
-    <TextView
-        android:id="@+id/button_leave"
-        style="@style/BottomTextButton"
-        android:layout_width="0dp"
-        android:layout_height="72dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginEnd="15dp"
-        android:layout_marginBottom="24dp"
-        android:text="탈퇴하기"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent" />
+        <TextView
+            android:id="@+id/textOptional"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="21dp"
+            android:text="@string/quit_warning"
+            android:textSize="19dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/topBar2" />
 
-    <CheckBox
-        android:id="@+id/checkbox_check_warning"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:text="주의 사항을 모두 확인했습니다."
-        android:textColor="@color/grayCC"
-        android:textSize="13dp"
-        app:layout_constraintBottom_toTopOf="@+id/button_leave"
-        app:layout_constraintStart_toStartOf="@+id/button_leave" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="15dp"
+            android:drawableStart="@drawable/text_gray_dot"
+            android:drawablePadding="5dp"
+            android:text="바닐라에 수집된 바이닐 정보 및 계정이용 정보는 모두 삭제되 며 복구 할 수 없습니다."
+            android:textColor="@color/grayDD"
+            android:textSize="13dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/textOptional"
+            app:layout_constraintTop_toBottomOf="@+id/textOptional" />
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:drawableStart="@drawable/text_gray_dot"
+            android:drawablePadding="5dp"
+            android:text="Google / Facebook / Apple계정 정보는 연동되어 모두 탈퇴 처리됩니다."
+            android:textColor="@color/grayDD"
+            android:textSize="13dp"
+            app:layout_constraintEnd_toEndOf="@+id/textView4"
+            app:layout_constraintStart_toStartOf="@+id/textView4"
+            app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+        <TextView
+            android:id="@+id/button_leave"
+            style="@style/BottomTextButton"
+            android:layout_width="0dp"
+            android:layout_height="72dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="24dp"
+            android:enabled="@{viewModel.isCautionChecked()}"
+            android:onClick="@{(v) -> viewModel.leave()}"
+            android:text="탈퇴하기"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <CheckBox
+            android:id="@+id/checkbox_check_warning"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:checked="@={viewModel.isCautionChecked()}"
+            android:text="주의 사항을 모두 확인했습니다."
+            android:textColor="@color/grayCC"
+            android:textSize="13dp"
+            app:layout_constraintBottom_toTopOf="@+id/button_leave"
+            app:layout_constraintStart_toStartOf="@+id/button_leave" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
