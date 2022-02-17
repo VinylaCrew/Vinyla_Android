@@ -61,4 +61,6 @@
     <string name="coming_soon">아직 준비중입니다!</string>
     <string name="photo_counter"><font fgcolor='#FFFFFF'>%d</font>/1</string>
     <string name="memo_text_counter"><font fgcolor='#cccccc'>%d</font>/100</string>
+    <string name="vinylCollectionEmptyText1">수집한 바이닐을 보관해보세요!</string>
+    <string name="vinylCollectionEmptyText2">우측 하단 <font fgcolor='#FFFFFF'>+버튼</font>을 통해 바이닐 보관함을 채워보세요!</string>
 </resources>

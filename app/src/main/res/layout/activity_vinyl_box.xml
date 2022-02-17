@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/black141415"
@@ -88,6 +88,60 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/text_collections_count" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/pager_collections"
+            app:layout_constraintStart_toStartOf="@id/pager_collections"
+            app:layout_constraintTop_toTopOf="@+id/constraintLayout5">
+
+            <ImageView
+                android:id="@+id/imageSampleVinyl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/sample_vinyl1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/pik"
+                app:layout_constraintBottom_toBottomOf="@id/imageSampleVinyl"
+                app:layout_constraintEnd_toEndOf="@id/imageSampleVinyl" />
+
+            <TextView
+                android:id="@+id/textVinylEmptyInfo1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:fontFamily="@font/notosanscjkkrmedium"
+                android:includeFontPadding="false"
+                android:text="@string/vinylCollectionEmptyText1"
+                android:textColor="@color/white"
+                android:textSize="19dp"
+                app:layout_constraintEnd_toEndOf="@id/imageSampleVinyl"
+                app:layout_constraintStart_toStartOf="@id/imageSampleVinyl"
+                app:layout_constraintTop_toBottomOf="@id/imageSampleVinyl" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/notosanscjkkrregular"
+                android:includeFontPadding="false"
+                android:text="@string/vinylCollectionEmptyText2"
+                android:textColor="@color/grayAA"
+                android:textSize="13dp"
+                app:layout_constraintEnd_toEndOf="@id/textVinylEmptyInfo1"
+                app:layout_constraintStart_toStartOf="@id/textVinylEmptyInfo1"
+                app:layout_constraintTop_toBottomOf="@id/textVinylEmptyInfo1" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
 
         <TextView
             android:id="@+id/button_next_page"
