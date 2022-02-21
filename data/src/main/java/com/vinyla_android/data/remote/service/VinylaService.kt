@@ -49,7 +49,7 @@ internal interface VinylaService {
     @GET("/vinyls/???")
     suspend fun getCollectedVinyls(): Response<Unit>
 
-    @POST("/vinyls/???")
+    @POST("/vinyls")
     suspend fun collectVinyl(
         @Body body: CollectVinylParams,
     ): Response<Unit>

@@ -7,7 +7,7 @@ internal val VINYL_IU = Vinyl(
     id = 1111,
     title = "꽃갈피",
     artistName = "IU",
-    genre = "발라드/R&B",
+    genre = listOf("발라드", "R&B"),
     trackList = listOf(
         VinylTrack("1-1. [Side A] 나의 옛날 이야기"),
         VinylTrack("1-2. 꽃"),
@@ -29,7 +29,7 @@ internal val VINYL_1 = Vinyl(
     id = 1,
     title = "앨범1",
     artistName = "이름1",
-    genre = "발라드/R&B",
+    genre = listOf("발라드", "R&B"),
     trackList = listOf(
         VinylTrack("1-1. [Side A] 나의 옛날 이야기"),
         VinylTrack("1-2. 꽃"),
@@ -51,7 +51,7 @@ internal val VINYL_2 = Vinyl(
     id = 2,
     title = "앨범2",
     artistName = "ㅈㄷ호",
-    genre = "발라드/R&B",
+    genre = listOf("발라드", "R&B"),
     trackList = listOf(
         VinylTrack("1-1. [Side A] 나의 옛날 이야기"),
         VinylTrack("1-2. 꽃"),
@@ -73,7 +73,7 @@ internal val VINYL_3 = Vinyl(
     id = 3,
     title = "앨범3",
     artistName = "ㅎㄱㅎㄹ",
-    genre = "발라드/R&B",
+    genre = listOf("발라드", "R&B"),
     trackList = listOf(
         VinylTrack("1-1. [Side A] 나의 옛날 이야기"),
         VinylTrack("1-2. 꽃"),
@@ -95,7 +95,7 @@ internal val VINYL_4 = Vinyl(
     id = 4,
     title = "앨범4",
     artistName = "ㅁㄴㅇㄹ",
-    genre = "발라드/R&B",
+    genre = listOf("발라드", "R&B"),
     trackList = listOf(
         VinylTrack("1-1. [Side A] 나의 옛날 이야기"),
         VinylTrack("1-2. 꽃"),
@@ -117,7 +117,7 @@ internal val VINYL_5 = Vinyl(
     id = 5,
     title = "앨범5",
     artistName = "ㅁㄴㅇㄹ",
-    genre = "발라드/R&B",
+    genre = listOf("발라드", "R&B"),
     trackList = listOf(
         VinylTrack("1-1. [Side A] 나의 옛날 이야기"),
         VinylTrack("1-2. 꽃"),
@@ -139,7 +139,7 @@ internal val VINYL_6 = Vinyl(
     id = 6,
     title = "앨범6",
     artistName = "ㅁㄴㅇㄹ",
-    genre = "발라드/R&B",
+    genre = listOf("발라드", "R&B"),
     trackList = listOf(
         VinylTrack("1-1. [Side A] 나의 옛날 이야기"),
         VinylTrack("1-2. 꽃"),
@@ -161,7 +161,7 @@ internal val VINYL_7 = Vinyl(
     id = 7,
     title = "앨범7",
     artistName = "ㅁㄴㅇㄹ",
-    genre = "발라드/R&B",
+    genre = listOf("발라드", "R&B"),
     trackList = listOf(
         VinylTrack("1-1. [Side A] 나의 옛날 이야기"),
         VinylTrack("1-2. 꽃"),
@@ -183,7 +183,7 @@ internal val VINYL_8 = Vinyl(
     id = 8,
     title = "앨범8",
     artistName = "ㅁㄴㅇㄹ",
-    genre = "발라드/R&B",
+    genre = listOf("발라드", "R&B"),
     trackList = listOf(
         VinylTrack("1-1. [Side A] 나의 옛날 이야기"),
         VinylTrack("1-2. 꽃"),
@@ -205,7 +205,7 @@ internal val VINYL_9 = Vinyl(
     id = 9,
     title = "앨범9",
     artistName = "ㅁㄴㅇㄹ",
-    genre = "발라드/R&B",
+    genre = listOf("발라드", "R&B"),
     trackList = listOf(
         VinylTrack("1-1. [Side A] 나의 옛날 이야기"),
         VinylTrack("1-2. 꽃"),
@@ -227,7 +227,7 @@ internal val VINYL_10 = Vinyl(
     id = 10,
     title = "앨범10",
     artistName = "ㅁㄴㅇㄹ",
-    genre = "발라드/R&B",
+    genre = listOf("발라드", "R&B"),
     trackList = listOf(
         VinylTrack("1-1. [Side A] 나의 옛날 이야기"),
         VinylTrack("1-2. 꽃"),

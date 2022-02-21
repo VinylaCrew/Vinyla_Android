@@ -33,7 +33,7 @@ data class VinylDetailsResponse(
         id = id,
         title = title,
         artistName = artistName,
-        genre = genres[0], // 여기 변경해야함
+        genre = genres,
         trackList = tracks.map { VinylTrack(it) },
         imageUrl = imageUrl,
         thumbnailUrl = imageUrl,

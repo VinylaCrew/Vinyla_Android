@@ -48,7 +48,7 @@ internal class VinylsRemoteSourceTest {
             id = 1111,
             title = "꽃갈피",
             artistName = "IU",
-            genre = "발라드/R&B",
+            genre = listOf("발라드", "R&B"),
             trackList = emptyList(),
             releaseYear = 2014,
             starScore = 5.0f,

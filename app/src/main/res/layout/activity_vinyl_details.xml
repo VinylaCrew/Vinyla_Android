@@ -162,7 +162,7 @@
                     android:id="@+id/text_vinyl_genre"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@{viewModel.vinyl.genre}"
+                    android:text='@{String.join("/", viewModel.vinyl.genre)}'
                     android:textColor="@color/white"
                     android:textSize="13dp"
                     app:layout_constraintBottom_toBottomOf="@+id/textView31"

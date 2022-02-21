@@ -32,7 +32,7 @@ internal class RealVinylsRepositoryTest {
             id = 1,
             title = "name",
             artistName = "artist",
-            genre = "pop",
+            genre = listOf("pop"),
             trackList = emptyList(),
             imageUrl = "",
             thumbnailUrl = "",

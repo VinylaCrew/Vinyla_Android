@@ -17,7 +17,7 @@ internal data class VinylResponse(
         id = vinylIdx,
         title = title,
         artistName = artist,
-        genre = "",
+        genre = emptyList(),
         trackList = emptyList(),
         imageUrl = imageUrl,
         thumbnailUrl = imageUrl,

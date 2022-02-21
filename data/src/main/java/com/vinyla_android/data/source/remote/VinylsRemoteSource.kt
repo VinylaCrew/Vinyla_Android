@@ -37,11 +37,21 @@ internal class VinylsRemoteSource @Inject constructor(
     }
 
     override suspend fun collectVinyl(
-        vinylId: Int,
+        vinyl: Vinyl,
         starScore: Float,
         comment: String
     ): Result<Unit> {
-        val params = CollectVinylParams(vinylId, starScore, comment)
+        val params = CollectVinylParams(
+            id = vinyl.id,
+            title = vinyl.title,
+            artist = vinyl.artistName,
+            image = vinyl.imageUrl.orEmpty(),
+            year = vinyl.releaseYear,
+            genres = vinyl.genre,
+            tracklist = vinyl.trackList.map { it.title },
+            rate = (starScore * 2).toInt(),
+            comment = comment,
+        )
         val response = vinylaService.collectVinyl(params)
         if (response.isSuccessful) return Result.success(Unit)
         return Result.failure(UnexpectedServerError())

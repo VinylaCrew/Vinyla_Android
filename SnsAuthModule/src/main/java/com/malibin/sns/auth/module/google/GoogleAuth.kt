@@ -63,6 +63,7 @@ class GoogleAuth : SnsAuthModule {
             profileUrl = googleAccount.photoUrl?.toString() ?: return null,
             authType = SnsType.GOOGLE,
             token = "",
+            firebaseUniqueToken = "",
         )
     }
 

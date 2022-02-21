@@ -6,7 +6,7 @@ data class Vinyl(
     val id: Int,
     val title: String,
     val artistName: String,
-    val genre: String,
+    val genre: List<String>,
     val trackList: List<VinylTrack>,
     val releaseYear: Int,
     val starScore: Float,

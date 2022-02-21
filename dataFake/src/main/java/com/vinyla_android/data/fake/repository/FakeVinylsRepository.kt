@@ -8,7 +8,7 @@ import com.vinyla_android.domain.repository.VinylsRepository
 import java.util.*
 import javax.inject.Inject
 
-internal class FakeVinylsRepository @Inject constructor(): VinylsRepository {
+internal class FakeVinylsRepository @Inject constructor() : VinylsRepository {
 
     private val inMemoryVinyls: MutableList<Vinyl> = STUB_VINYLS.toMutableList()
 
@@ -27,13 +27,13 @@ internal class FakeVinylsRepository @Inject constructor(): VinylsRepository {
     }
 
     override suspend fun collectVinyl(
-        vinylId: Int,
+        vinyl: Vinyl,
         starScore: Float,
         comment: String
     ): Result<Unit> {
-        val vinyl = findVinylForce(vinylId)
-        val updatedVinyl = vinyl.copy(isCollected = true, collectedDate = Date())
-        replaceInMemoryVinyl(vinyl, updatedVinyl)
+        val searchedVinyl = findVinylForce(vinyl.id)
+        val updatedVinyl = searchedVinyl.copy(isCollected = true, collectedDate = Date())
+        replaceInMemoryVinyl(searchedVinyl, updatedVinyl)
         return Result.success(Unit)
     }
 

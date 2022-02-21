@@ -17,7 +17,7 @@ interface VinylsRepository {
 
     suspend fun searchVinyls(query: String): List<SimpleVinyl>
 
-    suspend fun collectVinyl(vinylId: Int, starScore: Float, comment: String): Result<Unit>
+    suspend fun collectVinyl(vinyl: Vinyl, starScore: Float, comment: String): Result<Unit>
 
     suspend fun cancelCollectVinyl(vinylId: Int): Result<Unit>
 

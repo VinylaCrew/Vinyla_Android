@@ -43,6 +43,7 @@ class KakaoAuth(
             profileUrl = this.kakaoAccount?.profile?.thumbnailImageUrl ?: return null,
             authType = SnsType.KAKAO,
             token = "",
+            firebaseUniqueToken = "",
         )
     }
 
