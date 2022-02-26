@@ -3,6 +3,7 @@ package com.vinyla_android.data.remote.service
 import com.vinyla_android.data.remote.params.CheckNicknameParams
 import com.vinyla_android.data.remote.params.CollectVinylParams
 import com.vinyla_android.data.remote.params.SignUpParams
+import com.vinyla_android.data.remote.response.CollectedVinylsResponse
 import com.vinyla_android.data.remote.response.HomeResponse
 import com.vinyla_android.data.remote.response.SearchVinylsResponse
 import com.vinyla_android.data.remote.response.SignUpResponse
@@ -36,28 +37,28 @@ internal interface VinylaService {
     @GET("/home")
     suspend fun getHomeInfo(): Response<HomeResponse>
 
-    @GET("/vinyls/search/{id}")
-    suspend fun getVinyl(
+    @POST("/vinyls")
+    suspend fun collectVinyl(
+        @Body body: CollectVinylParams,
+    ): Response<Unit>
+
+    @DELETE("/vinyls/{id}")
+    suspend fun cancelCollectVinyl(
         @Path("id") vinylId: Int,
-    ): Response<VinylDetailsResponse>
+    ): Response<Unit>
+
+    @GET("/vinyls/my")
+    suspend fun getCollectedVinyls(): Response<CollectedVinylsResponse>
 
     @GET("/vinyls/search")
     suspend fun searchVinyls(
         @Query("q") query: String,
     ): Response<List<SearchVinylsResponse>>
 
-    @GET("/vinyls/???")
-    suspend fun getCollectedVinyls(): Response<Unit>
-
-    @POST("/vinyls")
-    suspend fun collectVinyl(
-        @Body body: CollectVinylParams,
-    ): Response<Unit>
-
-    @DELETE("/vinyls/???")
-    suspend fun cancelCollectVinyl(
-        @Query("id") vinylId: Int,
-    ): Response<Unit>
+    @GET("/vinyls/search/{id}")
+    suspend fun getVinyl(
+        @Path("id") vinylId: Int,
+    ): Response<VinylDetailsResponse>
 
     companion object {
         const val BASE_URL = "http://13.209.245.76:3000"

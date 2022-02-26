@@ -26,7 +26,25 @@ internal class VinylsRemoteSource @Inject constructor(
     }
 
     override suspend fun getCollectedVinyls(): Vinyls {
-        TODO("Not yet implemented")
+        val response = vinylaService.getCollectedVinyls()
+        return if (response.isSuccessful) {
+            vinylaService.getCollectedVinyls().body()?.myVinyls.orEmpty()
+                .map {
+                    Vinyl(
+                        id = it.vinylIdx,
+                        title = it.title,
+                        artistName = it.artist,
+                        genre = emptyList(),
+                        trackList = emptyList(),
+                        releaseYear = -1,
+                        starScore = -1f,
+                        reviewCount = -1,
+                        imageUrl = it.imageUrl,
+                        thumbnailUrl = it.imageUrl,
+                    )
+                }
+                .let { Vinyls.from(it) }
+        } else throw UnexpectedServerError(response.message())
     }
 
     override suspend fun searchVinyls(query: String): List<SimpleVinyl> {

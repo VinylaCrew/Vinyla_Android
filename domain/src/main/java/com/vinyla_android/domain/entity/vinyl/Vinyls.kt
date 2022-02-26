@@ -27,6 +27,8 @@ value class Vinyls private constructor(
     }
 
     companion object {
+        val EMPTY = Vinyls(emptyList())
+
         fun from(vinyls: List<Vinyl>): Vinyls = Vinyls(vinyls.toList())
     }
 }
